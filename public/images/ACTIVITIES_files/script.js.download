@@ -1,0 +1,132 @@
+$(document).ready(function(){
+  fixedheader();
+  Owlcarousla();
+  Owlcarousl();
+  Owlcarouslone();
+  Owlcarousltow();
+  Owlcarousltr();
+});
+//Fixed Header
+function fixedheader() {
+  $(window).scroll(function() {
+    if(jQuery(window).scrollTop() > 50) {
+    $(".navbar").addClass("fixed");
+    } else {
+    $(".navbar").removeClass("fixed");
+    }
+  });
+}
+function Owlcarousla() {
+    $('#owl-demo1').owlCarousel({
+        loop:true,
+        nav: true,
+        dots: false,
+        items:3,
+        autoplay:false,
+        margin:15,
+        smartSpeed:1000,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:2
+            },
+            1000:{
+                items:3,
+                nav:true,
+                loop:false
+            }
+        }
+    });
+}
+function Owlcarousl() {
+    $('#owl-demo2').owlCarousel({
+        loop:true,
+        nav: true,
+        dots: false,
+        items:3,
+        autoplay:false,
+        margin:30,
+        smartSpeed:1000,
+        responsive:{
+            0:{
+                items:1
+            },
+            700:{
+                items:2
+            },
+            1000:{
+                items:4,
+                nav:true
+            }
+        }
+    });
+}
+// Projects slide
+function Owlcarouslone() {
+    $('#owl-demo222').owlCarousel({
+        loop:true,
+        nav: false,
+        dots: false,
+        items:3,
+        autoplay:true,
+        margin:15,
+        smartSpeed:1000,
+        responsive:{
+            0:{
+                items:1
+            },
+            700:{
+                items:2
+            },
+            1000:{
+                items:5
+            }
+        }
+    });
+}
+function Owlcarousltow() {
+    $('#owl-demo223').owlCarousel({
+        loop:true,
+        nav: false,
+        dots: false,
+        items:3,
+        autoplay:false,
+        margin:15,
+        smartSpeed:1000,
+        responsive:{
+            0:{
+                items:1
+            },
+            700:{
+                items:2
+            },
+            1000:{
+                items:5
+            }
+        }
+    });
+}
+function Owlcarousltr() {
+    $('#owl-demo224').owlCarousel({
+        loop:true,
+        nav: false,
+        dots: false,
+        items:3,
+        autoplay:true,
+        margin:15,
+        smartSpeed:1000,
+        responsive:{
+            0:{
+                items:1
+            },
+            700:{
+                items:2
+            },
+            1000:{
+                items:5
+            }
+        }
+    });
+}
