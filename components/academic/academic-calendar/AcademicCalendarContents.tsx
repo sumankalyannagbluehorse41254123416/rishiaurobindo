@@ -30,7 +30,7 @@ export default function AcademicCalendarContents() {
                         <td>2023-2024</td>
                         <td>
                           <a
-                            href="https://wip.tezcommerce.com:3304/admin/module/25/1724395353155.pdf"
+                            href="/images/1724395353155.pdf"
                             target="_blank"
                             className="btn-border"
                             rel="noopener noreferrer"
