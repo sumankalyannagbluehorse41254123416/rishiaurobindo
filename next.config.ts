@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         port: "3304",
         pathname: "/admin/module/**",
       },
+      {
+        protocol: "https",
+        hostname: "www.rabedc.com",
+        pathname: "/img/**",
+      },
     ],
   },
 };

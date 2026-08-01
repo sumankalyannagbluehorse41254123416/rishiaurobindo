@@ -1,10 +1,14 @@
+import Image from "next/image";
+
 export default function BEDPageTitle() {
   return (
     <section className="page_title_wrap bottom_border">
-      <img
+      <Image
         className="page_title_bg"
         src="/images/page_title_bg.jpg"
-        alt="page_title_bg"
+        alt="B.Ed"
+        fill
+        priority
       />
 
       <div className="container">

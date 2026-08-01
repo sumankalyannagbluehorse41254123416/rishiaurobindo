@@ -35,38 +35,109 @@ const menuData: MenuItem[] = [
   {
     title: "INFRASTRUCTURE",
     submenu: [
-      { title: "LAND", href: "/land" },
-      { title: "BUILDING", href: "/building" },
-      { title: "ICT ENABLED CLASSROOM", href: "/ictenabled" },
+      { title: "LAND", href: "/Infrastructure/land" },
+      { title: "BUILDING", href: "/Infrastructure/building" },
+      { title: "ICT ENABLED CLASSROOM", href: "/Infrastructure/ictenabled" },
       {
         title: "LABORATORY",
         subSubmenu: [
-          { title: "COMPUTER LAB", href: "/computer-lab" },
-          { title: "PHYSICS LAB", href: "/physics-lab" },
-          { title: "CHEMISTRY LAB", href: "/chemistry-lab" },
-          { title: "BIOLOGY LAB", href: "/biology-lab" },
-          { title: "SOCIAL SCIENCE LAB", href: "/social-science-lab" },
-          { title: "LANGUAGE LAB", href: "/language-lab" },
-          { title: "MATHEMATICS LAB", href: "/mathematics-lab" },
-          { title: "ART & CRAFT LAB", href: "/art-craft-lab" },
-          { title: "PSYCHOLOGY LAB", href: "/psychology-lab" },
+          {
+            title: "COMPUTER LAB",
+            href: "/Infrastructure/laboratory/computer-lab",
+          },
+          {
+            title: "PHYSICS LAB",
+            href: "/Infrastructure/laboratory/physics-lab",
+          },
+          {
+            title: "CHEMISTRY LAB",
+            href: "/Infrastructure/laboratory/chemistry-lab",
+          },
+          {
+            title: "BIOLOGY LAB",
+            href: "/Infrastructure/laboratory/biology-lab",
+          },
+          {
+            title: "SOCIAL SCIENCE LAB",
+            href: "/Infrastructure/laboratory/social-science-lab",
+          },
+          {
+            title: "LANGUAGE LAB",
+            href: "/Infrastructure/laboratory/language-lab",
+          },
+          {
+            title: "MATHEMATICS LAB",
+            href: "/Infrastructure/laboratory/mathematics-lab",
+          },
+          {
+            title: "ART & CRAFT LAB",
+            href: "/Infrastructure/laboratory/art-craft-lab",
+          },
+          {
+            title: "PSYCHOLOGY LAB",
+            href: "/Infrastructure/laboratory/psychology-lab",
+          },
           {
             title: "Health & Physical Education Lab",
-            href: "/health-physical-education-lab",
+            href: "/Infrastructure/laboratory/health-physical-education-lab",
           },
-          { title: "Performing Art Lab", href: "/performing-art-lab" },
+          {
+            title: "Performing Art Lab",
+            href: "/Infrastructure/laboratory/performing-art-lab",
+          },
           {
             title: "Teaching Learning Resource Centre",
-            href: "/teaching-learning-resource-centre",
+            href: "/Infrastructure/laboratory/teaching-learning-resource-centre",
           },
         ],
       },
-      { title: "LIBRARY", href: "/library" },
-      { title: "HOSTEL", href: "/hostel" },
-      { title: "CANTEEN", href: "/canteen" },
-      { title: "PLAYGROUND", href: "/playground" },
-      { title: "GARDEN", href: "/garden" },
-      { title: "AFFIDAVIT", href: "/affidavit" },
+      {
+        title: "INFRASTRUCTURE DETAILS",
+        subSubmenu: [
+          {
+            title: "BREAK UP OF BUILDING UP AREA",
+            href: "/Infrastructure/infrastructure-details/break-up-of-build-up-area",
+          },
+          {
+            title: "PRINCIPAL OFFICE",
+            href: "/Infrastructure/infrastructure-details/principal-office",
+          },
+          {
+            title: "STAFF ROOM",
+            href: "/Infrastructure/infrastructure-details/staff-room",
+          },
+          {
+            title: "ADMINISTRATIVE OFFICE",
+            href: "/Infrastructure/infrastructure-details/administrative-office",
+          },
+          {
+            title: "OFFICE ROOM–1",
+            href: "/Infrastructure/infrastructure-details/office-room-1",
+          },
+          {
+            title: "OFFICE ROOM–2",
+            href: "/Infrastructure/infrastructure-details/office-room-2",
+          },
+          {
+            title: "SMART CLASS ROOM",
+            href: "/Infrastructure/infrastructure-details/smart-class-room",
+          },
+          {
+            title: "GIRLS COMMON ROOM",
+            href: "/Infrastructure/infrastructure-details/girls-common-room",
+          },
+          {
+            title: "BOYS COMMON ROOM",
+            href: "/Infrastructure/infrastructure-details/boys-common-room",
+          },
+        ],
+      },
+      { title: "LIBRARY", href: "/Infrastructure/library" },
+      { title: "HOSTEL", href: "/Infrastructure/hostel" },
+      { title: "CANTEEN", href: "/Infrastructure/canteen" },
+      { title: "PLAYGROUND", href: "/Infrastructure/playground" },
+      { title: "GARDEN", href: "/Infrastructure/garden" },
+      { title: "AFFIDAVIT", href: "/Infrastructure/affidavit" },
     ],
   },
   {
@@ -103,21 +174,30 @@ const menuData: MenuItem[] = [
       {
         title: "QUESTION PAPER",
         subSubmenu: [
-          { title: "B.Ed", href: "/academic/bed-question" },
-          { title: "D.El.Ed", href: "/deled-question" },
+          { title: "B.Ed", href: "/academic/question-paper/bed-25" },
+          { title: "D.El.Ed", href: "/academic/question-paper/deled-25" },
         ],
       },
-      { title: "UNIVERSITY / BOARD RESULT", href: "/university-board-result" },
-      { title: "BIOMETRIC ATTENDANCE", href: "/biometric-attendance" },
-      { title: "FACILITIES", href: "/facilities" },
-      { title: "DISTRIBUTION OF ROSTER", href: "/distribution-of-roster" },
-      { title: "USE OF ICT", href: "/use-of-ict" },
+      {
+        title: "UNIVERSITY / BOARD RESULT",
+        href: "/academic/university-board-result",
+      },
+      { title: "BIOMETRIC ATTENDANCE", href: "/academic/biometric-attendance" },
+      { title: "FACILITIES", href: "/academic/facilities" },
+      {
+        title: "DISTRIBUTION OF ROSTER",
+        href: "/academic/distribution-of-roster",
+      },
+      { title: "USE OF ICT", href: "/academic/use-of-ict" },
     ],
   },
   {
     title: "IQAC CELL",
     submenu: [
-      { title: "IQAC Committee Member", href: "/iqac-cell/iqac-committee-member" },
+      {
+        title: "IQAC Committee Member",
+        href: "/iqac-cell/iqac-committee-member",
+      },
       { title: "MINUTES OF MEETINGS", href: "/iqac-cell/minutes-of-meetings" },
     ],
   },
@@ -125,86 +205,163 @@ const menuData: MenuItem[] = [
   {
     title: "GRIEVANCE REDRESSAL CELL",
     submenu: [
-      { title: "INSTITUTIONAL GUIDELINES", href: "/grievance-redressal-cell/institutional-guidelines-25" },
-      { title: "COMMITTEE MEMBERS", href: "/grievance-redressal-cell/committee-members-25" },
-      { title: "Awareness Programme", href: "/grievance-redressal-cell/awareness-programme" },
-      { title: "Grievance Online Form", href: "/grievance-redressal-cell/grievance-online-form-25" },
+      {
+        title: "INSTITUTIONAL GUIDELINES",
+        href: "/grievance-redressal-cell/institutional-guidelines-25",
+      },
+      {
+        title: "COMMITTEE MEMBERS",
+        href: "/grievance-redressal-cell/committee-members-25",
+      },
+      {
+        title: "Awareness Programme",
+        href: "/grievance-redressal-cell/awareness-programme",
+      },
+      {
+        title: "Grievance Online Form",
+        href: "/grievance-redressal-cell/grievance-online-form-25",
+      },
       { title: "GRIEVANCE", href: "/grievance-redressal-cell/grievance-25" },
       {
         title: "GRIEVANCE REDRESSED REPORT",
         href: "/grievance-redressal-cell/grievance-redressed-report-25",
       },
-      { title: "MINUTES OF MEETINGS/S", href: "/grievance-redressal-cell/minutes-of-meeting-grievance-25" },
+      {
+        title: "MINUTES OF MEETINGS/S",
+        href: "/grievance-redressal-cell/minutes-of-meeting-grievance-25",
+      },
     ],
   },
   {
     title: "OTHER COMMITTEES",
     submenu: [
       {
-        title: "SC/ST/OBC Cell",
+        title: "sc-st-obc-cell",
         subSubmenu: [
-          { title: "GOVT. CIRCULARS", href: "/govt-circulars" },
-          { title: "COMMITTEE MEMBERS", href: "/committee-members-scst" },
-          { title: "NOTICE", href: "/notice-scst" },
-          { title: "MINUTES OF MEETINGS/S", href: "/minutes-of-meetings-scst" },
+          {
+            title: "GOVT. CIRCULARS",
+            href: "/other-committees/sc-st-obc-cell/govt-circulars",
+          },
+          {
+            title: "COMMITTEE MEMBERS",
+            href: "/other-committees/sc-st-obc-cell/committee-members",
+          },
+          { title: "NOTICE", href: "/other-committees/sc-st-obc-cell/notice" },
+          {
+            title: "MINUTES OF MEETINGS/S",
+            href: "/other-committees/sc-st-obc-cell/minutes-of-meettings",
+          },
           {
             title: "GOVT. WEBSITE FOR SCHOLARSHIP",
-            href: "/govt-website-for-scholarship",
+            href: "/other-committees/sc-st-obc-cell/govt-website-for-scholarship",
           },
         ],
       },
-      { title: "PLACEMENT CELL", href: "/placement-cell" },
-      { title: "ANTI-RAGING-COMMITTEE", href: "/anti-raging-committee" },
+      {
+        title: "GOVT WEBSITE FOR SCHOLARSHIP",
+        subSubmenu: [
+          {
+            title: "GOVT. CIRCULARS",
+            href: "/other-committees/govt-website-for-scholarship/govt-circulars",
+          },
+          {
+            title: "COMMITTEE MEMBERS",
+            href: "/other-committees/govt-website-for-scholarship/committee-members",
+          },
+          {
+            title: "NOTICE",
+            href: "/other-committees/govt-website-for-scholarship/notice",
+          },
+          {
+            title: "MINUTES OF MEETINGS",
+            href: "/other-committees/govt-website-for-scholarship/minutes-of-meetings",
+          },
+        ],
+      },
+      {
+        title: "PLACEMENT CELL",
+        subSubmenu: [
+          {
+            title: "COMMITTEE MEMBERS",
+            href: "/other-committees/placement-cell/committee-members",
+          },
+          {
+            title: "MINUTES OF MEETINGS",
+            href: "/other-committees/placement-cell/minutes-of-meetings",
+          },
+        ],
+      },
       {
         title: "ANTI RAGING COMMITTEES",
         subSubmenu: [
-          { title: "COMMITTEE MEMBERS", href: "/committee-members-antiraging" },
+          {
+            title: "COMMITTEE MEMBERS",
+            href: "/other-committees/anti-raging-committee/committee-members",
+          },
           {
             title: "MINUTES OF MEETINGS/S",
-            href: "/minutes-of-meetings-antiraging",
+            href: "/other-committees/anti-raging-committee/minutes-of-meetings",
           },
-          { title: "CIRCULARS", href: "/circulars" },
-          { title: "GRIEVANCE", href: "/grievance-antiraging" },
+          {
+            title: "CIRCULARS",
+            href: "/other-committees/anti-raging-committee/circulars",
+          },
+          {
+            title: "GRIEVANCE",
+            href: "/other-committees/anti-raging-committee/grievance-antiraging",
+          },
           {
             title: "GRIEVANCE REDRESSED REPORT",
-            href: "/grievance-redressed-report-antiraging",
+            href: "/other-committees/anti-raging-committee/grievance-redressed-report-antiraging",
           },
         ],
       },
       {
         title: "Women Welfare Sexual Harassment Cell",
         subSubmenu: [
-          { title: "COMMITTEE MEMBERS", href: "/committee-members-women" },
+          {
+            title: "COMMITTEE MEMBERS",
+            href: "/other-committees/women-welfare-sexual-harassment-cell/committee-members",
+          },
           {
             title: "MINUTES OF MEETINGS/S",
-            href: "/minutes-of-meetings-women",
+            href: "/other-committees/women-welfare-sexual-harassment-cell/minutes-of-meetings",
           },
         ],
       },
-      { title: "MINORITY-CELL", href: "/minority-cell" },
+      { title: "MINORITY-CELL", href: "/other-committees/minority-cell" },
       {
         title: "ECO CLUB COMMITTEE",
         subSubmenu: [
-          { title: "COMMITTEE MEMBERS", href: "/committee-members-eco" },
+          {
+            title: "COMMITTEE MEMBERS",
+            href: "/other-committees/eco-club-committee/committee-members",
+          },
         ],
       },
       {
         title: "SPORTS & CULTURAL COMMITTEE",
         subSubmenu: [
-          { title: "COMMITTEE MEMBERS", href: "/committee-members-sports" },
+          {
+            title: "COMMITTEE MEMBERS",
+            href: "/other-committees/sports-cultural-committee/committee-members",
+          },
           {
             title: "MINUTES OF MEETINGS/S",
-            href: "/minutes-of-meetings-sports",
+            href: "/other-committees/sports-cultural-committee/minutes-of-meetings",
           },
         ],
       },
       {
         title: "Seminar & Webinar Committee",
         subSubmenu: [
-          { title: "COMMITTEE MEMBERS", href: "/committee-members-seminar" },
+          {
+            title: "COMMITTEE MEMBERS",
+            href: "/other-committees/seminar-webinar-committee/committee-members",
+          },
           {
             title: "MINUTES OF MEETINGS/S",
-            href: "/minutes-of-meetings-seminar",
+            href: "/other-committees/seminar-webinar-committee/minutes-of-meetings",
           },
         ],
       },
@@ -223,7 +380,10 @@ const menuData: MenuItem[] = [
   {
     title: "ADMISSION",
     submenu: [
-      { title: "RULES AND REGULATION", href: "/admission/rules-and-regulation" },
+      {
+        title: "RULES AND REGULATION",
+        href: "/admission/rules-and-regulation",
+      },
       { title: "COURSE FEES", href: "/admission/course-fees" },
       { title: "ADMISSION FORM", href: "/admission/admission-form" },
     ],
@@ -234,9 +394,18 @@ const menuData: MenuItem[] = [
       { title: "WORKSHOP", href: "/activities/workshop-25" },
       { title: "ECO CLUB", href: "/activities/eco-club-25" },
       { title: "SOCIAL WORK", href: "/activities/social-work-25" },
-      { title: "EDUCATIONAL SURVEY", href: "/activities/educational-survey-25" },
-      { title: "Educational Excursion", href: "/activities/educational-excursion-25" },
-      { title: "CULTURAL ACTIVITIES", href: "/activities/cultural-activities-25" },
+      {
+        title: "EDUCATIONAL SURVEY",
+        href: "/activities/educational-survey-25",
+      },
+      {
+        title: "Educational Excursion",
+        href: "/activities/educational-excursion-25",
+      },
+      {
+        title: "CULTURAL ACTIVITIES",
+        href: "/activities/cultural-activities-25",
+      },
       { title: "YOGA", href: "/activities/yoga-25" },
       { title: "MAGAZINE", href: "/activities/magazine-25" },
       { title: "SCHOOL ACTIVITIES", href: "/activities/school-activities" },
@@ -247,15 +416,33 @@ const menuData: MenuItem[] = [
             title: "Environmental Awareness",
             href: "/activities/awarness/environmental-awareness",
           },
-          { title: "Health Awareness", href: "/activities/awarness/health-awareness" },
-          { title: "Data Privacy Awareness", href: "/activities/awarness/data-privacy-awareness" },
-          { title: "Vigilance Awareness", href: "/activities/awarness/vigilance-awareness" },
-          { title: "Anti Drug Awareness", href: "/activities/awarness/anti-drug-awareness" },
+          {
+            title: "Health Awareness",
+            href: "/activities/awarness/health-awareness",
+          },
+          {
+            title: "Data Privacy Awareness",
+            href: "/activities/awarness/data-privacy-awareness",
+          },
+          {
+            title: "Vigilance Awareness",
+            href: "/activities/awarness/vigilance-awareness",
+          },
+          {
+            title: "Anti Drug Awareness",
+            href: "/activities/awarness/anti-drug-awareness",
+          },
         ],
       },
       { title: "SPORTS", href: "/activities/sports-25" },
-      { title: "Seminar Presentation", href: "/activities/seminar-presentation" },
-      { title: "NATIONAL & INTERNATIONAL DAY-CELEBRATION", href: "/activities/national" },
+      {
+        title: "Seminar Presentation",
+        href: "/activities/seminar-presentation",
+      },
+      {
+        title: "NATIONAL & INTERNATIONAL DAY-CELEBRATION",
+        href: "/activities/national",
+      },
     ],
   },
   {
@@ -503,7 +690,8 @@ export default function Header() {
               {/* NAAC Info */}
               <div className="col-sm-3 col-md-3">
                 <div className="inst">
-                  Accredited by <span>NAAC</span> with Grade <span>'B'</span>
+                  Accredited by <span>NAAC</span> with Grade{" "}
+                  <span>&apos;B&apos;</span>
                   <br />
                   Recognized by: <span>NCTE</span>, Affiliated to:{" "}
                   <span>WBUTTEPA &amp; WBBPE</span>
