@@ -1,99 +1,184 @@
+"use client";
 import Image from "next/image";
 
-export default function ChairmanQuote() {
+interface Section {
+  title?: string;
+  shortDescription?: string;
+  description?: string;
+  image?: string;
+  bannerImage?: string;
+  subsections?: Section[];
+  [key: string]: unknown;
+}
+
+interface ChairmanQuoteProps {
+  section?: Section;
+}
+
+// Remove HTML tags like <p>, </p>, <br>, etc.
+const stripHtml = (html: string) => {
+  return html
+    ? html.replace(/<[^>]*>/g, "").trim()
+    : "";
+};
+
+export default function ChairmanQuote({
+  section,
+}: ChairmanQuoteProps) {
+
+  // Get Principal and Chairman data
+  const principal =
+    section?.subsections?.[0];
+
+  const chairman =
+    section?.subsections?.[1];
+
+
   return (
     <div className="banner_slider_wrap">
       <div className="row">
-        {/* Principal's Quote */}
+
+        {/* =====================================
+            PRINCIPAL'S QUOTE
+        ====================================== */}
+
         <div className="col-lg-6 col-md-6">
+
           <section className="chairmainQuote">
+
             <div className="title_box">
-              <h3>Principal&apos;s Quote</h3>
 
-              <p>Golden inspirational words from our Principal</p>
-
-              <div className="pl-md-5 text-center">
-                <Image
-                  className="chairman_img"
-                  src="/images/1662189017007.jpeg"
-                  alt="01"
-                  width={500}
-                  height={500}
-                />
-              </div>
-            </div>
-
-            <div className="pera-dtls">
-              <h5>
-                We Offer You a <span>Bright Future</span>
-              </h5>
+              <h3>
+                Principal&apos;s Quote
+              </h3>
 
               <p>
-                Rishi Aurobindo Institute of Teachers Education is the first
-                self financing professional college in the district, Paschim
-                Medinipur has accredited &apos;B&apos; Grade from NAAC, in this
-                year, for which we have enriched in the field of enhancement of
-                quality education. In this respect, their guidance, advices and
-                observations will enlighten to go ahead in future for acquiring
-                knowledge. Indeed, students of our college will more awaken is
-                their field of studies and their progress also gradually, in
-                different stages. Students are benefitted through our equipped
-                college modern library and laboratories of different
-                departments. In the teaching learning process the endeavor of
-                the faculty members of our college are always praiseworthy. I
-                wish the overall development and success of my college, even all
-                the professors, students, non-teaching stuff and best wishes to
-                the well wishers.
+                Golden inspirational words
+                from our Principal
               </p>
 
-              <span className="signature">Dr. Madhab Chandra Rath</span>
-            </div>
-          </section>
-        </div>
-
-        {/* Chairman's Quote */}
-        <div className="col-lg-6 col-md-6">
-          <section className="chairmainQuote">
-            <div className="title_box">
-              <h3>Chairman&apos;s Quote</h3>
-
-              <p>Golden inspirational words from our Chairman</p>
 
               <div className="pl-md-5 text-center">
-                <Image
-                  className="chairman_img"
-                  src="/images/1662189128446.jpeg"
-                  alt="01"
-                  width={500}
-                  height={500}
-                />
+
+                {principal?.image && (
+                  <Image
+                    className="chairman_img"
+                    src={principal.image}
+                    alt={
+                      principal.title ||
+                      "Principal"
+                    }
+                    width={500}
+                    height={500}
+                    unoptimized
+                  />
+                )}
+
               </div>
+
             </div>
+
 
             <div className="pera-dtls">
+
               <h5>
-                We Offer You a <span>Bright Future</span>
+                We Offer You a{" "}
+                <span>
+                  Bright Future
+                </span>
               </h5>
 
+
               <p>
-                It is great to educate a child in true and larger sense of the
-                world. Hence, the ultimate goal of our college &apos;Rishi
-                Aurobindo Institute of Teacher Education&apos; under Amaranth
-                Altruist Charitable Trust is to empower the students to rise and
-                shine. Our vision, mission and values, on the basis of which we
-                have been able to establish our institute, are quite pragmatic
-                enough to provide high quality education to our students, who
-                will surely excel in every sphere of their life. As a Chairman,
-                I feel that I have moral obligation to help the students of my
-                institute grow to become excellent human beings empowered with
-                academic excellence.
+                {stripHtml(
+                  principal?.description ||
+                    "",
+                )}
               </p>
 
-              <span className="signature">Mihir Kumar Barik</span>
+
+              <span className="signature">
+                {principal?.title || ""}
+              </span>
+
             </div>
+
           </section>
+
         </div>
+
+
+        {/* =====================================
+            CHAIRMAN'S QUOTE
+        ====================================== */}
+
+        <div className="col-lg-6 col-md-6">
+
+          <section className="chairmainQuote">
+
+            <div className="title_box">
+
+              <h3>
+                Chairman&apos;s Quote
+              </h3>
+
+              <p>
+                Golden inspirational words
+                from our Chairman
+              </p>
+
+
+              <div className="pl-md-5 text-center">
+
+                {chairman?.image && (
+                  <Image
+                    className="chairman_img"
+                    src={chairman.image}
+                    alt={
+                      chairman.title ||
+                      "Chairman"
+                    }
+                    width={500}
+                    height={500}
+                    unoptimized
+                  />
+                )}
+
+              </div>
+
+            </div>
+
+
+            <div className="pera-dtls">
+
+              <h5>
+                We Offer You a{" "}
+                <span>
+                  Bright Future
+                </span>
+              </h5>
+
+
+              <p>
+                {stripHtml(
+                  chairman?.description ||
+                    "",
+                )}
+              </p>
+
+
+              <span className="signature">
+                {chairman?.title || ""}
+              </span>
+
+            </div>
+
+          </section>
+
+        </div>
+
       </div>
     </div>
   );
 }
+

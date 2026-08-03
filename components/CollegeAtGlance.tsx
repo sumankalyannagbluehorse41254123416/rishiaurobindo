@@ -1,95 +1,145 @@
+"use client";
 import Image from "next/image";
 
-export default function CollegeAtGlance() {
+interface Section {
+  title?: string;
+  shortDescription?: string;
+  description?: string;
+  image?: string;
+  bannerImage?: string;
+  subsections?: Section[];
+  [key: string]: unknown;
+}
+
+interface CollegeAtGlanceProps {
+  section?: Section;
+}
+
+// Remove HTML tags and clean HTML entities
+const cleanHtml = (html: string) => {
+  if (!html) return "";
+
+  return html
+    // Remove HTML tags
+    .replace(/<[^>]*>/g, " ")
+
+    // Decode common HTML entities
+    .replace(/&amp;/g, "&")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+
+    // Remove extra spaces
+    .replace(/\s+/g, " ")
+
+    // Remove spaces from beginning and end
+    .trim();
+};
+
+export default function CollegeAtGlance({
+  section,
+}: CollegeAtGlanceProps) {
+
+  const title =
+    section?.title ||
+    "College at a Glance";
+
+  const items =
+    section?.subsections || [];
+
   return (
     <section className="counter_wrap">
+
       <div className="banner_slider_wrap">
+
         <div className="container">
+
           <div className="conter_inner">
-            <h3 className="counter_title">College at a Glance</h3>
+
+            {/* Section Title */}
+
+            <h3 className="counter_title">
+              {title}
+            </h3>
+
 
             <div className="row">
-              {/* Course */}
-              <div className="col-6 col-sm-6 col-md-3">
-                <div className="counter_block">
-                  <div className="count_icon">
-                    <Image
-                      src="/images/1662105718894.png"
-                      alt="calendar"
-                      width={100}
-                      height={100}
-                    />
+
+              {items.map(
+                (
+                  item,
+                  index,
+                ) => (
+
+                  <div
+                    className="col-6 col-sm-6 col-md-3"
+                    key={index}
+                  >
+
+                    <div className="counter_block">
+
+                      {/* Subsection Image */}
+
+                      <div className="count_icon">
+
+                        {item.image && (
+                          <Image
+                            src={item.image}
+                            alt={
+                              item.title ||
+                              "College"
+                            }
+                            width={100}
+                            height={100}
+                            unoptimized
+                          />
+                        )}
+
+                      </div>
+
+
+                      {/* Subsection Details */}
+
+                      <div className="count_details">
+
+                        {/* Subsection Title */}
+
+                        <h3>
+                          {item.title}
+                        </h3>
+
+
+                        {/* Clean Description */}
+
+                        <p>
+                          {cleanHtml(
+                            item.description ||
+                              "",
+                          )}
+                        </p>
+
+                      </div>
+
+                    </div>
+
                   </div>
 
-                  <div className="count_details">
-                    <h3>COURSE</h3>
-                    <p>B.ED. &amp; D.EL.ED.</p>
-                  </div>
-                </div>
-              </div>
+                ),
+              )}
 
-              {/* Experienced Teachers */}
-              <div className="col-6 col-sm-6 col-md-3">
-                <div className="counter_block">
-                  <div className="count_icon">
-                    <Image
-                      src="/images/1662105731257.png"
-                      alt="calendar"
-                      width={100}
-                      height={100}
-                    />
-                  </div>
-
-                  <div className="count_details">
-                    <h3>EXPERIENCED TEACHERS</h3>
-                    <p>26 TEACHERS</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Students */}
-              <div className="col-6 col-sm-6 col-md-3">
-                <div className="counter_block">
-                  <div className="count_icon">
-                    <Image
-                      src="/images/1662105747549.png"
-                      alt="calendar"
-                      width={100}
-                      height={100}
-                    />
-                  </div>
-
-                  <div className="count_details">
-                    <h3>Students</h3>
-                    <p>1496 STUDENTS</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Years Found */}
-              <div className="col-6 col-sm-6 col-md-3">
-                <div className="counter_block">
-                  <div className="count_icon">
-                    <Image
-                      src="/images/1662105758771.png"
-                      alt="calendar"
-                      width={100}
-                      height={100}
-                    />
-                  </div>
-
-                  <div className="count_details">
-                    <h3>YEARS FOUND</h3>
-                    <p>10 YEARS OF GLORY</p>
-                  </div>
-                </div>
-              </div>
             </div>
+
           </div>
+
         </div>
+
       </div>
 
+
       {/* Background Image */}
+
       <Image
         className="counter_bg"
         src="/images/banner2.jpg"
@@ -97,6 +147,8 @@ export default function CollegeAtGlance() {
         width={1920}
         height={600}
       />
+
     </section>
   );
 }
+
