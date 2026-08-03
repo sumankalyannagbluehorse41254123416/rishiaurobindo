@@ -593,15 +593,15 @@ export default function Header() {
           margin: 20px 0 0 0 !important;
         }
 
-        .menu-item {
-          border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-        }
+        // .menu-item {
+        //   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        // }
 
         .menu-link {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 12px 10px;
+          padding: 12px 0px;
           color: #ffffff !important;
           font-size: 13px;
           font-weight: 600;
@@ -609,7 +609,9 @@ export default function Header() {
           cursor: pointer;
           transition: background 0.2s;
         }
-
+        .menu-item .menu-link{
+          color: #ffffff !important;
+          }
         .menu-link:hover {
           background: rgba(255, 255, 255, 0.1);
         }
@@ -706,9 +708,9 @@ export default function Header() {
                   type="button"
                   aria-label="Toggle menu"
                 >
-                  <span></span>
-                  <span></span>
-                  <span></span>
+                  <span>-</span>
+                  <span>-</span>
+
                 </button>
               </div>
             </div>
@@ -739,9 +741,8 @@ export default function Header() {
                   >
                     <span>{item.title}</span>
                     <span
-                      className={`arrow ${
-                        openSubmenu === item.title ? "open" : ""
-                      }`}
+                      className={`arrow ${openSubmenu === item.title ? "open" : ""
+                        }`}
                     >
                       ▼
                     </span>
@@ -762,9 +763,8 @@ export default function Header() {
                               >
                                 <span>{sub.title}</span>
                                 <span
-                                  className={`arrow ${
-                                    openSubSubmenu === sub.title ? "open" : ""
-                                  }`}
+                                  className={`arrow ${openSubSubmenu === sub.title ? "open" : ""
+                                    }`}
                                 >
                                   ▼
                                 </span>
