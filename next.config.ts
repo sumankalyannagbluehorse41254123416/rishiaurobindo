@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         hostname: "www.rabedc.com",
         pathname: "/img/**",
       },
+      {
+        protocol: "https",
+        hostname: "ik.imagekit.io",
+        pathname: "/**",
+      },
     ],
   },
 };
