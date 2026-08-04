@@ -480,6 +480,25 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   const [openSubSubmenu, setOpenSubSubmenu] = useState<string | null>(null);
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log("window scroll:", window.scrollY);
+
+      setIsSticky(window.scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+
 
   const toggleMenu = (): void => {
     setIsMenuOpen(!isMenuOpen);
@@ -512,43 +531,69 @@ export default function Header() {
   return (
     <>
       <style jsx>{`
+
+      
         /* ===== Hamburger Button ===== */
         .hum-one {
-          display: flex !important;
-          flex-direction: column !important;
-          justify-content: space-between !important;
-          width: 28px !important;
-          height: 22px !important;
-          background: transparent !important;
-          border: none !important;
-          cursor: pointer !important;
-          padding: 0 !important;
-          float: right !important;
-          margin-top: 23px !important;
-          margin-left: 30px !important;
-          z-index: 1001 !important;
-          position: relative !important;
-        }
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: stretch !important;
 
-        .hum-one span {
-          display: block !important;
-          width: 100% !important;
-          height: 3px !important;
-          background: #333 !important;
-          border-radius: 3px !important;
-          transition: all 0.3s ease !important;
-        }
+  width: 32px !important;
+  height: 24px !important;
 
-        .hum-one.active span:nth-child(1) {
-          transform: rotate(45deg) translate(5px, 5px) !important;
-        }
-        .hum-one.active span:nth-child(2) {
-          opacity: 0 !important;
-        }
-        .hum-one.active span:nth-child(3) {
-          transform: rotate(-45deg) translate(7px, -6px) !important;
-        }
+  padding: 0 !important;
+  margin-top: 23px !important;
+  margin-left: 30px !important;
 
+  background: transparent !important;
+  border: 0 !important;
+
+  cursor: pointer !important;
+  float: right !important;
+
+  position: relative !important;
+  z-index: 1001 !important;
+
+  /* Prevent Bootstrap/button styles from hiding it */
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+  .hum-one > span {
+    display: block !important;
+
+    width: 32px !important;
+    min-width: 32px !important;
+
+    height: 3px !important;
+    min-height: 3px !important;
+
+    background-color: #333333 !important;
+    border-radius: 10px !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    transform-origin: center !important;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease !important;
+  }
+
+  /* Active cross */
+  .hum-one.active > span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg) !important;
+  }
+
+  .hum-one.active > span:nth-child(2) {
+    opacity: 0 !important;
+  }
+
+  .hum-one.active > span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg) !important;
+  }
         /* ===== Side Menu (Match image design) ===== */
         .side-menu {
           position: fixed !important;
@@ -603,7 +648,7 @@ export default function Header() {
           align-items: center;
           padding: 12px 0px;
           color: #ffffff !important;
-          font-size: 13px;
+          font-size: 15px;
           font-weight: 600;
           text-decoration: none !important;
           cursor: pointer;
@@ -620,13 +665,15 @@ export default function Header() {
         .submenu-list {
           list-style: none !important;
           padding-left: 15px !important;
-          background: rgba(0, 0, 0, 0.15);
+         font-size:15px;
         }
-
+        .submenu-list .menu-item{
+        padding: 5px 0px;
+        }
         .sub-submenu-list {
           list-style: none !important;
           padding-left: 15px !important;
-          background: rgba(0, 0, 0, 0.25);
+          font-size:15px;
         }
 
         .arrow {
@@ -665,10 +712,26 @@ export default function Header() {
             right: -290px !important;
           }
         }
+          .main-header {
+          position: relative;
+          width: 100%;
+          z-index: 999;
+          background: #ffffff;
+        }
+
+        .main-header.is-sticky {
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          z-index: 999 !important;
+          background: #ffffff !important;
+          box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+        }
       `}</style>
 
       {/* Header Area */}
-      <header>
+      <header className={`main-header ${isSticky ? "is-sticky" : ""}`}>
         <nav className="navbar navbar-expand-lg navbar-light">
           <div className="container-fluid">
             <div className="row" style={{ width: "100%", margin: 0 }}>
@@ -702,15 +765,21 @@ export default function Header() {
 
               {/* Menu Toggle Button */}
               <div className="col-sm-3 col-md-3">
+                <div className="collapse navbar-collapse float-left">
+                  <div className="top-logo1">
+                    <img className="menu-logo" src="/images/banner-logo.png" alt="banner-logo" />
+                  </div>
+                </div>
+
                 <button
                   className={`hum-one ${isMenuOpen ? "active" : ""}`}
                   onClick={toggleMenu}
                   type="button"
                   aria-label="Toggle menu"
                 >
-                  <span>-</span>
-                  <span>-</span>
-
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </button>
               </div>
             </div>

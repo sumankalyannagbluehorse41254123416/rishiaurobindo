@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Montserrat", sans-serif;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     color: #393d46;
     background: url("http://rabedc.com/wp-content/themes/charityplus_test/img/cover.jpg") no-repeat;
     background-size: cover;
@@ -886,6 +886,9 @@ html.open-rightmenu .menu-right span.close-r {
 
 .menu-item .menu-link {
     color: #ffffff !important;
+    padding: 12px 0;
+    font-size: 15px;
+    font-weight: 600;
 }
 
 .features-box .title-bx1::after {
