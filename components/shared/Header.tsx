@@ -611,7 +611,7 @@ export default function Header() {
         }
         .menu-item .menu-link{
           color: #ffffff !important;
-          }
+        }
         .menu-link:hover {
           background: rgba(255, 255, 255, 0.1);
         }
