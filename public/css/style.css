@@ -73,12 +73,15 @@ p {
     h4 {
         font-size: 18px;
     }
+
     h3 {
         font-size: 22px;
     }
+
     h3.one8 {
         font-size: 22px;
     }
+
     p {
         font-size: 13px;
         line-height: 24px;
@@ -95,6 +98,7 @@ p {
 .container {
     max-width: 1210px;
 }
+
 .column {
     float: left;
     width: 50%;
@@ -183,6 +187,7 @@ button {
     .border-btn {
         max-width: 100%;
     }
+
     .btn-n1 {
         padding: 6px 12px;
     }
@@ -595,6 +600,7 @@ html.open-rightmenu .menu-right span.close-r {
     .navbar-collapse {
         background: #fff;
     }
+
     .navbar-light .navbar-toggler {
         border: 0 !important;
     }
@@ -604,50 +610,64 @@ html.open-rightmenu .menu-right span.close-r {
     header .navbar-light .navbar-nav .nav-link {
         margin-left: 0;
     }
+
     .navbar {
         padding: 5px 15px;
     }
+
     header a.navbar-brand {
         padding: 0px;
     }
+
     header a.navbar-brand img {
         width: 50px;
     }
+
     header a.navbar-brand span {
         font-size: 14px;
         line-height: 18px;
         padding-bottom: 5px;
     }
+
     .navbar-collapse {
         padding: 25px;
         border-radius: 25px;
     }
+
     header .navbar.navbar-expand-lg.navbar-light.position-absolute.w-100 {
         padding: 0 10px;
     }
+
     header .navbar-light .navbar-nav .nav-link {
         font-size: 14px;
         font-weight: 400;
     }
+
     .top-area {
         padding: 6px 15px;
     }
+
     .top-area h2 {
         font-size: 11px;
     }
+
     .search-top {
         margin-left: auto !important;
     }
+
     .hum-one {
         width: 25px;
         margin: 0px;
     }
+
     .hum-one span {
         height: 3px;
     }
+
     .menu-right {
         padding: 20px 42px 25px;
     }
+
     .title-bx1::after {
         margin-left: 0px;
     }
@@ -657,12 +677,15 @@ html.open-rightmenu .menu-right span.close-r {
     .top-area {
         justify-content: flex-end;
     }
+
     .top-area .rec {
         display: none;
     }
+
     header a.navbar-brand img {
         width: 45px;
     }
+
     header a.navbar-brand span {
         font-size: 13px;
         line-height: 18px;
@@ -783,7 +806,7 @@ html.open-rightmenu .menu-right span.close-r {
 
 .slide-box {
     background: rgb(246, 246, 246);
-    background: linear-gradient( 0deg, rgba(246, 246, 246, 1) 0%, rgba(246, 246, 246, 1) 49%, rgba(255, 255, 255, 1) 49%);
+    background: linear-gradient(0deg, rgba(246, 246, 246, 1) 0%, rgba(246, 246, 246, 1) 49%, rgba(255, 255, 255, 1) 49%);
     padding: 13px 15px;
     border-radius: 10px;
 }
@@ -821,16 +844,20 @@ html.open-rightmenu .menu-right span.close-r {
         float: left;
         max-width: 100%;
     }
+
     .project-box .one-color {
         width: 100%;
         padding-left: 60px;
     }
+
     .project-box .slide-box p {
         font-size: 12px;
     }
+
     .project-box .slide-box h6 {
         font-size: 15px;
     }
+
     .project-box .box-reliabil {
         border-right: 0;
     }
@@ -848,13 +875,17 @@ html.open-rightmenu .menu-right span.close-r {
 }
 
 .top_border::before {
-    background: url("/img/top_border.png") center bottom repeat-x;
+    background: url("/images/top_border.png") center bottom repeat-x;
     width: 100%;
     height: 34px;
     position: absolute;
     top: -15px;
     left: 0;
     content: "";
+}
+
+.menu-item .menu-link {
+    color: #ffffff !important;
 }
 
 .features-box .title-bx1::after {
@@ -989,6 +1020,7 @@ html.open-rightmenu .menu-right span.close-r {
 .notice-part li:nth-child(-n+10) {
     display: block;
 }
+
 .notice-part li:nth-child(10) {
     border: none;
 }
@@ -1000,7 +1032,8 @@ html.open-rightmenu .menu-right span.close-r {
     margin-right: 10px;
     color: inherit;
 }
-.notice-part a:hover{
+
+.notice-part a:hover {
     color: #3476bc;
     text-decoration: underline;
 }
@@ -1184,43 +1217,55 @@ span.radius-box-img {
     .highlight .box-inr p {
         font-size: 14px;
     }
+
     .highlight {
         padding-bottom: 50px;
     }
+
     .features-box {
         padding: 30px 0px;
     }
+
     .features-box .bg-inner p {
         width: 100%;
         font-size: 14px;
         line-height: 26px;
         margin-bottom: 10px;
     }
+
     .notice-part {
         margin-bottom: 15px;
     }
+
     .notice-part li {
         padding: 8px;
     }
+
     .notice-part li a {
         font-size: 13px;
         line-height: 18px;
     }
+
     .notice-part button {
         font-size: 10px;
     }
+
     .notice_cat {
         padding: 0px;
     }
+
     .admissionForms {
         margin-top: 0px;
     }
+
     .collage-area {
         padding: 30px 0px;
     }
+
     .collage-area .title-bx1 {
         text-align: left;
     }
+
     .collage-area .title-bx1::after {
         margin: 15px 0px 30px;
     }
@@ -1261,6 +1306,7 @@ span.radius-box-img {
     .our-work .box-inr p {
         font-size: 14px;
     }
+
     .our-work {
         padding: 50px 0;
     }
@@ -1367,14 +1413,17 @@ span.radius-box-img {
     .why-iudyog .dtls8-area p {
         font-size: 14px;
     }
+
     .why-iudyog .dtls8-area span {
         text-align: center;
         font-size: 14px;
     }
+
     .why-iudyog .dtls8-area h5 {
         font-size: 12px;
         padding-bottom: 15px;
     }
+
     .why-iudyog {
         padding: 50px 0 50px 0;
     }
@@ -1557,7 +1606,7 @@ a.rmore {
     text-align: center;
 }
 
-.pera-dtls{
+.pera-dtls {
     padding: 0px 50px;
 }
 
@@ -1842,6 +1891,7 @@ ul.admFormsList li:hover {
     .blog-box .box-inr h6 {
         font-size: 17px;
     }
+
     .blog-box .box-inr p {
         font-size: 14px;
     }
@@ -1851,71 +1901,90 @@ ul.admFormsList li:hover {
     .blog-box .box-inr h6 {
         font-size: 16px;
     }
+
     .blog-box .box-inr p {
         font-size: 13px;
     }
+
     .blog-box {
         padding: 40px 15px;
     }
+
     .chairmainQuote {
         padding: 30px 0px;
     }
+
     .chairmainQuote .title-bx1 {
         text-align: left;
     }
+
     .chairmainQuote .title-bx1::after {
         margin: 15px 0px 30px;
     }
+
     p.headTag {
         font-size: 14px;
         text-align: left;
     }
+
     .chairmainQuote .pera-dtls {
         padding-left: 15px;
         margin-bottom: 15px;
     }
+
     .chairmainQuote .pera-dtls h5 {
         font-size: 18px;
         margin: 0px;
         margin-bottom: 5px;
     }
+
     .chairmainQuote .pera-dtls span.signature {
         margin: 0px;
         margin-top: -10px;
         font-size: 18px;
     }
+
     .Testimonials p {
         font-size: 14px;
         line-height: 26px;
     }
+
     ul.admFormsList li {
         width: 45%;
         margin: 0px 10px;
         margin-bottom: 15px;
     }
+
     ul.admFormsList li:nth-child(3n) {
         margin-right: 10px;
     }
+
     ul.admFormsList li:nth-child(2n) {
         margin-right: 0px;
     }
+
     .missionVision {
         padding: 30px 0px;
     }
+
     .missionVision h5 {
         font-size: 22px;
     }
+
     .missionVision .mvSide p {
         line-height: 26px;
         font-size: 14px;
         margin-bottom: 10px;
     }
+
     .missionVision .btn-n1 {
         margin-bottom: 30px;
     }
+
     .eventsList {
         margin: 0px;
     }
+
     .eventsList li .dateSide {
         overflow: hidden;
         text-overflow: ellipsis;
@@ -1924,25 +1993,32 @@ ul.admFormsList li:hover {
         padding: 5px;
         margin-right: 8px;
     }
+
     .eventsList li .matrSide {
         font-size: 13px;
     }
+
     .collegeFacilities {
         padding: 30px 0px;
     }
+
     .collegeFacilities .title-bx1 {
         text-align: left;
     }
+
     .collegeFacilities .title-bx1::after {
         margin: 15px 0px 30px;
     }
+
     .testimonials-bx {
         padding: 40px 0px;
         padding-top: 0px;
     }
+
     .testimonials-bx .title-bx1 {
         text-align: left;
     }
+
     .testimonials-bx .title-bx1::after {
         margin: 15px 0px 30px;
     }
@@ -1954,25 +2030,32 @@ ul.admFormsList li:hover {
         margin: 0px;
         margin-bottom: 15px;
     }
+
     ul.admFormsList li:nth-child(3n) {
         margin-right: 0px;
     }
+
     ul.admFormsList li:nth-child(2n) {
         margin-right: 0px;
     }
+
     ul.admFormsList li a {
         padding: 20px 0px;
     }
+
     ul.admFormsList li h6 {
         font-size: 18px;
     }
+
     ul.admFormsList li p {
         width: 95%;
     }
+
     ul.admFormsList li span {
         padding: 7px 20px;
         margin-top: 10px;
     }
+
     ul.admFormsList li:last-child {
         margin-bottom: 0px;
     }
@@ -2108,9 +2191,11 @@ ul.admFormsList li:hover {
     .digital {
         padding-top: 70px;
     }
+
     .digital h4 {
         font-size: 22px;
     }
+
     .main-gallery .gal-inr {
         height: 165px;
     }
@@ -2120,6 +2205,7 @@ ul.admFormsList li:hover {
     .digital h4 {
         font-size: 18px;
     }
+
     .digital h3 {
         padding-top: 0;
         font-size: 13px;
@@ -2387,6 +2473,7 @@ footer .news_letter button {
     .promo-carousel .item img {
         width: 100%;
     }
+
     .promo-carousel .item-wrap {
         width: 660%;
     }
@@ -2420,51 +2507,63 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
         border-left: 5px solid #f9e605;
         margin-bottom: 15px;
     }
+
     span.icon-area {
         width: 40px;
         height: 40px;
         font-size: 22px;
     }
+
     .c-area1 p {
         width: 85%;
         text-align: left;
         padding-left: 10px;
         line-height: 24px;
     }
+
     .contact-page .c-in-box {
         padding: 20px 15px;
     }
+
     .c-in-box .form-group label {
         font-size: 12px;
         font-weight: 500;
         margin: 0px;
     }
+
     .c-in-box .form-control {
         padding: 0px;
         font-size: 14px;
     }
+
     footer .col-md-3 {
         margin-bottom: 20px;
     }
+
     footer .col-md-3:last-child {
         margin-bottom: 0px;
     }
+
     footer .footer_title {
         font-size: 18px;
         margin-bottom: 5px;
     }
+
     footer p {
         margin: 0px;
         font-size: 13px;
         line-height: 22px;
     }
+
     footer .ul-link ul li {
         font-size: 13px;
         line-height: 24px;
     }
+
     footer .news_letter {
         margin-top: 15px;
     }
+
     .footer-areain p {
         line-height: 18px;
     }
@@ -2554,15 +2653,18 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
         text-align: left;
         margin-bottom: 35px;
     }
+
     .title_box h3 {
         font-size: 20px;
         line-height: 26px;
         margin-bottom: 5px;
     }
+
     .title_box p {
         font-size: 13px;
         line-height: 18px;
     }
+
     .title_box:before,
     .title_box:after {
         bottom: -15px;
@@ -2570,21 +2672,26 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
         height: 4px;
         right: 100%;
     }
+
     .title_box:before {
         left: 35px;
     }
+
     .title_box2 {
         text-align: left;
         margin-bottom: 28px;
     }
+
     .title_box2 h3 {
         font-size: 20px;
         margin-bottom: 3px;
     }
+
     .title_box2 p {
         font-size: 13px;
         line-height: 18px;
     }
+
     .title_box2:before,
     .title_box2:after {
         bottom: -12px;
@@ -2592,6 +2699,7 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
         height: 4px;
         right: 100%;
     }
+
     .title_box2:before {
         left: 35px;
     }
@@ -2610,7 +2718,7 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
 .welcome_inner .welcome_img {
     margin-top: 10px;
     width: 49%;
-    height: 350px;
+    height: 350px !important;
     object-fit: cover;
     object-position: center;
     border-radius: 15px;
@@ -2629,6 +2737,7 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
         display: grid;
         gap: 15px;
     }
+
     .welcome_inner .welcome_img {
         margin-top: 0px;
         width: 100%;
@@ -2758,20 +2867,24 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
         padding: 30px 0px;
         padding-bottom: 15px;
     }
+
     .counter_wrap .conter_inner .counter_title {
         font-size: 20px;
         line-height: 26px;
         margin-bottom: 20px;
     }
+
     .counter_block {
         text-align: center;
         margin-bottom: 20px;
     }
+
     .counter_block .count_icon {
         height: 70px;
         width: 70px;
         padding: 15px;
     }
+
     .counter_block .count_details p {
         line-height: 18px;
         font-weight: 500;
@@ -2860,25 +2973,31 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
         margin: 40px 0px;
         min-height: auto;
     }
+
     .land_img {
         width: 80%;
     }
+
     .land_details_li {
         padding-inline-start: 93px;
         margin-bottom: 242px
     }
+
     .land_details_li li {
         font-size: 13px;
         line-height: 24px;
     }
+
     .sim_title {
         font-size: 20px;
         line-height: 26px;
     }
+
     .sim_title2 {
         font-size: 18px;
         line-height: 26px;
     }
+
     .sim_title3 {
         font-size: 16px;
         line-height: 24px;
@@ -2934,6 +3053,7 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
         padding: 30px 0px;
         padding-bottom: 35px;
     }
+
     .page_title_wrap .page_title_bg {
         position: absolute;
         top: 0px;
@@ -2944,9 +3064,11 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
         object-position: center;
         z-index: -1;
     }
+
     .page_title_wrap h3 {
         font-size: 18px;
     }
+
     .bottom_border::after {
         background: url("/images/top_border.png") center top repeat-x;
         height: 20px;
@@ -3017,16 +3139,20 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
     .theme_table thead tr th {
         font-size: 13px;
     }
+
     .theme_table tbody tr td {
         font-size: 13px;
     }
+
     .theme_table tbody tr td button,
     .theme_table tbody tr td a {
         font-size: 10px;
     }
+
     .theme_table tbody tr td:first-child {
         width: 45px;
     }
+
     .theme_table tbody tr td:last-child {
         width: 15%;
     }
@@ -3078,30 +3204,30 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
     background-color: #666;
 }
 
-.bd-border{
+.bd-border {
     border: 1px solid #c4c0c0;
     padding: 8px 8px;
     padding-bottom: 0px;
-margin-left: 20px;
+    margin-left: 20px;
     margin-top: 30px;
-text-align: center;
+    text-align: center;
 }
 
-.btn-border{
-	background: #3476bb;
+.btn-border {
+    background: #3476bb;
     padding: 8px 27px;
     color: #ffffff;
     border-radius: 5px;
 }
 
-.btn-border:hover{
-	background: #181818;
+.btn-border:hover {
+    background: #181818;
     padding: 8px 27px;
     color: #da804f;
     border-radius: 5px;
 }
 
-.title_box4 h3{
+.title_box4 h3 {
     background: #3476bc;
     color: aliceblue;
     width: 160px;
@@ -3130,12 +3256,12 @@ text-align: center;
 
 .mission-text {
     font-weight: bold;
-position: relative;
+    position: relative;
     color: #ff9800;
 }
 
 .mission-text::after {
-        content: "";
+    content: "";
     background-color: #ff9800;
     width: 110px;
     height: 2px;
@@ -3155,14 +3281,14 @@ position: relative;
     font-size: 15px;
 }
 
-.mission-text-vision{
- font-weight: bold;
-position: relative;
+.mission-text-vision {
+    font-weight: bold;
+    position: relative;
     color: #ff9800;
 }
 
-.mission-text-vision::after{
- content: "";
+.mission-text-vision::after {
+    content: "";
     background-color: #ff9800;
     width: 90px;
     height: 2px;
@@ -3171,11 +3297,13 @@ position: relative;
     left: 0px;
 
 }
-.bd-border-text{
-align-items: center;
+
+.bd-border-text {
+    align-items: center;
     margin-bottom: 10px;
 }
-.bd-border-text h2{
+
+.bd-border-text h2 {
     background: #da804f;
     width: 100px;
     display: initial;
@@ -3200,6 +3328,7 @@ align-items: center;
         width: 90%;
         text-align: end;
     }
+
     .menu-logo {
         width: 80px;
     }
@@ -3260,12 +3389,12 @@ align-items: center;
     text-align: -webkit-center;
 }
 
-.lan_info_inner ul{
-      padding: 0px 120px;
+.lan_info_inner ul {
+    padding: 0px 120px;
 }
 
-.lan_info_inner li{
-     text-align: -webkit-center;
+.lan_info_inner li {
+    text-align: -webkit-center;
     display: inline-block;
     width: 49%;
     border: 1px solid black;
@@ -3276,7 +3405,7 @@ align-items: center;
     margin-top: -1px;
 }
 
-.lan_info_inner span{
+.lan_info_inner span {
     text-align: -webkit-center;
     background: #b99010;
     font-size: 20px;
@@ -3286,7 +3415,7 @@ align-items: center;
 }
 
 
-.lan_info_inner a{
+.lan_info_inner a {
     text-align: -webkit-center;
     font-size: 24px;
     display: inline-block;
@@ -3340,46 +3469,57 @@ align-items: center;
 .download_button .btn_theme1 {
     margin-left: auto;
 }
+
 /*------------------achivement-----------------*/
-.features-box2-img{
-     height: auto !important;
+.features-box2-img {
+    height: auto !important;
 }
-.features-box2-img2{
-    width:230px;
-   height:200px;
+
+.features-box2-img2 {
+    width: 230px;
+    height: 200px;
 }
-.features-box2-img3{
+
+.features-box2-img3 {
     margin-left: 15px;
     border: 2px solid #202736;
 
 }
+
 /*---------------------practice-teaching-------------*/
-.practice_section{
+.practice_section {
     border: 1px solid #999;
     height: auto;
     text-align: center;
     box-shadow: 0px 0px 10px #ccc;
 }
-.practice_section h2{
+
+.practice_section h2 {
     padding-top: 10px;
 }
-.practice_section ul{
+
+.practice_section ul {
     padding: 10px 180px;
 }
-.practice_section ul li{
+
+.practice_section ul li {
     list-style: auto;
     padding-top: 10px;
 }
-.practice_section ul li a{
+
+.practice_section ul li a {
     color: #000;
 }
-.doc_text{
+
+.doc_text {
     text-align: center;
 }
-.year_box{
+
+.year_box {
     text-align: center;
 }
-.year_link{
+
+.year_link {
     padding: 8px 35px;
     font-weight: 600;
     background-color: #da804f;
@@ -3387,39 +3527,48 @@ align-items: center;
     border: none;
     margin: 10px 6px;
 }
-.year_section{
+
+.year_section {
     margin-top: 20px;
     margin-bottom: 30px;
 }
-.year_section img{
+
+.year_section img {
     width: 19%;
     height: 170px;
     padding-right: 8px;
 }
+
 /*----------------------previous-seminar---------------------*/
-.img_box img{
+.img_box img {
     width: 24%;
     height: 180px;
     padding-right: 12px;
 }
+
 @media (max-width: 768px) {
-    .practice_section ul{
+    .practice_section ul {
         padding: 5px 75px;
     }
-    .practice_section{
+
+    .practice_section {
         margin-bottom: 25px;
     }
-    .year_link{
+
+    .year_link {
         padding: 8px 8px !important;
     }
-    .year_section img{
+
+    .year_section img {
         height: 70px !important;
     }
+
     .lan_info_inner a {
         width: 80% !important;
     }
-    .img_box img{
-    height: 100px !important;
-    padding-right: 4px !important;
+
+    .img_box img {
+        height: 100px !important;
+        padding-right: 4px !important;
     }
 }

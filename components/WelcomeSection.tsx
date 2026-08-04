@@ -35,10 +35,10 @@ export default function WelcomeSection({
                 width={626}
                 height={275}
                 unoptimized
-                style={{
-                  width: "100%",
-                  height: "auto",
-                }}
+                // style={{
+                //   width: "100%",
+                //   height: "auto",
+                // }}
               />
             )}
 
