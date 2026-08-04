@@ -3,63 +3,140 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function OnlineFeesPayment() {
+interface Subsection {
+  title?: string;
+  description?: string;
+  image?: string;
+  link?: string;
+  [key: string]: unknown;
+}
+
+interface Section {
+  title?: string;
+  image?: string;
+  subsections?: Subsection[];
+  [key: string]: unknown;
+}
+
+interface OnlineFeesPaymentProps {
+  sections?: Section[];
+}
+
+export default function OnlineFeesPayment({
+  sections = [],
+}: OnlineFeesPaymentProps) {
+  // Main section index 0
+  const section = sections[0];
+
+  // Subsections
+  const subsections = section?.subsections || [];
+
+  // Find description from subsections
+  const description = subsections.find(
+    (item) => item.description
+  )?.description;
+
+  // Find QR Code image from subsections
+  const qrCodeImage = subsections.find(
+    (item) => item.image
+  )?.image;
+
+  // Find QR Code title from subsections
+  const qrCodeTitle = subsections.find(
+    (item) => item.title
+  )?.title;
+
+  // Find payment link from API
+  const apiPaymentLink = subsections.find(
+    (item) => item.link
+  )?.link;
+
+  // Default SBI Collect link
+  const paymentLink =
+    apiPaymentLink ||
+    "https://www.onlinesbi.com/sbicollect/";
+
   return (
     <>
-      {/* Page Title Section */}
+      {/* ========================================
+          PAGE TITLE SECTION
+      ======================================== */}
       <section className="page_title_wrap bottom_border">
         <Image
           className="page_title_bg"
-          src="/images/page_title_bg.jpg"
-          alt="page_title_bg"
+          src={
+            section?.image ||
+            "/images/page_title_bg.jpg"
+          }
+          alt={
+            section?.title ||
+            "Online Fees Payment"
+          }
           width={1920}
           height={300}
           priority
         />
+
         <div className="container">
-          <h3>ONLINE FEES PAYMENT</h3>
+          <h3>
+            {section?.title ||
+              "ONLINE FEES PAYMENT"}
+          </h3>
         </div>
       </section>
 
-      {/* Online Fees Content */}
+      {/* ========================================
+          ONLINE FEES CONTENT
+      ======================================== */}
       <section className="land_info_wrap">
         <div className="container">
           <div className="lan_info_inner">
-            {/* Process Information */}
-            <div>
-              <p className="text-center">
-                <strong>Process</strong> – Click Check Box to proceed for payment ———- 
-                Click on Proceed Button —————Select State———-Select type of Institution———– 
-                Click “Go” Button———Select the College Name 
-                “Rishi Aurobindo Institute of Teacher Education”———- 
-                Click “Submit” Button———Select Payment Category “Fees”———- 
-                Fillup the Form———-Then Click “Submit” Button—–Then Payment the Fees
-              </p>
-            </div>
 
-            {/* Empty Div */}
-            <div className="text-center">
-              <p className="text-center"></p>
-            </div>
-
-            {/* UPI QR Code Title */}
-            <div className="text-center">
-              <h3>UPI QR CODE</h3>
-            </div>
-
-            {/* QR Code Image and Button */}
-            <div className="text-center">
-              <Image
-                className="img-responsive land_img m-auto"
-                src="/images/1644408769975.jpg"
-                alt="UPI QR Code for Payment"
-                width={400}
-                height={400}
-                priority
+            {/* ========================================
+                PROCESS INFORMATION
+            ======================================== */}
+            {description && (
+              <div
+                className="text-center"
+                dangerouslySetInnerHTML={{
+                  __html: description,
+                }}
               />
+            )}
+
+            {/* ========================================
+                UPI QR CODE TITLE
+            ======================================== */}
+            {qrCodeTitle && (
+              <div className="text-center">
+                <h3>{qrCodeTitle}</h3>
+              </div>
+            )}
+
+            {/* ========================================
+                QR CODE IMAGE
+            ======================================== */}
+            <div className="text-center">
+              {qrCodeImage && (
+                <Image
+                  className="img-responsive land_img m-auto"
+                  src={qrCodeImage}
+                  alt={
+                    qrCodeTitle ||
+                    "UPI QR Code for Payment"
+                  }
+                  width={400}
+                  height={400}
+                  priority
+                />
+              )}
+
+              {/* ========================================
+                  SBI COLLECT BUTTON
+              ======================================== */}
               <p className="download_button mt-3">
-                <Link 
-                  href="https://www.onlinesbi.com/sbicollect/"
+                <Link
+                  href={paymentLink}
                   className="btn_theme"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -68,9 +145,11 @@ export default function OnlineFeesPayment() {
                 </Link>
               </p>
             </div>
+
           </div>
         </div>
       </section>
     </>
   );
 }
+

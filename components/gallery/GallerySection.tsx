@@ -6,38 +6,23 @@ import Lightbox from "yet-another-react-lightbox";
 
 import "yet-another-react-lightbox/styles.css";
 
-interface GallerySectionProps {
-  images?: string[];
+interface Subsection {
+  image?: string;
+  [key: string]: unknown;
 }
 
-const GallerySection = ({ images }: GallerySectionProps) => {
+interface GallerySectionProps {
+  subsections?: Subsection[];
+}
+
+const GallerySection = ({ subsections = [] }: GallerySectionProps) => {
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const defaultImages = [
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751107593710.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751106593625.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751106561651.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751106514285.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751106483753.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751106429861.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751106384972.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751106356700.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751106281683.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751106243828.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751106224014.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751106199471.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751106170738.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751106136761.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751106087062.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751106058381.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751106015407.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751105970988.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751105948501.jpg",
-    "https://wip.tezcommerce.com:3304/admin/module/25/1751105878198.jpg",
-  ];
-
-  const galleryImages = images || defaultImages;
+  // Get images from subsection image
+  const galleryImages = subsections
+    .map((item) => item.image)
+    .filter((image): image is string => Boolean(image));
 
   const openLightbox = (index: number) => {
     setCurrentIndex(index);
@@ -78,22 +63,24 @@ const GallerySection = ({ images }: GallerySectionProps) => {
         </div>
       </section>
 
-      <Lightbox
-        open={open}
-        close={() => setOpen(false)}
-        slides={galleryImages.map((src) => ({
-          src,
-        }))}
-        index={currentIndex}
-        carousel={{
-          finite: false,
-        }}
-        styles={{
-          container: {
-            backgroundColor: "rgba(0, 0, 0, 0.9)",
-          },
-        }}
-      />
+      {galleryImages.length > 0 && (
+        <Lightbox
+          open={open}
+          close={() => setOpen(false)}
+          slides={galleryImages.map((src) => ({
+            src,
+          }))}
+          index={currentIndex}
+          carousel={{
+            finite: false,
+          }}
+          styles={{
+            container: {
+              backgroundColor: "rgba(0, 0, 0, 0.9)",
+            },
+          }}
+        />
+      )}
     </>
   );
 };
