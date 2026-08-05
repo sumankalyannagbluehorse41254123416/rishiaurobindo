@@ -21,7 +21,7 @@ export default function CodeOfConduct() {
 
               <a
                 href="/images/1651044568232.pdf"
-                className="btn_theme"
+                className="btn_theme ml-2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -45,7 +45,7 @@ export default function CodeOfConduct() {
 
               <a
                 href="/images/1671441034310.pdf"
-                className="btn_theme"
+                className="btn_theme ml-2"
                 target="_blank"
                 rel="noopener noreferrer"
               >

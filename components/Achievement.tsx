@@ -21,11 +21,11 @@ export default function Achievement({
   return (
     <section className="features-box features-box1">
       <div className="container">
-        <div className="row">
+        <div className="">
           <h3>{section.title || ""}</h3>
         </div>
 
-        <div className="banner_slider_wrap">
+        <div className="banner_slider_wrap achievement_slider_wrap">
           {section.subsections?.map((subsection, index) => {
             if (!subsection.image) return null;
 
