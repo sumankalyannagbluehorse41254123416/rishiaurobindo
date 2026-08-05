@@ -109,7 +109,7 @@ export default function StudentDetails() {
 
         <div className="row">
           {/* B.ED */}
-          <div className="column">
+          <div className="col-md-6">
             <div className="title_box4">
               <h3>B.ED</h3>
             </div>
@@ -147,7 +147,7 @@ export default function StudentDetails() {
           </div>
 
           {/* D.ELED */}
-          <div className="column">
+          <div className="mt-4 mt-md-0 col-md-6">
             <div className="title_box4">
               <h3>D.ELED</h3>
             </div>

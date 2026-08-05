@@ -760,7 +760,9 @@ html.open-rightmenu .menu-right span.close-r {
     object-fit: cover;
     object-position: center;
 }
-
+.achievement_slider_wrap img{
+    margin-bottom: 20px;
+}
 @media (max-width: 768px) {
     .banner_slider_wrap img {
         height: 335px;
@@ -3296,7 +3298,7 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
     width: 90px;
     height: 2px;
     position: absolute;
-    top: 56px;
+    top: 34px;
     left: 0px;
 
 }
@@ -3410,10 +3412,10 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
 
 .lan_info_inner span {
     text-align: -webkit-center;
-    background: #b99010;
+    /* background: #b99010; */
     font-size: 20px;
     font-family: auto;
-    color: #ffffff;
+    color: #000;
     /* padding: 5px 60px; */
 }
 
