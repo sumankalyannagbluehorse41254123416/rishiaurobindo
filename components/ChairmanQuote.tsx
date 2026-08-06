@@ -35,6 +35,7 @@ export default function ChairmanQuote({
 
 
   return (
+    <div className="container">
     <div className="banner_slider_wrap">
       <div className="row">
 
@@ -178,6 +179,7 @@ export default function ChairmanQuote({
         </div>
 
       </div>
+    </div>
     </div>
   );
 }

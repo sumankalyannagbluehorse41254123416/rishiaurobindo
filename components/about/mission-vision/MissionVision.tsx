@@ -81,7 +81,7 @@ export default function MissionVision() {
 
         {/* Vision */}
         <div className="mission-border">
-          <h3 className="mission-text-vision pt-4">Vision</h3>
+          <h3 className="mission-text-vision pt-1">Vision</h3>
 
           <div className="row">
             <div className="col-sm-12 col-md-12">
