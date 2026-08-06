@@ -1,7 +1,32 @@
 import Image from "next/image";
 import { headers } from "next/headers";
 
-import { fetchDocumentCollection } from "@/service/fetchdata.services";
+import {
+  fetchPageData,
+  fetchDocumentCollection,
+} from "@/service/fetchdata.services";
+
+// ==========================================
+// TYPES
+// ==========================================
+
+interface Section {
+  title?: string;
+  shortDescription?: string;
+  description?: string;
+  image?: string;
+  bannerImage?: string;
+  subsections?: Section[];
+  [key: string]: unknown;
+}
+
+interface PageData {
+  pageItemdataWithSubsection?: Section[];
+
+  data?: {
+    pageItemdataWithSubsection?: Section[];
+  };
+}
 
 interface DocumentItem {
   id?: number;
@@ -17,6 +42,7 @@ interface DocumentItem {
 
 interface CollectionData {
   success?: boolean;
+
   collection?: {
     id?: number;
     uid?: string;
@@ -30,7 +56,9 @@ interface CollectionData {
 // GET TEXT FROM HTML DESCRIPTION
 // ==========================================
 
-const getDescriptionText = (html?: string) => {
+const getDescriptionText = (
+  html?: string
+) => {
   if (!html) return "";
 
   return html
@@ -38,6 +66,10 @@ const getDescriptionText = (html?: string) => {
     .replace(/&nbsp;/g, " ")
     .trim();
 };
+
+// ==========================================
+// ABSTRACT
+// ==========================================
 
 export default async function Abstract() {
   const rqHeaders = await headers();
@@ -52,6 +84,13 @@ export default async function Abstract() {
     );
 
   // ==========================================
+  // PAGE API ID
+  // ==========================================
+
+  const abstractPageId =
+    "b8cb10ae-d27c-4218-ab52-2c80b5372bd2";
+
+  // ==========================================
   // ABSTRACT COLLECTION ID
   // ==========================================
 
@@ -59,7 +98,47 @@ export default async function Abstract() {
     "70da1a2f-6b68-4261-b698-256d57834ef7";
 
   // ==========================================
-  // FETCH ABSTRACT DATA
+  // PAGE DATA
+  // ==========================================
+
+  let pageData: PageData = {};
+
+  try {
+    pageData =
+      await fetchPageData(
+        {
+          host,
+          ...headersObj,
+        },
+        abstractPageId
+      );
+  } catch (error) {
+    console.error(
+      "ABSTRACT PAGE API ERROR:",
+      error
+    );
+  }
+
+  // ==========================================
+  // GET PAGE SECTIONS
+  // ==========================================
+
+  const pageSections =
+    pageData.pageItemdataWithSubsection ||
+    pageData.data
+      ?.pageItemdataWithSubsection ||
+    [];
+
+  // ==========================================
+  // PAGE TITLE SECTION
+  // INDEX 1
+  // ==========================================
+
+  const pageTitleSection =
+    pageSections[1];
+
+  // ==========================================
+  // ABSTRACT DOCUMENT DATA
   // ==========================================
 
   let abstractData:
@@ -77,7 +156,7 @@ export default async function Abstract() {
       );
   } catch (error) {
     console.error(
-      "ABSTRACT API ERROR:",
+      "ABSTRACT DOCUMENT API ERROR:",
       error
     );
   }
@@ -90,6 +169,10 @@ export default async function Abstract() {
     abstractData?.collection?.documents ||
     [];
 
+  // ==========================================
+  // RETURN
+  // ==========================================
+
   return (
     <>
       {/* ==========================================
@@ -99,15 +182,23 @@ export default async function Abstract() {
       <section className="page_title_wrap bottom_border">
         <Image
           className="page_title_bg"
-          src="https://www.rabedc.com/img/page_title_bg.jpg"
-          alt="page_title_bg"
+          src={
+            pageTitleSection?.image ||
+            "https://www.rabedc.com/img/page_title_bg.jpg"
+          }
+          alt={
+            pageTitleSection?.title ||
+            "page_title_bg"
+          }
           width={1920}
           height={300}
           priority
         />
 
         <div className="container">
-          <h3>ABSTARCT</h3>
+          <h3>
+            {pageTitleSection?.title }
+          </h3>
         </div>
       </section>
 
@@ -119,10 +210,15 @@ export default async function Abstract() {
         <div className="container pt-5">
 
           {documents.map(
-            (document, index) => {
+            (
+              document,
+              index
+            ) => {
 
-              // Description থেকে
-              // "Abstract-Paper" text বের করবে
+              // ==================================
+              // DESCRIPTION TEXT
+              // ==================================
+
               const descriptionText =
                 getDescriptionText(
                   document.description
