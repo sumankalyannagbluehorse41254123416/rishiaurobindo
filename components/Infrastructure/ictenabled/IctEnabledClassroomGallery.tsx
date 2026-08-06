@@ -1,3 +1,4 @@
+import { Expand, ExpandIcon } from "lucide-react";
 import Image from "next/image";
 
 const galleryImages = [
@@ -52,6 +53,7 @@ export default function IctEnabledClassroomGallery() {
                   width={800}
                   height={600}
                 />
+                <ExpandIcon/>
               </a>
             </div>
           ))}
