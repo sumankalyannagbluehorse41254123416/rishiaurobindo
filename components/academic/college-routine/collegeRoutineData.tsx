@@ -350,7 +350,7 @@ export default function CollegeRoutine() {
   const [activeTab, setActiveTab] = useState(9);
 
   return (
-    <section className="land_info_wrap">
+    <section className="land_info_wrap college_routine">
       <div className="container">
         <div className="row">
           {/* Left Side - Year Tabs */}

@@ -173,7 +173,7 @@ const QuestionPaperContent = () => {
           {/* Year Tabs */}
           <div className="col-lg-3 col-sm-6 col-xs-12">
             <div
-              className="nav flex-column nav-pills"
+              className="nav flex-column nav-pills college_routine"
               role="tablist"
               aria-orientation="vertical"
             >
