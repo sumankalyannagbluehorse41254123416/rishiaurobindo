@@ -2,16 +2,23 @@
 
 import Image from "next/image";
 
-const galleryImages = [
-  "https://wip.tezcommerce.com:3304/admin/module/25/1645080136014.jpg",
-  "https://wip.tezcommerce.com:3304/admin/module/25/1645080120047.jpg",
-  "https://wip.tezcommerce.com:3304/admin/module/25/1645080105061.jpg",
-  "https://wip.tezcommerce.com:3304/admin/module/25/1645080092036.jpg",
-  "https://wip.tezcommerce.com:3304/admin/module/25/1645080074424.jpg",
-  "https://wip.tezcommerce.com:3304/admin/module/25/1645080060056.jpg",
-];
+interface Props {
+  section?: {
+    title?: string;
+    subsections?: {
+      image?: string;
+    }[];
+  };
+}
 
-export default function VigilanceAwarenessGallery() {
+export default function VigilanceAwarenessGallery({
+  section,
+}: Props) {
+  const images =
+    section?.subsections?.filter(
+      (item) => item.image
+    ) || [];
+
   return (
     <section className="land_info_wrap">
       <div
@@ -21,26 +28,29 @@ export default function VigilanceAwarenessGallery() {
           margin: "70px auto",
         }}
       >
-        <h3>VIGILANCE AWARNESS</h3>
+        {section?.title && <h3>{section.title}</h3>}
       </div>
 
       <div className="container main-gallery">
         <div className="row">
-          {galleryImages.map((image, index) => (
+          {images.map((item, index) => (
             <div
               className="col-lg-3 col-md-4 col-6"
-              key={image}
+              key={`${item.image}-${index}`}
             >
               <a
                 className="gal-inr"
-                href={image}
+                href={item.image}
                 data-lightbox="Gallery 1"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Image
-                  src={image}
+                  src={item.image ?? ""}
                   alt={`Vigilance Awareness ${index + 1}`}
                   width={400}
                   height={300}
+                  className="img-fluid"
                 />
               </a>
             </div>

@@ -2,44 +2,52 @@
 
 import Image from "next/image";
 
-const galleryImages = [
-  "https://wip.tezcommerce.com:3304/admin/module/25/1677820923311.jpg",
-  "https://wip.tezcommerce.com:3304/admin/module/25/1677820903482.jpg",
-  "https://wip.tezcommerce.com:3304/admin/module/25/1677820887833.jpg",
-  "https://wip.tezcommerce.com:3304/admin/module/25/1677820873063.jpg",
-  "https://wip.tezcommerce.com:3304/admin/module/25/1677820846847.jpg",
-  "https://wip.tezcommerce.com:3304/admin/module/25/1677820832542.jpg",
-  "https://wip.tezcommerce.com:3304/admin/module/25/1677820812366.jpg",
-];
+interface Subsection {
+  image?: string;
+}
 
-export default function NationalInternationalGallery() {
+interface Section {
+  title?: string;
+  subsections?: Subsection[];
+}
+
+interface Props {
+  section?: Section;
+}
+
+export default function NationalInternationalGallery({
+  section,
+}: Props) {
+  const images = section?.subsections ?? [];
+
   return (
     <>
-   
-      {/* Gallery */}
       <section className="land_info_wrap">
         <div className="container main-gallery">
           <div className="row">
-            {galleryImages.map((image, index) => (
-              <div
-                className="col-lg-3 col-md-4 col-6"
-                key={`${image}-${index}`}
-              >
-                <a
-                  className="gal-inr"
-                  href={image}
-                  data-lightbox="Gallery 1"
+            {images.map((item, index) =>
+              item.image ? (
+                <div
+                  className="col-lg-3 col-md-4 col-6"
+                  key={index}
                 >
-                  <Image
-                    src={image}
-                    alt="main-gallery2"
-                    width={400}
-                    height={300}
-                    unoptimized
-                  />
-                </a>
-              </div>
-            ))}
+                  <a
+                    className="gal-inr"
+                    href={item.image}
+                    data-lightbox="Gallery 1"
+                  >
+                    <Image
+                      src={item.image}
+                      alt={`${section?.title ?? "Gallery"} ${index + 1}`}
+                      width={400}
+                      height={300}
+                      className="img-fluid"
+                      unoptimized
+                    />
+                  </a>
+                </div>
+              ) : null
+            )}
           </div>
         </div>
       </section>

@@ -1,10 +1,35 @@
-export default function MainPage() {
+interface MainPageProps {
+  section?: {
+    title?: string;
+    shortDescription?: string;
+  };
+}
+
+
+export default function MainPage({
+  section,
+}: MainPageProps) {
+
   return (
     <div className="container">
+
       <div className="text-center py-5">
-        <h3>Page Under Maintenance</h3>
-        <p>We are currently updating this page. Please check back later.</p>
+
+        {section?.title && (
+          <h3>
+            {section.title}
+          </h3>
+        )}
+
+
+        {section?.shortDescription && (
+          <p>
+            {section.shortDescription}
+          </p>
+        )}
+
       </div>
+
     </div>
   );
 }

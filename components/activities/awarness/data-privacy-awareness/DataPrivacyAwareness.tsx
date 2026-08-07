@@ -2,7 +2,23 @@
 
 import Image from "next/image";
 
-export default function DataPrivacyAwareness() {
+interface Props {
+  section?: {
+    title?: string;
+    subsections?: {
+      image?: string;
+    }[];
+  };
+}
+
+export default function DataPrivacyAwareness({
+  section,
+}: Props) {
+  const images =
+    section?.subsections?.filter(
+      (item) => item.image
+    ) || [];
+
   return (
     <section className="land_info_wrap">
       <div
@@ -12,25 +28,33 @@ export default function DataPrivacyAwareness() {
           margin: "70px auto",
         }}
       >
-        <h3>DATA PRIVACY AWARNESS</h3>
+        {section?.title && <h3>{section.title}</h3>}
       </div>
 
       <div className="container main-gallery">
         <div className="row">
-          <div className="col-lg-3 col-md-4 col-6">
-            <a
-              className="gal-inr"
-              href="/images/1645080199038.jpg"
-              data-lightbox="Gallery 1"
+          {images.map((item, index) => (
+            <div
+              className="col-lg-3 col-md-4 col-6"
+              key={`${item.image}-${index}`}
             >
-              <Image
-                src="/images/1645080199038.jpg"
-                alt="Data Privacy Awareness"
-                width={400}
-                height={300}
-              />
-            </a>
-          </div>
+              <a
+                className="gal-inr"
+                href={item.image}
+                data-lightbox="Gallery 1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src={item.image ?? ""}
+                  alt={`Data Privacy Awareness ${index + 1}`}
+                  width={400}
+                  height={300}
+                  className="img-fluid"
+                />
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </section>

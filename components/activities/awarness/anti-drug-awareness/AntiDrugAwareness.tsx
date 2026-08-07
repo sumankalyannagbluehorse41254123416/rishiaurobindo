@@ -1,4 +1,13 @@
-export default function AntiDrugAwareness() {
+interface Props {
+  section?: {
+    title?: string;
+    shortDescription?: string;
+  };
+}
+
+export default function AntiDrugAwareness({
+  section,
+}: Props) {
   return (
     <section className="land_info_wrap">
       <div
@@ -8,7 +17,7 @@ export default function AntiDrugAwareness() {
           margin: "70px auto",
         }}
       >
-        <h3>ANTI DRUG AWARNESS</h3>
+        {section?.title && <h3>{section.title}</h3>}
       </div>
 
       <div className="container main-gallery">
@@ -20,11 +29,19 @@ export default function AntiDrugAwareness() {
               padding: "30px 0",
             }}
           >
-            <p>This chapter updated soon</p>
+            {section?.shortDescription && (
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: section.shortDescription.replace(
+                    /<\/?h3>/gi,
+                    ""
+                  ),
+                }}
+              />
+            )}
           </div>
         </div>
       </div>
     </section>
   );
 }
-

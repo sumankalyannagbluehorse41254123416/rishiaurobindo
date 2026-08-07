@@ -1,4 +1,22 @@
-export default function SeminarPresentationContent() {
+"use client";
+
+interface Subsection {
+  title?: string;
+}
+
+interface Section {
+  subsections?: Subsection[];
+}
+
+interface Props {
+  section?: Section;
+}
+
+export default function SeminarPresentationContent({
+  section,
+}: Props) {
+  const topics = section?.subsections ?? [];
+
   return (
     <section className="land_info_wrap">
       <div className="row">
@@ -10,23 +28,13 @@ export default function SeminarPresentationContent() {
                 <p>TOPICS</p>
               </div>
 
-              <div>
-                <p className="download_button">
-                  গণিতের ধারণা
-                </p>
-              </div>
-
-              <div>
-                <p className="download_button">
-                  দলিত শিক্ষা
-                </p>
-              </div>
-
-              <div>
-                <p className="download_button">
-                  উপভাষা
-                </p>
-              </div>
+              {topics.map((item, index) => (
+                <div key={index}>
+                  <p className="download_button">
+                    {item.title}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
