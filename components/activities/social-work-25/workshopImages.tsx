@@ -11,16 +11,18 @@ interface Section {
   subsections?: Subsection[];
 }
 
-interface Props {
+interface WorkshopGalleryProps {
   section?: Section;
 }
 
-export default function RajasthanTour({
+export default function WorkshopGallery({
   section,
-}: Props) {
+}: WorkshopGalleryProps) {
+  const title = section?.title ?? "";
+  const images = section?.subsections ?? [];
+
   return (
     <section className="land_info_wrap">
-      {/* Gallery Title */}
       <div
         className="container main-gallery"
         style={{
@@ -28,29 +30,24 @@ export default function RajasthanTour({
           margin: "70px auto",
         }}
       >
-        <h3>{section?.title}</h3>
+        <h3>{title}</h3>
       </div>
 
-      {/* Gallery */}
       <div className="container main-gallery">
         <div className="row">
-          {section?.subsections?.map((item, index) => (
-            <div
-              className="col-lg-3 col-md-4 col-6"
-              key={index}
-            >
+          {images.map((item, index) => (
+            <div className="col-lg-3 col-md-4 col-6" key={index}>
               <a
                 className="gal-inr"
                 href={item.image}
-                target="_blank"
-                rel="noopener noreferrer"
+                data-lightbox="Gallery 1"
               >
                 <Image
                   src={item.image || ""}
-                  alt={`${section?.title} ${index + 1}`}
+                  alt={`${title} ${index + 1}`}
                   width={400}
                   height={300}
-                  className="img-fluid"
+                  className="w-100"
                 />
               </a>
             </div>

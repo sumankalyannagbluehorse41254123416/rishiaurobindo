@@ -2,16 +2,22 @@
 
 import Image from "next/image";
 
-const darjeelingTourImages = [
-  "/images/1731741913991.jpeg",
-  "/images/1731741902780.jpeg",
-  "/images/1731741889679.jpg",
-  "/images/1731741877940.jpg",
-  "/images/1731741864360.jpg",
-  "/images/1731741852590.jpg",
-];
+interface Subsection {
+  image?: string;
+}
 
-export default function DarjeelingTourGallery() {
+interface Section {
+  title?: string;
+  subsections?: Subsection[];
+}
+
+interface Props {
+  section?: Section;
+}
+
+export default function DarjeelingTourGallery({
+  section,
+}: Props) {
   return (
     <section className="land_info_wrap">
       <div
@@ -21,24 +27,24 @@ export default function DarjeelingTourGallery() {
           margin: "70px auto",
         }}
       >
-        <h3>Darjeeling Tour</h3>
+        <h3>{section?.title}</h3>
       </div>
 
       <div className="container main-gallery">
         <div className="row">
-          {darjeelingTourImages.map((image, index) => (
+          {section?.subsections?.map((item, index) => (
             <div
               className="col-lg-3 col-md-4 col-6"
-              key={`${image}-${index}`}
+              key={index}
             >
               <a
                 className="gal-inr"
-                href={image}
+                href={item.image}
                 data-lightbox="Gallery 1"
               >
                 <Image
-                  src={image}
-                  alt={`Darjeeling Tour ${index + 1}`}
+                  src={item.image || ""}
+                  alt={`${section?.title} ${index + 1}`}
                   width={400}
                   height={300}
                   className="w-100"

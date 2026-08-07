@@ -498,8 +498,6 @@ export default function Header() {
     };
   }, []);
 
-
-
   const toggleMenu = (): void => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -531,69 +529,67 @@ export default function Header() {
   return (
     <>
       <style jsx>{`
-
-      
         /* ===== Hamburger Button ===== */
         .hum-one {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  align-items: stretch !important;
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: space-between !important;
+          align-items: stretch !important;
 
-  width: 32px !important;
-  height: 24px !important;
+          width: 32px !important;
+          height: 24px !important;
 
-  padding: 0 !important;
-  margin-top: 23px !important;
-  margin-left: 30px !important;
+          padding: 0 !important;
+          margin-top: 23px !important;
+          margin-left: 30px !important;
 
-  background: transparent !important;
-  border: 0 !important;
+          background: transparent !important;
+          border: 0 !important;
 
-  cursor: pointer !important;
-  float: right !important;
+          cursor: pointer !important;
+          float: right !important;
 
-  position: relative !important;
-  z-index: 1001 !important;
+          position: relative !important;
+          z-index: 1001 !important;
 
-  /* Prevent Bootstrap/button styles from hiding it */
-  opacity: 1 !important;
-  visibility: visible !important;
-}
+          /* Prevent Bootstrap/button styles from hiding it */
+          opacity: 1 !important;
+          visibility: visible !important;
+        }
 
-  .hum-one > span {
-    display: block !important;
+        .hum-one > span {
+          display: block !important;
 
-    width: 32px !important;
-    min-width: 32px !important;
+          width: 32px !important;
+          min-width: 32px !important;
 
-    height: 3px !important;
-    min-height: 3px !important;
+          height: 3px !important;
+          min-height: 3px !important;
 
-    background-color: #333333 !important;
-    border-radius: 10px !important;
+          background-color: #333333 !important;
+          border-radius: 10px !important;
 
-    opacity: 1 !important;
-    visibility: visible !important;
+          opacity: 1 !important;
+          visibility: visible !important;
 
-    transform-origin: center !important;
-    transition:
-      transform 0.3s ease,
-      opacity 0.3s ease !important;
-  }
+          transform-origin: center !important;
+          transition:
+            transform 0.3s ease,
+            opacity 0.3s ease !important;
+        }
 
-  /* Active cross */
-  .hum-one.active > span:nth-child(1) {
-    transform: translateY(10px) rotate(45deg) !important;
-  }
+        /* Active cross */
+        .hum-one.active > span:nth-child(1) {
+          transform: translateY(10px) rotate(45deg) !important;
+        }
 
-  .hum-one.active > span:nth-child(2) {
-    opacity: 0 !important;
-  }
+        .hum-one.active > span:nth-child(2) {
+          opacity: 0 !important;
+        }
 
-  .hum-one.active > span:nth-child(3) {
-    transform: translateY(-10px) rotate(-45deg) !important;
-  }
+        .hum-one.active > span:nth-child(3) {
+          transform: translateY(-10px) rotate(-45deg) !important;
+        }
         /* ===== Side Menu (Match image design) ===== */
         .side-menu {
           position: fixed !important;
@@ -654,7 +650,7 @@ export default function Header() {
           cursor: pointer;
           transition: background 0.2s;
         }
-        .menu-item .menu-link{
+        .menu-item .menu-link {
           color: #ffffff !important;
         }
         .menu-link:hover {
@@ -665,15 +661,15 @@ export default function Header() {
         .submenu-list {
           list-style: none !important;
           padding-left: 15px !important;
-         font-size:15px;
+          font-size: 15px;
         }
-        .submenu-list .menu-item{
-        padding: 5px 0px;
+        .submenu-list .menu-item {
+          padding: 5px 0px;
         }
         .sub-submenu-list {
           list-style: none !important;
           padding-left: 15px !important;
-          font-size:15px;
+          font-size: 15px;
         }
 
         .arrow {
@@ -712,7 +708,7 @@ export default function Header() {
             right: -290px !important;
           }
         }
-          .main-header {
+        .main-header {
           position: relative;
           width: 100%;
           z-index: 999;
@@ -767,7 +763,15 @@ export default function Header() {
               <div className="col-sm-3 col-md-3">
                 <div className="collapse navbar-collapse float-left">
                   <div className="top-logo1">
-                    <img className="menu-logo" src="/images/banner-logo.png" alt="banner-logo" />
+                    <div className="top-logo1">
+                      <Image
+                        className="menu-logo"
+                        src="/images/banner-logo.png"
+                        alt="banner-logo"
+                        width={80}
+                        height={80}
+                      />
+                    </div>
                   </div>
                 </div>
 
@@ -810,8 +814,9 @@ export default function Header() {
                   >
                     <span>{item.title}</span>
                     <span
-                      className={`arrow ${openSubmenu === item.title ? "open" : ""
-                        }`}
+                      className={`arrow ${
+                        openSubmenu === item.title ? "open" : ""
+                      }`}
                     >
                       ▼
                     </span>
@@ -832,8 +837,9 @@ export default function Header() {
                               >
                                 <span>{sub.title}</span>
                                 <span
-                                  className={`arrow ${openSubSubmenu === sub.title ? "open" : ""
-                                    }`}
+                                  className={`arrow ${
+                                    openSubSubmenu === sub.title ? "open" : ""
+                                  }`}
                                 >
                                   ▼
                                 </span>

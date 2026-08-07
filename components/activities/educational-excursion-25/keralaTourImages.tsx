@@ -2,18 +2,22 @@
 
 import Image from "next/image";
 
-const keralaTourImages = [
-  "/images/1644046949885.jpg",
-  "/images/1644046939423.jpg",
-  "/images/1644046929204.jpg",
-  "/images/1644046918937.jpg",
-  "/images/1644046905156.jpg",
-  "/images/1644046895490.jpg",
-  "/images/1644046884688.jpg",
-  "/images/1644046872835.jpg",
-];
+interface Subsection {
+  image?: string;
+}
 
-export default function KeralaTourGallery() {
+interface Section {
+  title?: string;
+  subsections?: Subsection[];
+}
+
+interface Props {
+  section?: Section;
+}
+
+export default function KeralaTourGallery({
+  section,
+}: Props) {
   return (
     <section className="land_info_wrap">
       <div
@@ -23,24 +27,24 @@ export default function KeralaTourGallery() {
           margin: "70px auto",
         }}
       >
-        <h3>Kerala Tour</h3>
+        <h3>{section?.title}</h3>
       </div>
 
       <div className="container main-gallery">
         <div className="row">
-          {keralaTourImages.map((image, index) => (
+          {section?.subsections?.map((item, index) => (
             <div
               className="col-lg-3 col-md-4 col-6"
-              key={`${image}-${index}`}
+              key={index}
             >
               <a
                 className="gal-inr"
-                href={image}
+                href={item.image}
                 data-lightbox="Gallery 1"
               >
                 <Image
-                  src={image}
-                  alt={`Kerala Tour ${index + 1}`}
+                  src={item.image || ""}
+                  alt={`${section?.title} ${index + 1}`}
                   width={400}
                   height={300}
                   className="w-100"

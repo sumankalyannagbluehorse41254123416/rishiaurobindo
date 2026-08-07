@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 
-interface NoticeDocument {
+export interface NoticeDocument {
   id: number;
   uid: string;
   title: string;
@@ -19,8 +19,7 @@ interface NoticeDocument {
   sequence: number;
   status: string;
 }
-
-interface NoticeData {
+export interface NoticeData {
   success: boolean;
   collection: {
     id: number;

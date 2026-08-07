@@ -160,7 +160,7 @@ export default async function DeledTeaching() {
   // ==========================================
   // RETURN
   // ==========================================
-
+const documentSections = sections.slice(2);
   return (
     <>
       <PageTitle
@@ -170,7 +170,7 @@ export default async function DeledTeaching() {
       <DElEdSchoolList
         schools={schools}
       />
-      <DocumentsSection />
+    <DocumentsSection sections={documentSections} />
     </>
   );
 }

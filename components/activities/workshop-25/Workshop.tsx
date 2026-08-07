@@ -2,20 +2,22 @@
 
 import Image from "next/image";
 
-const workshopImages = [
-  "/images/1677221339477.jpg",
-  "/images/1677221330005.jpg",
-  "/images/1677221320233.jpg",
-  "/images/1677221310590.jpg",
-  "/images/1677221165782.jpeg",
-  "/images/1677221154243.jpeg",
-  "/images/1677221145341.jpeg",
-  "/images/1677221136071.jpeg",
-  "/images/1677221126851.jpg",
-  "/images/1677221117194.jpg",
-];
+interface Subsection {
+  image?: string;
+}
 
-export default function Workshop() {
+interface Section {
+  title?: string;
+  subsections?: Subsection[];
+}
+
+interface Props {
+  section?: Section;
+}
+
+export default function Workshop({
+  section,
+}: Props) {
   return (
     <section className="land_info_wrap">
       <div
@@ -25,28 +27,33 @@ export default function Workshop() {
           margin: "70px auto",
         }}
       >
-        <h3>Workshop</h3>
+        <h3>{section?.title}</h3>
       </div>
 
       <div className="container main-gallery">
         <div className="row">
-          {workshopImages.map((image, index) => (
-            <div className="col-lg-3 col-md-4 col-6" key={index}>
-              <a
-                className="gal-inr"
-                href={image}
-                data-lightbox="Gallery 1"
+          {section?.subsections?.map((item, index) =>
+            item.image ? (
+              <div
+                className="col-lg-3 col-md-4 col-6"
+                key={index}
               >
-                <Image
-                  src={image}
-                  alt={`Workshop ${index + 1}`}
-                  width={400}
-                  height={300}
-                  className="w-100"
-                />
-              </a>
-            </div>
-          ))}
+                <a
+                  className="gal-inr"
+                  href={item.image}
+                  data-lightbox="Gallery 1"
+                >
+                  <Image
+                    src={item.image}
+                    alt={`Workshop ${index + 1}`}
+                    width={400}
+                    height={300}
+                    className="w-100"
+                  />
+                </a>
+              </div>
+            ) : null
+          )}
         </div>
       </div>
     </section>

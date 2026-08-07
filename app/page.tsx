@@ -1,7 +1,7 @@
 import BannerSlider from "@/components/BannerSlider";
 import WelcomeSection from "@/components/WelcomeSection";
 import Achievement from "@/components/Achievement";
-import Notice from "@/components/Notice";
+import Notice, { NoticeData } from "@/components/Notice";
 import MissionVision from "@/components/MissionVision";
 import ChairmanQuote from "@/components/ChairmanQuote";
 import CollegeAtGlance from "@/components/CollegeAtGlance";
@@ -59,7 +59,7 @@ export default async function Home() {
         host,
         ...headersObj,
       },
-      "24dd981f-bd93-458e-a0c3-cca752c0e34e",
+      "24dd981f-bd93-458e-a0c3-cca752c0e34e"
     );
 
     console.log("HOME API RESPONSE:", JSON.stringify(siteData, null, 2));
@@ -81,7 +81,7 @@ export default async function Home() {
   // ==========================================
 
   const bannerSection = sections.find(
-    (section) => section.title === "BannerSlider",
+    (section) => section.title === "BannerSlider"
   );
 
   const banners =
@@ -95,24 +95,20 @@ export default async function Home() {
 
   const noticeCollectionId = "28a6e9eb-bef3-4bd6-937e-0724c2465ceb";
 
-  let noticeData: any = null;
+  let noticeData: NoticeData | null = null;
 
   try {
-    noticeData = await fetchDocumentCollection(
+    noticeData = (await fetchDocumentCollection(
       {
         host,
         ...headersObj,
       },
-      noticeCollectionId,
-    );
+      noticeCollectionId
+    )) as NoticeData;
 
-    // IMPORTANT
     console.log("================================");
-
     console.log("NOTICE API FULL RESPONSE:");
-
     console.log(JSON.stringify(noticeData, null, 2));
-
     console.log("================================");
   } catch (error) {
     console.error("NOTICE API ERROR:", error);
@@ -124,13 +120,12 @@ export default async function Home() {
 
   return (
     <>
-      <BannerSlider banners={banners} />
+       <BannerSlider banners={banners} />
 
       <WelcomeSection section={sections[1]} />
 
       <Achievement section={sections[2]} />
 
-      {/* NOTICE */}
       <Notice data={noticeData} />
 
       <MissionVision section={sections[3]} />

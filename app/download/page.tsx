@@ -1,4 +1,3 @@
-
 import PageTitle from "@/components/download/PageTitle";
 import DownloadSection from "@/components/download/DownloadSection";
 import DownloadSection2 from "@/components/download/DownloadSection2";
@@ -7,11 +6,14 @@ import { fetchDocumentCollection } from "@/service/fetchdata.services";
 
 import { headers } from "next/headers";
 
+type DocumentCollectionData = Awaited<
+  ReturnType<typeof fetchDocumentCollection>
+>;
+
 export default async function Download() {
   const rqHeaders = await headers();
 
   const host = rqHeaders.get("host") || "localhost:3000";
-
   const headersObj = Object.fromEntries(rqHeaders.entries());
 
   // ==========================================
@@ -38,10 +40,10 @@ export default async function Download() {
   // DATA VARIABLES
   // ==========================================
 
-  let admissionData: any = null;
-  let marksheetData: any = null;
-  let migrationData: any = null;
-  let coCurricularData: any = null;
+  let admissionData: DocumentCollectionData | null = null;
+  let marksheetData: DocumentCollectionData | null = null;
+  let migrationData: DocumentCollectionData | null = null;
+  let coCurricularData: DocumentCollectionData | null = null;
 
   // ==========================================
   // ADMISSION FORM API
@@ -129,4 +131,3 @@ export default async function Download() {
     </>
   );
 }
-
