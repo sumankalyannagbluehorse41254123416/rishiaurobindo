@@ -760,9 +760,11 @@ html.open-rightmenu .menu-right span.close-r {
     object-fit: cover;
     object-position: center;
 }
-.achievement_slider_wrap img{
+
+.achievement_slider_wrap img {
     margin-bottom: 20px;
 }
+
 @media (max-width: 768px) {
     .banner_slider_wrap img {
         height: 335px;
@@ -2089,8 +2091,8 @@ ul.admFormsList li:hover {
 }
 
 .main-gallery .gal-inr:before {
-    content: "\f25e";
-    font-family: "Ionicons";
+    content: "";
+
     transition: 0.3s;
     font-size: 50px;
     position: absolute;
@@ -2106,6 +2108,29 @@ ul.admFormsList li:hover {
     align-items: center;
     cursor: pointer;
     color: #f7f7f7;
+}
+
+.main-gallery .gal-inr svg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
+    z-index: 999;
+    margin: auto;
+    height: 100%;
+    width: 30px;
+}
+
+.main-gallery .gal-inr:hover svg {
+    opacity: 1;
+    transition: 0.3s;
 }
 
 .main-gallery .gal-inr:hover:before {

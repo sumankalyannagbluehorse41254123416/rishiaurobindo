@@ -1,3 +1,4 @@
+import { ExpandIcon } from "lucide-react";
 import Image from "next/image";
 
 const ComputerLabGallery = () => {
@@ -31,6 +32,7 @@ const ComputerLabGallery = () => {
                 width={400}
                 height={300}
               />
+              <ExpandIcon/>
             </a>
           </div>
         ))}
