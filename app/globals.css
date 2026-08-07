@@ -938,7 +938,9 @@
     padding-left: 10px;
   }
 }
-
+.gal-inr img{
+  margin-bottom: 10px;
+}
 h {
   text-align: inherit;
 }
@@ -956,9 +958,9 @@ td {
   unicode-bidi: isolate;
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
   background-color: #dddddd;
-}
+} */
 
 table {
   border-collapse: collapse;
@@ -967,7 +969,7 @@ table {
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .land_info_wrap {

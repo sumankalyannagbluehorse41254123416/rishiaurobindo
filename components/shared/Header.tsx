@@ -642,7 +642,7 @@ export default function Header() {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 12px 0px;
+          padding: 5px 0px;
           color: #ffffff !important;
           font-size: 15px;
           font-weight: 600;
