@@ -19,14 +19,14 @@ export default function HostelInfo() {
             style={{
               fontFamily: "Times New Roman",
               fontSize: "18px",
+              textAlign: "left",
             }}
           >
-            <p>
-              Students should read the rules and regulations before signing
-              the application form.
-            </p>
 
-            <p>
+            <p style={{ lineHeight: "1.5" }}>
+               Students should read the rules and regulations before signing
+              the application form.
+              <br />
               1. Smoking, Alcohol &amp; Narcotic consumption is strictly
               prohibited in and around the Hostel premises. Strict action will
               be taken against offenders.

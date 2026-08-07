@@ -2952,7 +2952,11 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
     padding-inline-start: 15px;
     margin-bottom: 15px;
 }
-
+@media (max-width:575px){
+    .land_details_li{
+        padding: 0 !important;
+    }
+}
 .land_details_li li {
     font-size: 14px;
     line-height: 28px;
@@ -3010,7 +3014,7 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
 
     .land_details_li {
         padding-inline-start: 93px;
-        margin-bottom: 242px
+        /* margin-bottom: 242px */
     }
 
     .land_details_li li {
@@ -3431,7 +3435,7 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
     height: 140px;
     vertical-align: middle;
     padding: 0;
-    margin-right: -6px;
+    /* margin-right: -6px; */
     margin-top: -1px;
 }
 
@@ -3451,7 +3455,7 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
     display: inline-block;
     background: #3476bc;
     width: 24%;
-    padding: 5px 0px;
+    padding: 5px 5px;
     margin-top: 10px;
     color: #ffffff;
     font-family: auto;

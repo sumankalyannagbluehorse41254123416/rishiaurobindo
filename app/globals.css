@@ -938,7 +938,9 @@
     padding-left: 10px;
   }
 }
-
+.gal-inr img{
+  margin-bottom: 10px;
+}
 h {
   text-align: inherit;
 }
