@@ -2952,11 +2952,13 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
     padding-inline-start: 15px;
     margin-bottom: 15px;
 }
-@media (max-width:575px){
-    .land_details_li{
+
+@media (max-width:575px) {
+    .land_details_li {
         padding: 0 !important;
     }
 }
+
 .land_details_li li {
     font-size: 14px;
     line-height: 28px;
@@ -3427,6 +3429,12 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
     padding: 0px 120px;
 }
 
+@media (max-width:575px) {
+    .lan_info_inner ul{
+        padding: 0px 10px;
+    }
+}
+
 .lan_info_inner li {
     text-align: -webkit-center;
     display: inline-block;
@@ -3454,13 +3462,15 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
     font-size: 24px;
     display: inline-block;
     background: #3476bc;
-    width: 24%;
+    width: 40%;
     padding: 5px 5px;
     margin-top: 10px;
     color: #ffffff;
     font-family: auto;
 }
-
+.college_routine button{
+    border: none;
+}
 
 .lan_info_inne.college-text {
     font-size: 18px !important;
