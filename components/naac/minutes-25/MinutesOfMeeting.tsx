@@ -1,33 +1,62 @@
-export default function MinutesOfMeeting() {
+interface DocumentData {
+  title?: string;
+  description?: string;
+  file_url?: string;
+  download_button_name?: string;
+}
+
+interface MinutesOfMeetingProps {
+  documents?: DocumentData[];
+}
+
+const stripHtml = (value?: string) => {
+  return value?.replace(/<[^>]*>/g, "").trim() || "";
+};
+
+export default function MinutesOfMeeting({
+  documents = [],
+}: MinutesOfMeetingProps) {
   return (
     <section className="land_info_wrap">
       <div className="container">
-        <table className="table table-bordered">
-          <thead>
-            <tr>
-              <th>Sl. No</th>
-              <th>Meeting Name</th>
-              <th>Link</th>
-            </tr>
-          </thead>
+        <div className="lan_info_inner table-responsive">
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Sl. No</th>
+                  <th>Meeting Name</th>
+                  <th>Link</th>
+                </tr>
 
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Minutes Of Meeting1</td>
-              <td>
-                <a
-                  href="/images/1652359633716.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-border"
-                >
-                  Download
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                {documents.map((document, index) => (
+                  <tr key={index}>
+                    <td>
+                      {stripHtml(document.description) ||
+                        index + 1}
+                    </td>
+
+                    <td>
+                      {document.title || ""}
+                    </td>
+
+                    <td>
+                      <a
+                        href={document.file_url || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-border"
+                      >
+                        {document.download_button_name ||
+                          "Download"}
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </section>
   );

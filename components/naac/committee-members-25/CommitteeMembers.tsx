@@ -1,4 +1,26 @@
-export default function CommitteeMembers() {
+
+interface Subsection {
+  title?: string;
+  description?: string;
+  image?: string;
+  link?: string;
+  [key: string]: unknown;
+}
+
+interface Section {
+  title?: string;
+  image?: string;
+  subsections?: Subsection[];
+  [key: string]: unknown;
+}
+
+interface CommitteeMembersProps {
+  sections: Section[];
+}
+
+export default function CommitteeMembers({
+  sections,
+}: CommitteeMembersProps) {
   return (
     <section className="land_info_wrap">
       <div className="container">
@@ -7,60 +29,63 @@ export default function CommitteeMembers() {
             <table>
               <tbody>
                 <tr>
-                  <th>Sl. No</th>
-                  <th>Name</th>
-                  <th>Designation</th>
-                  <th>Contact No</th>
-                  <th>E-Mail ID</th>
+                  <th>
+                    {sections[2]?.title || "Sl. No"}
+                  </th>
+
+                  <th>
+                    {sections[3]?.title || "Name"}
+                  </th>
+
+                  <th>
+                    {sections[4]?.title || "Designation"}
+                  </th>
+
+                  <th>
+                    {sections[5]?.title || "Contact No"}
+                  </th>
+
+                  <th>
+                    {sections[6]?.title || "E-Mail ID"}
+                  </th>
                 </tr>
 
-                <tr>
-                  <td>1.</td>
-                  <td>Mr. Mithun Barik</td>
-                  <td>Secretary &amp; Chairperson</td>
-                  <td>9933722796</td>
-                  <td>mithun123.barik@gmail.com</td>
-                </tr>
+                {Array.from({
+                  length: Math.max(
+                    sections[2]?.subsections?.length || 0,
+                    sections[3]?.subsections?.length || 0,
+                    sections[4]?.subsections?.length || 0,
+                    sections[5]?.subsections?.length || 0,
+                    sections[6]?.subsections?.length || 0
+                  ),
+                }).map((_, index) => (
+                  <tr key={index}>
+                    <td>
+                      {sections[2]?.subsections?.[index]
+                        ?.title || `${index + 1}.`}
+                    </td>
 
-                <tr>
-                  <td>2.</td>
-                  <td>Miss. Sulagna Chakraborty</td>
-                  <td>Convener</td>
-                  <td>7001069922</td>
-                  <td>chakraborty.sulagna7@gmail.com</td>
-                </tr>
+                    <td>
+                      {sections[3]?.subsections?.[index]
+                        ?.title || ""}
+                    </td>
 
-                <tr>
-                  <td>3.</td>
-                  <td>Dr. Madhab Chandra Rath</td>
-                  <td>Member</td>
-                  <td>7908166718</td>
-                  <td>rathmadhab1979@gmail.com</td>
-                </tr>
+                    <td>
+                      {sections[4]?.subsections?.[index]
+                        ?.title || ""}
+                    </td>
 
-                <tr>
-                  <td>4.</td>
-                  <td>Mr. Srihari Das</td>
-                  <td>Member</td>
-                  <td>8250863497</td>
-                  <td>sriharidas1990@gmail.com</td>
-                </tr>
+                    <td>
+                      {sections[5]?.subsections?.[index]
+                        ?.title || ""}
+                    </td>
 
-                <tr>
-                  <td>5.</td>
-                  <td>Mr. Shamu Khatik</td>
-                  <td>Member</td>
-                  <td>9775578466</td>
-                  <td>shamu55khatik@gmail.com</td>
-                </tr>
-
-                <tr>
-                  <td>6.</td>
-                  <td>Miss. Nargis Parvin</td>
-                  <td>Member</td>
-                  <td>9593690098</td>
-                  <td>nargishp16@gmail.com</td>
-                </tr>
+                    <td>
+                      {sections[6]?.subsections?.[index]
+                        ?.title || ""}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -73,3 +98,4 @@ export default function CommitteeMembers() {
     </section>
   );
 }
+
