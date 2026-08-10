@@ -1,3 +1,4 @@
+
 import { headers } from "next/headers";
 import { fetchPageData } from "@/service/fetchdata.services";
 
@@ -13,10 +14,10 @@ interface PageData {
   };
 }
 
-function stripHtml(html?: string) {
-  if (!html) return "";
+function stripHtml(value?: string) {
+  if (!value) return "";
 
-  return html
+  return value
     .replace(/<[^>]*>/g, "")
     .replace(/&nbsp;/g, " ")
     .trim();
@@ -50,19 +51,26 @@ export default async function Naac() {
     pageData.data?.pageItemdataWithSubsection ||
     [];
 
+  // Array index 0
   const section = sections[0];
+
+  const title = stripHtml(section?.title);
+  const shortDescription = stripHtml(
+    section?.shortDescription
+  );
 
   return (
     <div className="container">
       <div className="text-center py-5">
         <h3>
-          {section?.title || "Page Under Maintenance"}
+          {title || "Page Under Maintenance"}
         </h3>
 
         <p>
-          {stripHtml(section?.shortDescription)}
+          {shortDescription }
         </p>
       </div>
     </div>
   );
 }
+

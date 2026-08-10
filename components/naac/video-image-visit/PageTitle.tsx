@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 
 interface Section {
@@ -11,11 +12,14 @@ interface Props {
 
 export default function PageTitle({ section }: Props) {
   return (
-    <section className="page_title_wrap bottom_border">
+    <section className="page_title_wrap">
       <Image
         className="page_title_bg"
-        src={section?.image || "/images/page_title_bg.jpg"}
-        alt={section?.title || "Admission"}
+        src={
+          section?.image ||
+          "/images/page_title_bg.jpg"
+        }
+        alt={section?.title || "Video Image Visit"}
         width={1920}
         height={300}
         priority
@@ -27,3 +31,4 @@ export default function PageTitle({ section }: Props) {
     </section>
   );
 }
+
