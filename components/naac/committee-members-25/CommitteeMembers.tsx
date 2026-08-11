@@ -24,10 +24,10 @@ export default function CommitteeMembers({
   return (
     <section className="land_info_wrap">
       <div className="container">
-        <div className="lan_info_inner table-responsive ">
+        <div className="lan_info_inner table-responsive table-background">
           <div>
             <table>
-              <tbody>
+              <thead>
                 <tr>
                   <th>
                     {sections[2]?.title || "Sl. No"}
@@ -49,6 +49,9 @@ export default function CommitteeMembers({
                     {sections[6]?.title || "E-Mail ID"}
                   </th>
                 </tr>
+              </thead>
+              <tbody>
+                
 
                 {Array.from({
                   length: Math.max(
