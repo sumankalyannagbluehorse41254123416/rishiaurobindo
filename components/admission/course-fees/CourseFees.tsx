@@ -1,4 +1,19 @@
-export default function CourseFees() {
+interface DocumentItem {
+  title?: string;
+  description?: string;
+  file_url?: string;
+  download_button_name?: string;
+  sequence?: number;
+  status?: string;
+}
+
+interface CourseFeesProps {
+  documents?: DocumentItem[];
+}
+
+export default function CourseFees({
+  documents = [],
+}: CourseFeesProps) {
   return (
     <div className="container">
       <div className="w-100 mt-3 text-md-center title-bx1">
@@ -7,45 +22,43 @@ export default function CourseFees() {
 
       <div className="main-gallery">
         <div className="row mb-5">
-          {/* D.El.Ed */}
-          <div className="col-lg-6 col-sm-12 text-center">
-            <div className="courses_in">
-              D.El.Ed
-            </div>
-
-            <div className="courses_in"></div>
-
-            Fees Structure{" "}
-            <a
-              href="/images/1712052679100.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-border"
+          {documents.map((document) => (
+            <div
+              className="col-lg-6 col-sm-12 text-center"
+              key={document.sequence}
             >
-              Download
-            </a>
-          </div>
+              <div className="courses_in">
+                {document.title}
+              </div>
 
-          {/* B.Ed */}
-          <div className="col-lg-6 col-sm-12 text-center">
-            <div className="courses_in">
-              B.ED
+              <div className="courses_in"></div>
+
+              {document.description && (
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: document.description,
+                  }}
+                />
+              )}
+
+              {" "}
+
+              {document.file_url && (
+                <a
+                  href={document.file_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-border"
+                >
+                  {document.download_button_name ||
+                    "Download"}
+                </a>
+              )}
             </div>
-
-            <div className="courses_in"></div>
-
-            Fees Structure{" "}
-            <a
-              href="/images/1710308347103.PDF"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-border"
-            >
-              Download
-            </a>
-          </div>
+          ))}
         </div>
       </div>
     </div>
   );
 }
+

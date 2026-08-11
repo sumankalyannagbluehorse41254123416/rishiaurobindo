@@ -1,14 +1,68 @@
-export default function AdmissionForm() {
+"use client";
+interface DocumentItem {
+  id: number;
+  uid: string;
+  title?: string;
+  description?: string;
+  file_url?: string;
+  file_type?: string;
+  file_size?: number;
+  download_button_name?: string;
+  download_count?: number;
+  is_downloadable?: boolean;
+  cta_text?: string;
+  cta_url?: string | null;
+  thumbnail_url?: string | null;
+  sequence?: number;
+  status?: string;
+}
+
+interface AdmissionFormProps {
+  documents?: DocumentItem[];
+}
+
+export default function AdmissionForm({
+  documents = [],
+}: AdmissionFormProps) {
+  // Sequence 1, 2 = B.Ed
+  const bedDocuments = documents
+    .filter(
+      (document) =>
+        document.sequence === 1 ||
+        document.sequence === 2
+    )
+    .sort(
+      (a, b) =>
+        (a.sequence || 0) - (b.sequence || 0)
+    );
+
+  // Sequence 3, 4 = D.El.Ed
+  const deledDocuments = documents
+    .filter(
+      (document) =>
+        document.sequence === 3 ||
+        document.sequence === 4
+    )
+    .sort(
+      (a, b) =>
+        (a.sequence || 0) - (b.sequence || 0)
+    );
+
   return (
     <section className="land_info_wrap">
       <div className="container">
+
         {/* Main Title */}
         <div className="title_box2">
           <h3>Admission Form</h3>
         </div>
 
         <div className="row">
-          {/* B.Ed Section */}
+
+          {/* ==========================================
+              B.Ed Section
+          ========================================== */}
+
           <div className="column">
             <div className="title_box4">
               <h3>B.ED</h3>
@@ -25,41 +79,52 @@ export default function AdmissionForm() {
                 </thead>
 
                 <tbody>
-                  <tr>
-                    <td>1.</td>
-                    <td>Document Required</td>
-                    <td>
-                      <a
-                        href="/images/1666173467260.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-border"
+                  {bedDocuments.length > 0 ? (
+                    bedDocuments.map((document, index) => (
+                      <tr
+                        key={
+                          document.uid || document.id
+                        }
                       >
-                        Download
-                      </a>
-                    </td>
-                  </tr>
+                        <td>{index + 1}.</td>
 
-                  <tr>
-                    <td>1.</td>
-                    <td>Admission Form</td>
-                    <td>
-                      <a
-                        href="/images/1724403808031.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-border"
-                      >
-                        Download
-                      </a>
-                    </td>
-                  </tr>
+                        <td>
+                          {document.title || ""}
+                        </td>
+
+                        <td>
+                          {document.file_url ? (
+                            <a
+                              href={document.file_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="btn-border"
+                            >
+                              {document.download_button_name ||
+                                "Download"}
+                            </a>
+                          ) : (
+                            ""
+                          )}
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan={3}>
+                        No documents available.
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
           </div>
 
-          {/* D.El.Ed Section */}
+          {/* ==========================================
+              D.El.Ed Section
+          ========================================== */}
+
           <div className="column">
             <div className="title_box4">
               <h3>D.El.ED</h3>
@@ -76,41 +141,51 @@ export default function AdmissionForm() {
                 </thead>
 
                 <tbody>
-                  <tr>
-                    <td>1.</td>
-                    <td>Document Required</td>
-                    <td>
-                      <a
-                        href="/images/1666173479217.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-border"
+                  {deledDocuments.length > 0 ? (
+                    deledDocuments.map((document, index) => (
+                      <tr
+                        key={
+                          document.uid || document.id
+                        }
                       >
-                        Download
-                      </a>
-                    </td>
-                  </tr>
+                        <td>{index + 1}.</td>
 
-                  <tr>
-                    <td>1.</td>
-                    <td>Admission Form</td>
-                    <td>
-                      <a
-                        href="/images/1724405946631.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-border"
-                      >
-                        Download
-                      </a>
-                    </td>
-                  </tr>
+                        <td>
+                          {document.title || ""}
+                        </td>
+
+                        <td>
+                          {document.file_url ? (
+                            <a
+                              href={document.file_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="btn-border"
+                            >
+                              {document.download_button_name ||
+                                "Download"}
+                            </a>
+                          ) : (
+                            ""
+                          )}
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan={3}>
+                        No documents available.
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
           </div>
+
         </div>
       </div>
     </section>
   );
 }
+

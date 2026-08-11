@@ -1,4 +1,34 @@
-export default function FeeStructure() {
+interface DocumentItem {
+  id: number;
+  uid: string;
+  title?: string;
+  description?: string;
+  file_url?: string;
+  download_button_name?: string;
+  sequence?: number;
+}
+
+interface FeeStructureProps {
+  documents: DocumentItem[];
+}
+
+function getDescriptionText(description?: string) {
+  if (!description) return "";
+
+  return description
+    .replace(/<[^>]*>/g, "")
+    .trim();
+}
+
+export default function FeeStructure({
+  documents,
+}: FeeStructureProps) {
+  // First 2 = Fee Structure
+  const feeDocuments = documents.slice(0, 2);
+
+  // Last 2 = Admission
+  const admissionDocuments = documents.slice(2, 4);
+
   return (
     <section className="land_info_wrap admission-box">
       <div className="container">
@@ -11,33 +41,22 @@ export default function FeeStructure() {
               </p>
             </div>
 
-            {/* D.EL.ED Fees */}
-            <div>
-              <p className="download_button">
-                <a
-                  href="https://wip.tezcommerce.com:3304/admin/module/25/1644319889558.pdf"
-                  className="btn_theme"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  D.EL.ED FEES STRUCTURE FOR 2(TWO) YEARS – 80,000/-
-                </a>
-              </p>
-            </div>
-
-            {/* B.Ed Fees */}
-            <div>
-              <p className="download_button">
-                <a
-                  href="https://wip.tezcommerce.com:3304/admin/module/25/1644319802453.pdf"
-                  className="btn_theme"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  BED FEES STRUCTURE FOR 2(TWO) YEARS – 85,000/-
-                </a>
-              </p>
-            </div>
+            {feeDocuments.map((document) => (
+              <div key={document.uid}>
+                <p className="download_button">
+                  <a
+                    href={document.file_url || "#"}
+                    className="btn_theme"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {getDescriptionText(
+                      document.description
+                    )}
+                  </a>
+                </p>
+              </div>
+            ))}
           </div>
 
           {/* Admission - Right */}
@@ -48,36 +67,26 @@ export default function FeeStructure() {
               </p>
             </div>
 
-            {/* D.EL.ED Fees */}
-            <div>
-              <p className="download_button">
-                <a
-                  href="https://wip.tezcommerce.com:3304/admin/module/25/1644319889558.pdf"
-                  className="btn_theme"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  D.EL.ED FEES STRUCTURE FOR 2(TWO) YEARS – 80,000/-
-                </a>
-              </p>
-            </div>
-
-            {/* B.Ed Fees */}
-            <div>
-              <p className="download_button">
-                <a
-                  href="https://wip.tezcommerce.com:3304/admin/module/25/1644319802453.pdf"
-                  className="btn_theme"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  BED FEES STRUCTURE FOR 2(TWO) YEARS – 85,000/-
-                </a>
-              </p>
-            </div>
+            {admissionDocuments.map((document) => (
+              <div key={document.uid}>
+                <p className="download_button">
+                  <a
+                    href={document.file_url || "#"}
+                    className="btn_theme"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {getDescriptionText(
+                      document.description
+                    )}
+                  </a>
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
 }
+
