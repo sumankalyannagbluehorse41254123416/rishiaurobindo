@@ -54,12 +54,12 @@ export default function SSRReportTable({
                 );
 
                 return (
-                  <tr key={document.uid || document.id}>
-                    <td>{serialNumber}</td>
+                  <tr key={document.uid || document.id} >
+                    <td style={{textAlign: "center"}}>{serialNumber}</td>
 
-                    <td>{document.title || ""}</td>
+                    <td style={{textAlign: "center"}}>{document.title || ""}</td>
 
-                    <td>
+                    <td style={{textAlign: "center"}}>
                       {document.file_url ? (
                         <a
                           href={document.file_url}
