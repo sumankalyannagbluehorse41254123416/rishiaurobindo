@@ -3630,3 +3630,8 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
         padding-right: 4px !important;
     }
 }
+
+.table-background tbody tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+

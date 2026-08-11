@@ -24,7 +24,7 @@ export default function CommitteeMembers({
   return (
     <section className="land_info_wrap">
       <div className="container">
-        <div className="lan_info_inner table-responsive">
+        <div className="lan_info_inner table-responsive ">
           <div>
             <table>
               <tbody>

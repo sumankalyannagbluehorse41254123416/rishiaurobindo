@@ -2,16 +2,19 @@ const CommitteeMembersContent = () => {
   return (
     <section className="land_info_wrap">
       <div className="container">
-        <div className="lan_info_inner table-responsive">
+        <div className="lan_info_inner table-responsive table-background">
           <div>
             <table>
-              <tbody>
-                <tr>
+              <thead>
+                 <tr>
                   <th>Sl. No</th>
                   <th>Name</th>
                   <th>Phone No</th>
                   <th>Mail Id</th>
                 </tr>
+                </thead>
+              <tbody>
+               
 
                 <tr>
                   <td>1.</td>
