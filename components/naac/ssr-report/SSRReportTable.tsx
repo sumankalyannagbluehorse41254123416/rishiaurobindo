@@ -1,4 +1,38 @@
-export default function SSRReportTable() {
+
+interface DocumentItem {
+  id: number;
+  uid: string;
+  title?: string;
+  description?: string;
+  file_url?: string;
+  file_type?: string;
+  download_button_name?: string;
+  is_downloadable?: boolean;
+  sequence?: number;
+  status?: string;
+}
+
+interface SSRReportTableProps {
+  documents?: DocumentItem[];
+}
+
+function getSerialNumber(
+  description?: string,
+  fallback?: number
+): string {
+  if (!description) {
+    return fallback ? String(fallback) : "";
+  }
+
+  // <p>1</p> -> 1
+  const text = description.replace(/<[^>]*>/g, "").trim();
+
+  return text || (fallback ? String(fallback) : "");
+}
+
+export default function SSRReportTable({
+  documents = [],
+}: SSRReportTableProps) {
   return (
     <section className="land_info_wrap">
       <div className="container">
@@ -12,72 +46,47 @@ export default function SSRReportTable() {
           </thead>
 
           <tbody>
-            {/* DVV Clarification - Metric Level */}
-            <tr>
-              <td>2</td>
-              <td>DVV Clarification_Metric Level</td>
-              <td>
-                <a
-                  href="/images/1661167677856.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-border"
-                >
-                  View
-                </a>
-              </td>
-            </tr>
+            {documents.length > 0 ? (
+              documents.map((document, index) => {
+                const serialNumber = getSerialNumber(
+                  document.description,
+                  index + 1
+                );
 
-            {/* DVV Clarification - Extended Profile */}
-            <tr>
-              <td>3</td>
-              <td>DVV Clarification_Extended Profile</td>
-              <td>
-                <a
-                  href="/images/1661167623340.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-border"
-                >
-                  View
-                </a>
-              </td>
-            </tr>
+                return (
+                  <tr key={document.uid || document.id}>
+                    <td>{serialNumber}</td>
 
-            {/* IIQA Report */}
-            <tr>
-              <td>1</td>
-              <td>IIQA REPORT_1ST CYCLE</td>
-              <td>
-                <a
-                  href="/images/1661158361251.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-border"
-                >
-                  View
-                </a>
-              </td>
-            </tr>
+                    <td>{document.title || ""}</td>
 
-            {/* Self Study Report */}
-            <tr>
-              <td>4</td>
-              <td>SELF STUDY REPORT(SSR)_1ST CYCLE</td>
-              <td>
-                <a
-                  href="/images/1661158021163.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-border"
-                >
-                  View
-                </a>
-              </td>
-            </tr>
+                    <td>
+                      {document.file_url ? (
+                        <a
+                          href={document.file_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-border"
+                        >
+                          {document.download_button_name || "View"}
+                        </a>
+                      ) : (
+                        ""
+                      )}
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              <tr>
+                <td colSpan={3} className="text-center">
+                  No reports available.
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
     </section>
   );
 }
+
