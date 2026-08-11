@@ -26,7 +26,7 @@ const FacilitiesContent = () => {
               <strong>Physical Facilities</strong>
             </h3>
 
-            <ol>
+            <ol className="pl-0">
               <li>Principal Room</li>
               <li>Administrative Room</li>
               <li>Office Room - 2</li>
@@ -120,7 +120,7 @@ const FacilitiesContent = () => {
               <strong>Observation Day celebrated at college Premises</strong>
             </h4>
 
-            <ol>
+            <ol className="pl-0">
               <li>Gandhi Birth Day Celebration</li>
               <li>Teachers’ Day observed</li>
               <li>International Earth Day Celebration</li>
@@ -168,7 +168,7 @@ const FacilitiesContent = () => {
               <strong>Technology Based facilities</strong>
             </h3>
 
-            <ol>
+            <ol className="pl-0">
               <li>Wi-fi Enabled Campus</li>
               <li>CCTV Supervision</li>
               <li>Smart Classroom</li>
@@ -185,7 +185,7 @@ const FacilitiesContent = () => {
               <strong>Sports Facilities</strong>
             </h3>
 
-            <ol>
+            <ol className="pl-0">
               <li>Play Ground</li>
               <li>
                 Cricket Bat, Cricket Ball, Wicket / relevant other materials
