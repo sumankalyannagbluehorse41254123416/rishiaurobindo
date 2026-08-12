@@ -2,7 +2,7 @@ export default function CommitteeMembersTable() {
   return (
     <section className="land_info_wrap">
       <div className="container">
-        <div className="lan_info_inner table-responsive">
+        <div className="lan_info_inner table-responsive table-background">
           <div>
             <table>
               <thead>

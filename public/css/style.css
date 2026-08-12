@@ -431,7 +431,7 @@ body.aactive .insearch {
 
 .hum-one span {
     width: 100%;
-    margin: 4px 0;
+    margin: 2px 0;
     border-radius: 5px;
     display: block;
     background: #333;
@@ -612,7 +612,7 @@ html.open-rightmenu .menu-right span.close-r {
     }
 
     .navbar {
-        padding: 5px 15px;
+        padding: 10px 15px;
     }
 
     header a.navbar-brand {
@@ -661,7 +661,7 @@ html.open-rightmenu .menu-right span.close-r {
     }
 
     .hum-one span {
-        height: 3px;
+        height: 2px;
     }
 
     .menu-right {
@@ -3473,7 +3473,7 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
     margin-top: 10px;
     color: #ffffff;
     font-family: auto;
-    margin-left: 10px;
+   
 }
 
 @media (max-width:768px){
@@ -3629,4 +3629,12 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
         height: 100px !important;
         padding-right: 4px !important;
     }
+}
+
+.table-background tbody tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+
+.courses_gallery .courses_in{
+    margin-bottom: 20px;
 }

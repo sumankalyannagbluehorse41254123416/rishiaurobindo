@@ -20,7 +20,7 @@ export default function RulesAndRegulation({
         <h3 className="one8">Rules and Regulation</h3>
       </div>
 
-      <div className="main-gallery">
+      <div className="main-gallery courses_gallery">
         <div className="row mb-5">
           {documents.map((document) => (
             <div
@@ -31,7 +31,7 @@ export default function RulesAndRegulation({
                 {document.title}
               </div>
 
-              <div className="courses_in"></div>
+              <div className="courses_in">
 
               {document.file_url && (
                 <a
@@ -44,6 +44,7 @@ export default function RulesAndRegulation({
                     "Download"}
                 </a>
               )}
+              </div>
             </div>
           ))}
         </div>

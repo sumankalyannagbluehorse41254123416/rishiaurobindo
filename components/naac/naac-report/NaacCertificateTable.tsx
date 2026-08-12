@@ -36,9 +36,9 @@ export default function NaacCertificateTable({
                 <tr key={document.uid || document.id}>
                   <td>{index + 1}</td>
 
-                  <td>{document.title || ""}</td>
+                  <td style={{textAlign: "center"}}>{document.title || ""}</td>
 
-                  <td>
+                  <td >
                     {document.file_url ? (
                       <a
                         href={document.file_url}
