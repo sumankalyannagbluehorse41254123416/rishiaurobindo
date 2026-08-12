@@ -1,61 +1,73 @@
 import Image from "next/image";
 
-const approvalDocuments = [
-  {
-    image:
-      "https://wip.tezcommerce.com:3304/admin/module/25/1644313105492.jpg",
-    pdf:
-      "https://wip.tezcommerce.com:3304/admin/module/25/1644312973197.pdf",
-    title: "BED ADDL-INTAKE RECOGNITION-ORDER",
-  },
-  {
-    image:
-      "https://wip.tezcommerce.com:3304/admin/module/25/1644313074411.jpg",
-    pdf:
-      "https://wip.tezcommerce.com:3304/admin/module/25/1644312853435.pdf",
-    title: "BED RECOGNITION ORDER",
-  },
-];
+interface DocumentItem {
+  uid: string;
+  description?: string;
+  file_url?: string;
+  thumbnail_url?: string;
+}
 
-export default function BedRecognition() {
+interface BedRecognitionProps {
+  data: {
+    collection?: {
+      documents?: DocumentItem[];
+    };
+  } | null;
+}
+
+function getDescriptionText(description?: string) {
+  if (!description) return "";
+
+  return description
+    .replace(/<[^>]*>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .trim();
+}
+
+export default function BedRecognition({
+  data,
+}: BedRecognitionProps) {
+  const approvalDocuments =
+    data?.collection?.documents ?? [];
+
   return (
     <section className="land_info_wrap">
       <div className="container">
         <div className="lan_info_inner">
-          {/* Empty divs preserved from original HTML */}
-          <div>
-            <p></p>
-          </div>
 
           <div>
             <p></p>
           </div>
 
-          {approvalDocuments.map((document, index) => (
-            <div key={index}>
+          <div>
+            <p></p>
+          </div>
+
+          {approvalDocuments.map((document) => (
+            <div key={document.uid}>
               <Image
                 className="img-responsive land_img"
-                src={document.image}
+                src={document.thumbnail_url || ""}
                 alt="land_img2"
-                width={800}
-                height={600}
+                width={300}
+                height={389}
               />
 
               <p className="download_button">
                 <a
-                  href={document.pdf}
+                  href={document.file_url}
                   className="btn_theme1"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {document.title}
+                  {getDescriptionText(document.description)}
                 </a>
               </p>
             </div>
           ))}
+
         </div>
       </div>
     </section>
   );
 }
-

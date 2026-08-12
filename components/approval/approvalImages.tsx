@@ -2,36 +2,57 @@
 
 import Image from "next/image";
 
-const approvalImages = [
-  "https://wip.tezcommerce.com:3304/admin/module/25/1644832733996.jpg",
-  "https://wip.tezcommerce.com:3304/admin/module/25/1644832716735.jpg",
-  "https://wip.tezcommerce.com:3304/admin/module/25/1644832700856.jpg",
-];
+interface Subsection {
+  title?: string;
+  image?: string;
+}
 
-export default function ApprovalGallery() {
+interface Section {
+  title?: string;
+  image?: string;
+  subsections?: Subsection[];
+}
+
+interface ApprovalGalleryProps {
+  section?: Section;
+}
+
+export default function ApprovalGallery({
+  section,
+}: ApprovalGalleryProps) {
+  const images = section?.subsections ?? [];
+
   return (
     <div className="container main-gallery">
       <div className="w-100 mt-3 text-md-center title-bx1">
-        <h3 className="one8">Approval</h3>
+        <h3 className="one8">
+          {section?.title?.trim() || "Approval"}
+        </h3>
       </div>
 
       <div className="row mb-5">
-        {approvalImages.map((image, index) => (
-          <div className="col-md-3" key={index}>
-            <a
-              className="gal-inr"
-              href={image}
-              data-lightbox="Gallery 1"
-            >
-              <Image
-                src={image}
-                alt="main-gallery2"
-                width={400}
-                height={300}
-              />
-            </a>
-          </div>
-        ))}
+        {images.map((item, index) => {
+          const image = item.image?.trim();
+
+          if (!image) return null;
+
+          return (
+            <div className="col-md-3" key={item.title || index}>
+              <a
+                className="gal-inr"
+                href={image}
+                data-lightbox="Gallery 1"
+              >
+                <Image
+                  src={image}
+                  alt={item.title || "Approval"}
+                  width={400}
+                  height={300}
+                />
+              </a>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

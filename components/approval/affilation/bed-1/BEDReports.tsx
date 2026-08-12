@@ -1,4 +1,20 @@
-export default function BEDReports() {
+"use client";
+
+interface DocumentItem {
+  id: number;
+  title: string;
+  description: string;
+  file_url: string;
+  download_button_name: string;
+}
+
+interface Props {
+  documents: DocumentItem[];
+}
+
+export default function BEDReports({
+  documents,
+}: Props) {
   return (
     <div className="container">
       <div className="row mb-5 mt-5">
@@ -28,142 +44,33 @@ export default function BEDReports() {
                   </thead>
 
                   <tbody>
-                    <tr>
-                      <td>9</td>
-                      <td>2024-2025</td>
-                      <td>
-                        <a
-                          href="https://wip.tezcommerce.com:3304/admin/module/25/1748945288356.pdf"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn-border"
-                        >
-                          Download
-                        </a>
-                      </td>
-                    </tr>
+                    {documents.map((doc) => (
+                      <tr key={doc.id}>
+                        <td>
+                          {doc.description.replace(
+                            /<[^>]*>/g,
+                            ""
+                          )}
+                        </td>
 
-                    <tr>
-                      <td>8</td>
-                      <td>2023-2024</td>
-                      <td>
-                        <a
-                          href="https://wip.tezcommerce.com:3304/admin/module/25/1724326679181.PDF"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn-border"
-                        >
-                          Download
-                        </a>
-                      </td>
-                    </tr>
+                        <td>{doc.title}</td>
 
-                    <tr>
-                      <td>7</td>
-                      <td>2022-2023</td>
-                      <td>
-                        <a
-                          href="https://wip.tezcommerce.com:3304/admin/module/25/1669789906780.pdf"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn-border"
-                        >
-                          Download
-                        </a>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td>1</td>
-                      <td>2015-2017</td>
-                      <td>
-                        <a
-                          href="https://wip.tezcommerce.com:3304/admin/module/25/1651827832739.pdf"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn-border"
-                        >
-                          Download
-                        </a>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td>2</td>
-                      <td>2017-2018</td>
-                      <td>
-                        <a
-                          href="https://wip.tezcommerce.com:3304/admin/module/25/1651827853139.pdf"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn-border"
-                        >
-                          Download
-                        </a>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td>3</td>
-                      <td>2018-2019</td>
-                      <td>
-                        <a
-                          href=""
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn-border"
-                        >
-                          Download
-                        </a>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td>4</td>
-                      <td>2019-2020</td>
-                      <td>
-                        <a
-                          href="https://wip.tezcommerce.com:3304/admin/module/25/1651827892446.pdf"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn-border"
-                        >
-                          Download
-                        </a>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td>5</td>
-                      <td>2020-2021</td>
-                      <td>
-                        <a
-                          href="https://wip.tezcommerce.com:3304/admin/module/25/1651827904839.pdf"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn-border"
-                        >
-                          Download
-                        </a>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td>6</td>
-                      <td>2021-2022</td>
-                      <td>
-                        <a
-                          href="https://wip.tezcommerce.com:3304/admin/module/25/1651827916639.pdf"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn-border"
-                        >
-                          Download
-                        </a>
-                      </td>
-                    </tr>
+                        <td>
+                          <a
+                            href={doc.file_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-border"
+                          >
+                            {doc.download_button_name ||
+                              "Download"}
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
+
               </div>
             </div>
           </div>

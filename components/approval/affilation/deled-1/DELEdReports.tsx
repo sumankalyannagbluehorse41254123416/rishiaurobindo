@@ -1,4 +1,24 @@
-export default function DELEdReports() {
+interface DocumentData {
+  description?: string;
+  title?: string;
+  file_url?: string;
+}
+
+interface SectionData {
+  shortDescription?: string;
+  title?: string;
+  image?: string;
+}
+
+interface Props {
+  document?: DocumentData;
+  section?: SectionData;
+}
+
+export default function DELEdReports({
+  document,
+  section,
+}: Props) {
   return (
     <div className="container">
       <div className="row mb-5 mt-5">
@@ -28,12 +48,20 @@ export default function DELEdReports() {
                   </thead>
 
                   <tbody>
+                    {/* Document */}
                     <tr>
-                      <td>1</td>
-                      <td>2016-2019</td>
+                      <td>
+                        {document?.description?.replace(
+                          /<[^>]+>/g,
+                          ""
+                        )}
+                      </td>
+
+                      <td>{document?.title}</td>
+
                       <td>
                         <a
-                          href="https://wip.tezcommerce.com:3304/admin/module/25/1651828278379.pdf"
+                          href={document?.file_url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="btn-border"
@@ -43,12 +71,20 @@ export default function DELEdReports() {
                       </td>
                     </tr>
 
+                    {/* Page Section */}
                     <tr>
-                      <td>2</td>
-                      <td>2020-2023</td>
+                      <td>
+                        {section?.shortDescription?.replace(
+                          /<[^>]+>/g,
+                          ""
+                        )}
+                      </td>
+
+                      <td>{section?.title}</td>
+
                       <td>
                         <a
-                          href="https://wip.tezcommerce.com:3304/admin/module/25/1644318163843.jpg"
+                          href={section?.image}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="btn-border"

@@ -1,152 +1,124 @@
-export default function IqacCommitteeMembers() {
+interface Subsection {
+  id?: number;
+  title?: string;
+  description?: string;
+  longDescription?: string;
+  image?: string;
+  subsection_sequence?: number;
+}
+
+interface Section {
+  id?: number;
+  title?: string;
+  shortDescription?: string;
+  longDescription?: string;
+  image?: string;
+  section_sequence?: number;
+  subsections?: Subsection[];
+}
+
+interface IqacCommitteeMembersProps {
+  sections: Section[];
+}
+
+export default function IqacCommitteeMembers({
+  sections,
+}: IqacCommitteeMembersProps) {
+  // -------------------------------
+  // 4 TABLE COLUMNS
+  // -------------------------------
+
+  const slNoSection = sections[0];
+  const nameSection = sections[1];
+  const designationSection = sections[2];
+  const memberSection = sections[3];
+
+  // -------------------------------
+  // TOTAL ROWS
+  // -------------------------------
+
+  const maxRows = Math.max(
+    slNoSection?.subsections?.length ?? 0,
+    nameSection?.subsections?.length ?? 0,
+    designationSection?.subsections?.length ?? 0,
+    memberSection?.subsections?.length ?? 0
+  );
+
+  console.log("========== IQAC TABLE COMPONENT ==========");
+  console.log("Sl No:", slNoSection);
+  console.log("Name:", nameSection);
+  console.log("Designation:", designationSection);
+  console.log("Member:", memberSection);
+  console.log("Total Rows:", maxRows);
+
   return (
     <section className="land_info_wrap">
       <div className="container">
         <div className="lan_info_inner">
           <div>
             <table>
+              <thead>
+                <tr>
+                  {/* SECTION INDEX 0 */}
+                  <th>{slNoSection?.title?.trim()}</th>
+
+                  {/* SECTION INDEX 1 */}
+                  <th>{nameSection?.title?.trim()}</th>
+
+                  {/* SECTION INDEX 2 */}
+                  <th>{designationSection?.title?.trim()}</th>
+
+                  {/* SECTION INDEX 3 */}
+                  <th>{memberSection?.title?.trim()}</th>
+                </tr>
+              </thead>
+
               <tbody>
-                <tr>
-                  <th>Sl. No</th>
-                  <th>Name</th>
-                  <th>Designation</th>
-                  <th>Member</th>
-                </tr>
+                {Array.from({ length: maxRows }).map((_, index) => {
+                  const slNo =
+                    slNoSection?.subsections?.[index];
 
-                <tr>
-                  <td>1.</td>
-                  <td>Dr. Madhab Chandra Rath</td>
-                  <td>Principal</td>
-                  <td>Chairperson</td>
-                </tr>
+                  const name =
+                    nameSection?.subsections?.[index];
 
-                <tr>
-                  <td>2.</td>
-                  <td>Miss. Sulagna Chakraborty</td>
-                  <td>Asst. Professor</td>
-                  <td>Coordinator</td>
-                </tr>
+                  const designation =
+                    designationSection?.subsections?.[index];
 
-                <tr>
-                  <td>3.</td>
-                  <td>Dr. Prabhakar Sengupta</td>
-                  <td>
-                    Former-Principal, Raja N.L. Khan Womens’ College,
-                    Midnapore
-                  </td>
-                  <td>Member</td>
-                </tr>
+                  const member =
+                    memberSection?.subsections?.[index];
 
-                <tr>
-                  <td>4.</td>
-                  <td>Dr. Binoy Kumar Chanda</td>
-                  <td>
-                    Former Inspector of College, Vidyasagar University
-                    Midnapore
-                  </td>
-                  <td>Member</td>
-                </tr>
+                  console.log(`ROW ${index + 1}:`, {
+                    slNo: slNo?.title,
+                    name: name?.title,
+                    designation: designation?.title,
+                    member: member?.title,
+                  });
 
-                <tr>
-                  <td>5.</td>
-                  <td>Dr. Asis Dandapat</td>
-                  <td>Principal, Hijli College, Khargapur</td>
-                  <td>Member</td>
-                </tr>
+                  return (
+                    <tr key={index}>
+                      {/* SECTION 0 -> SUBSECTION TITLE */}
+                      <td>
+                        {slNo?.title?.trim() ||
+                          `${index + 1}.`}
+                      </td>
 
-                <tr>
-                  <td>6.</td>
-                  <td>Dr. Biswajit Sen</td>
-                  <td>Associate Professor, VTTI, Midnapore</td>
-                  <td>Member</td>
-                </tr>
+                      {/* SECTION 1 -> SUBSECTION TITLE */}
+                      <td>
+                        {name?.title?.trim()}
+                      </td>
 
-                <tr>
-                  <td>7.</td>
-                  <td>Mr. Pankaj Kumar Pal</td>
-                  <td>
-                    Asst. Professor, Dept. of Education, Gourav Guin
-                    Memorial College, C.K. Road
-                  </td>
-                  <td>Member</td>
-                </tr>
+                      {/* SECTION 2 -> SUBSECTION TITLE */}
+                      <td>
+                        {designation?.title?.trim()}
+                      </td>
 
-                <tr>
-                  <td>8.</td>
-                  <td>Mr. Mithun Barik</td>
-                  <td>Secretary of the College</td>
-                  <td>Member</td>
-                </tr>
-
-                <tr>
-                  <td>9.</td>
-                  <td>Mr. Sisir Kumar Mishra</td>
-                  <td>
-                    Former District Inspector of School, Paschim Medinipur
-                  </td>
-                  <td>Member</td>
-                </tr>
-
-                <tr>
-                  <td>10.</td>
-                  <td>Mr. Nirmal Ghorai</td>
-                  <td>
-                    Former Economist, Dev. &amp; Planning Dept., Paschim
-                    Medinipur
-                  </td>
-                  <td>Member</td>
-                </tr>
-
-                <tr>
-                  <td>11.</td>
-                  <td>Mr. Tarasankar Mahapatra</td>
-                  <td>
-                    Head Master, Panchkhuri, Deshabandhu High School
-                  </td>
-                  <td>Member</td>
-                </tr>
-
-                <tr>
-                  <td>12.</td>
-                  <td>Dr. Nanda Kishore Mondal</td>
-                  <td>Asst. Professor</td>
-                  <td>Member</td>
-                </tr>
-
-                <tr>
-                  <td>13.</td>
-                  <td>Mr. Srihari Das</td>
-                  <td>Asst. Professor</td>
-                  <td>Member</td>
-                </tr>
-
-                <tr>
-                  <td>14.</td>
-                  <td>Mr. Shamu Khatik</td>
-                  <td>Asst. Professor</td>
-                  <td>Member</td>
-                </tr>
-
-                <tr>
-                  <td>15.</td>
-                  <td>Mr. Suvasish Roy</td>
-                  <td>Asst. Professor</td>
-                  <td>Member</td>
-                </tr>
-
-                <tr>
-                  <td>16.</td>
-                  <td>Mr. Chinmoyee Ghosh</td>
-                  <td>Asst. Professor</td>
-                  <td>Member</td>
-                </tr>
-
-                <tr>
-                  <td>17.</td>
-                  <td>Mr. Sibu Dey</td>
-                  <td>Ex-Student</td>
-                  <td>Member</td>
-                </tr>
+                      {/* SECTION 3 -> SUBSECTION TITLE */}
+                      <td>
+                        {member?.title?.trim()}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
