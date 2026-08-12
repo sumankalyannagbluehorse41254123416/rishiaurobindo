@@ -1,18 +1,34 @@
 import Image from "next/image";
 
-export default function AwarenessProgrammeBanner() {
+interface Section {
+  title?: string;
+  image?: string;
+}
+
+interface AwarenessProgrammeBannerProps {
+  section?: Section;
+}
+
+export default function AwarenessProgrammeBanner({
+  section,
+}: AwarenessProgrammeBannerProps) {
   return (
     <section className="page_title_wrap bottom_border">
       <Image
         className="page_title_bg"
-        src="https://www.rabedc.com/img/page_title_bg.jpg"
-        alt="page_title_bg"
+        src={
+          section?.image ||
+          "/images/page_title_bg.jpg"
+        }
+        alt={section?.title || "page_title_bg"}
         fill
         priority
       />
 
       <div className="container">
-        <h3>Awarness Programme</h3>
+        <h3>
+          {section?.title || "Awarness Programme"}
+        </h3>
       </div>
     </section>
   );

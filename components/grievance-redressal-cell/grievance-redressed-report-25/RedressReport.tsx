@@ -1,31 +1,74 @@
-export default function RedressReport() {
+interface Subsection {
+  title?: string;
+  description?: string;
+  image?: string;
+  file?: string;
+}
+
+interface Section {
+  title?: string;
+  image?: string;
+  subsections?: Subsection[];
+}
+
+interface RedressReportProps {
+  section?: Section;
+}
+
+export default function RedressReport({
+  section,
+}: RedressReportProps) {
+  const subsections = section?.subsections ?? [];
+
   return (
     <section className="land_info_wrap">
-      <h3>Redress Report</h3>
+      <h3>{section?.title}</h3>
 
       <div className="container">
         <table className="table table-bordered">
           <thead>
             <tr>
-              <th>Sl. No</th>
-              <th>Date</th>
-              <th>File</th>
+              <th>{subsections[0]?.title}</th>
+              <th>{subsections[1]?.title}</th>
+              <th>{subsections[2]?.title}</th>
             </tr>
           </thead>
 
           <tbody>
             <tr>
-              <td>1.</td>
-              <td>10-04-1992</td>
               <td>
-                <a
-                  href=""
-                  target="_blank"
-                  className="btn-border"
-                  rel="noopener noreferrer"
-                >
-                  Download
-                </a>
+                {subsections[0]?.description?.replace(
+                  /<[^>]*>/g,
+                  ""
+                )}
+              </td>
+
+              <td>
+                {subsections[1]?.description?.replace(
+                  /<[^>]*>/g,
+                  ""
+                )}
+              </td>
+
+              <td>
+                {subsections[2]?.file ? (
+                  <a
+                    href={subsections[2].file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-border"
+                  >
+                    Download
+                  </a>
+                ) : (
+                  <a
+                    href="#"
+                    className="btn-border"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    Download
+                  </a>
+                )}
               </td>
             </tr>
           </tbody>

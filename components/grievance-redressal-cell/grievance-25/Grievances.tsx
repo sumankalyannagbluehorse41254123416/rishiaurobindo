@@ -1,6 +1,17 @@
 import Image from "next/image";
 
-export default function Grievances() {
+interface Section {
+  title?: string;
+  image?: string;
+}
+
+interface GrievancesProps {
+  section?: Section;
+}
+
+export default function Grievances({
+  section,
+}: GrievancesProps) {
   return (
     <section className="land_info_wrap">
       <div className="container">
@@ -14,24 +25,29 @@ export default function Grievances() {
           </div>
 
           <div>
-            <Image
-              className="img-responsive land_img"
-              src="https://wip.tezcommerce.com:3304/admin/module/25/1644240703879.jpg"
-              alt="land_img2"
-              width={800}
-              height={500}
-            />
+            {section?.image && (
+              <Image
+                className="img-responsive land_img"
+                src={section.image}
+                alt={section.title || "Grievances"}
+                width={800}
+                height={500}
+              />
+            )}
 
             <p className="download_button">
-              Grievances{" "}
-              <a
-                target="_blank"
-                href="https://wip.tezcommerce.com:3304/admin/module/25/1644240703879.jpg"
-                className="btn_theme"
-                rel="noopener noreferrer"
-              >
-                Download
-              </a>
+              {section?.title || "Grievances"}{" "}
+
+              {section?.image && (
+                <a
+                  target="_blank"
+                  href={section.image}
+                  className="btn_theme"
+                  rel="noopener noreferrer"
+                >
+                  Download
+                </a>
+              )}
             </p>
           </div>
         </div>

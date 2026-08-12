@@ -1,6 +1,20 @@
 import Image from "next/image";
 
-export default function GrievanceRedressalForm() {
+interface Document {
+  title?: string;
+  file_url?: string;
+  thumbnail_url?: string;
+  download_button_name?: string;
+  is_downloadable?: boolean;
+}
+
+interface GrievanceRedressalFormProps {
+  documents?: Document[];
+}
+
+export default function GrievanceRedressalForm({
+  documents = [],
+}: GrievanceRedressalFormProps) {
   return (
     <section className="land_info_wrap">
       <div className="container">
@@ -13,28 +27,34 @@ export default function GrievanceRedressalForm() {
             <p></p>
           </div>
 
-          <div>
-            <Image
-              className="img-responsive land_img"
-              src="https://wip.tezcommerce.com:3304/admin/module/25/1644240492598.jpg"
-              alt="land_img2"
-              width={800}
-              height={500}
-            />
+          {documents.map((document) => (
+            <div key={document.file_url || document.title}>
+              {document.thumbnail_url && (
+                <Image
+                  className="img-responsive land_img"
+                  src={document.thumbnail_url}
+                  alt={document.title || "Grievance Redressal Form"}
+                  width={800}
+                  height={500}
+                />
+              )}
 
-            <p className="download_button">
-              Grievance Redressal Form
+              <p className="download_button">
+                {document.title}
 
-              <a
-                href="https://wip.tezcommerce.com:3304/admin/module/25/1644240492649.docx"
-                className="btn_theme"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Download
-              </a>
-            </p>
-          </div>
+                {document.file_url && (
+                  <a
+                    href={document.file_url}
+                    className="btn_theme"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {document.download_button_name || "Download"}
+                  </a>
+                )}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

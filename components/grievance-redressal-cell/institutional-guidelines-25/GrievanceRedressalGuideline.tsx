@@ -1,7 +1,25 @@
 import Image from "next/image";
-import Link from "next/link";
 
-const GrievanceRedressalGuideline = () => {
+interface Document {
+  title?: string;
+  file_url?: string;
+  download_button_name?: string;
+  thumbnail_url?: string;
+}
+
+interface GrievanceRedressalGuidelineProps {
+  documents?: Document[];
+}
+
+const GrievanceRedressalGuideline = ({
+  documents = [],
+}: GrievanceRedressalGuidelineProps) => {
+  const document = documents[0];
+
+  if (!document) {
+    return null;
+  }
+
   return (
     <section className="land_info_wrap">
       <div className="container">
@@ -15,25 +33,33 @@ const GrievanceRedressalGuideline = () => {
           </div>
 
           <div>
-            <Image
-              className="img-responsive land_img"
-              src="/images/1644238700246.jpg"
-              alt="land_img2"
-              width={800}
-              height={500}
-            />
+            {document.thumbnail_url && (
+              <Image
+                className="img-responsive land_img"
+                src={document.thumbnail_url}
+                alt={
+                  document.title ||
+                  "Grievance Redressal Guideline"
+                }
+                width={800}
+                height={500}
+              />
+            )}
 
             <p className="download_button">
-              Grievance Redressal Guideline
+              {document.title}
 
-              <Link
-                href="https://wip.tezcommerce.com:3304/admin/module/25/1644238700304.docx"
-                className="btn_theme"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Download
-              </Link>
+              {document.file_url && (
+                <a
+                  href={document.file_url}
+                  className="btn_theme"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {document.download_button_name ||
+                    "Download"}
+                </a>
+              )}
             </p>
           </div>
         </div>

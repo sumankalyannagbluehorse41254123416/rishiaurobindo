@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-
+import Image from "next/image";
 import EnvironmentalAwarenessImages from "@/components/activities/awarness/environmental-awareness/environmentalAwarenessImages";
 
 import { fetchPageData } from "@/service/fetchdata.services";
@@ -88,13 +88,16 @@ export default async function EnvironmentalAwarenessPage() {
 
       <section className="page_title_wrap bottom_border">
 
-        {titleSection?.image && (
-          <img
-            className="page_title_bg"
-            src={titleSection.image}
-            alt=""
-          />
-        )}
+      {titleSection?.image && (
+  <Image
+    src={titleSection.image}
+    alt=""
+    fill
+    priority
+    className="page_title_bg"
+    sizes="100vw"
+  />
+)}
 
 
         <div className="container">

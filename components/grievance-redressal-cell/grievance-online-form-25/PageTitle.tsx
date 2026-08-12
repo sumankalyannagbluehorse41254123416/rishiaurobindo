@@ -1,18 +1,34 @@
 import Image from "next/image";
 
-export default function PageTitle() {
+interface Section {
+  title?: string;
+  image?: string;
+}
+
+interface PageTitleProps {
+  section?: Section;
+}
+
+export default function PageTitle({
+  section,
+}: PageTitleProps) {
   return (
     <section className="page_title_wrap bottom_border">
       <Image
         className="page_title_bg"
-        src="/images/page_title_bg.jpg"
-        alt="page_title_bg"
-        width={1920}
-        height={300}
+        src={
+          section?.image ||
+          "/images/page_title_bg.jpg"
+        }
+        alt={section?.title || "page_title_bg"}
+        fill
+        priority
       />
 
       <div className="container">
-        <h3>Grievance Redressal Form</h3>
+        <h3>
+          {section?.title || "Grievance Redressal Form"}
+        </h3>
       </div>
     </section>
   );
