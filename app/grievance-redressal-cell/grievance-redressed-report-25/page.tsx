@@ -1,31 +1,12 @@
 import { headers } from "next/headers";
 
+import type { PageData } from "@/types/grievance";
+
 import GrievanceRedressedReportBanner from "@/components/grievance-redressal-cell/grievance-redressed-report-25/GrievanceRedressedReportBanner";
 import RedressReport from "@/components/grievance-redressal-cell/grievance-redressed-report-25/RedressReport";
 import RemoteClass from "@/components/grievance-redressal-cell/grievance-redressed-report-25/RemoteClass";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
-interface Subsection {
-  id?: string;
-  title?: string;
-  description?: string;
-  image?: string;
-  file?: string;
-}
-
-interface Section {
-  title?: string;
-  image?: string;
-  subsections?: Subsection[];
-}
-
-interface PageData {
-  pageItemdataWithSubsection?: Section[];
-  data?: {
-    pageItemdataWithSubsection?: Section[];
-  };
-}
 
 export default async function GrievanceRedressedReport25() {
   const rqHeaders = await headers();
@@ -54,17 +35,12 @@ export default async function GrievanceRedressedReport25() {
   }
 
   const sections =
-    pageData.pageItemdataWithSubsection ||
-    pageData.data?.pageItemdataWithSubsection ||
+    pageData.pageItemdataWithSubsection ??
+    pageData.data?.pageItemdataWithSubsection ??
     [];
 
-  // Array index 12
   const bannerSection = sections[12];
-
-  // Array index 13
   const redressReportSection = sections[13];
-
-  // Array index 14
   const remoteClassSection = sections[14];
 
   return (

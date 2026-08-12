@@ -61,13 +61,9 @@ export default function RemoteClass({
                     Download
                   </a>
                 ) : (
-                  <a
-                    href="#"
-                    onClick={(e) => e.preventDefault()}
-                    className="btn-border"
-                  >
+                  <span className="btn-border disabled">
                     Download
-                  </a>
+                  </span>
                 )}
               </td>
             </tr>

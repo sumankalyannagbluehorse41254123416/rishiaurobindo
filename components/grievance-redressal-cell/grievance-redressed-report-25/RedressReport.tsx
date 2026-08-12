@@ -1,3 +1,4 @@
+"use client";
 interface Subsection {
   title?: string;
   description?: string;
@@ -37,17 +38,11 @@ export default function RedressReport({
           <tbody>
             <tr>
               <td>
-                {subsections[0]?.description?.replace(
-                  /<[^>]*>/g,
-                  ""
-                )}
+                {subsections[0]?.description?.replace(/<[^>]*>/g, "")}
               </td>
 
               <td>
-                {subsections[1]?.description?.replace(
-                  /<[^>]*>/g,
-                  ""
-                )}
+                {subsections[1]?.description?.replace(/<[^>]*>/g, "")}
               </td>
 
               <td>
@@ -61,13 +56,9 @@ export default function RedressReport({
                     Download
                   </a>
                 ) : (
-                  <a
-                    href="#"
-                    className="btn-border"
-                    onClick={(e) => e.preventDefault()}
-                  >
+                  <span className="btn-border disabled">
                     Download
-                  </a>
+                  </span>
                 )}
               </td>
             </tr>
