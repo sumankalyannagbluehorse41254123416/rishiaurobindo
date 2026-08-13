@@ -1,18 +1,38 @@
 import Image from "next/image";
 
-const EcoClubCommitteeBanner = () => {
+interface Section {
+  title?: string;
+  image?: string;
+}
+
+interface EcoClubCommitteeBannerProps {
+  sectionData?: Section;
+}
+
+const EcoClubCommitteeBanner = ({
+  sectionData,
+}: EcoClubCommitteeBannerProps) => {
   return (
     <section className="page_title_wrap bottom_border">
       <Image
         className="page_title_bg"
-        src="/images/page_title_bg.jpg"
-        alt="Eco Club Committee"
+        src={
+          sectionData?.image ||
+          "/images/page_title_bg.jpg"
+        }
+        alt={
+          sectionData?.title ||
+          "Eco Club Committee"
+        }
         fill
         priority
       />
 
       <div className="container">
-        <h3>ECO CLUB COMMITTEE</h3>
+        <h3>
+          {sectionData?.title ||
+            "Eco Club Committee"}
+        </h3>
       </div>
     </section>
   );

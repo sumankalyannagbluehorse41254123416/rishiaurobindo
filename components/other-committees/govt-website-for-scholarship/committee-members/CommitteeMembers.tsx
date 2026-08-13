@@ -1,18 +1,27 @@
 import Image from "next/image";
 
-export default function CommitteeMembers() {
+interface CommitteeMembersBannerProps {
+  section?: {
+    title?: string;
+    image?: string;
+  };
+}
+
+export default function CommitteeMembersBanner({
+  section,
+}: CommitteeMembersBannerProps) {
   return (
     <section className="page_title_wrap bottom_border">
       <Image
         className="page_title_bg"
-        src="https://www.rabedc.com/img/page_title_bg.jpg"
-        alt="page_title_bg"
-        width={1920}
-        height={300}
+        src={section?.image || "/images/page_title_bg.jpg"}
+        alt={section?.title || "page_title_bg"}
+        fill
+        priority
       />
 
       <div className="container">
-        <h3>Committee Members</h3>
+        <h3>{section?.title}</h3>
       </div>
     </section>
   );

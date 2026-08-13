@@ -1,18 +1,39 @@
 import Image from "next/image";
+import { fetchPageData } from "@/service/fetchdata.services";
 
-const CommitteeMembersBanner = () => {
+interface Section {
+  title?: string;
+  image?: string;
+}
+
+interface PageData {
+  pageItemdataWithSubsection?: Section[];
+}
+
+const CommitteeMembersBanner = async () => {
+  const uid = "216946b4-0970-44b3-9449-c43ef2106faf";
+
+  const data = (await fetchPageData({}, uid)) as PageData;
+
+  console.log("Committee Members Banner Data:", data);
+
+  const section = data?.pageItemdataWithSubsection?.[2];
+
+  const title = section?.title || "Committee Members";
+  const image = section?.image || "/images/page_title_bg.jpg";
+
   return (
     <section className="page_title_wrap bottom_border">
       <Image
-        src="https://www.rabedc.com/img/page_title_bg.jpg"
-        alt="page_title_bg"
+        src={image}
+        alt={title}
         width={1920}
         height={300}
         className="page_title_bg"
       />
 
       <div className="container">
-        <h3>Committee Members</h3>
+        <h3>{title}</h3>
       </div>
     </section>
   );

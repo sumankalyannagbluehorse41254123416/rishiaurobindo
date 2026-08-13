@@ -1,6 +1,17 @@
 import Image from "next/image";
 
-const CommitteeMembersBanner = () => {
+interface CommitteeMembersBannerProps {
+  sectionData: unknown;
+}
+
+const CommitteeMembersBanner = ({
+  sectionData,
+}: CommitteeMembersBannerProps) => {
+  console.log(
+    "COMMITTEE MEMBERS BANNER DATA:",
+    sectionData
+  );
+
   return (
     <section className="page_title_wrap bottom_border">
       <Image

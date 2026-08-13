@@ -1,18 +1,38 @@
 import Image from "next/image";
 
-const SportsCulturalCommitteeBanner = () => {
+interface Section {
+  title?: string;
+  image?: string;
+}
+
+interface SportsCulturalCommitteeBannerProps {
+  section?: Section;
+}
+
+const SportsCulturalCommitteeBanner = ({
+  section,
+}: SportsCulturalCommitteeBannerProps) => {
   return (
     <section className="page_title_wrap bottom_border">
       <Image
         className="page_title_bg"
-        src="/images/page_title_bg.jpg"
-        alt="Sports Cultural Committee"
+        src={
+          section?.image ||
+          "/images/page_title_bg.jpg"
+        }
+        alt={
+          section?.title ||
+          "Sports Cultural Committee"
+        }
         fill
         priority
       />
 
       <div className="container">
-        <h3>sports-cultural-committee</h3>
+        <h3>
+          {section?.title ||
+            "Sports Cultural Committee"}
+        </h3>
       </div>
     </section>
   );

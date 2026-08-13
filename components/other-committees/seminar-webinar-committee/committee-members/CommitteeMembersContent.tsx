@@ -1,4 +1,40 @@
-const CommitteeMembers = () => {
+interface Subsection {
+  title?: string;
+}
+
+interface Section {
+  title?: string;
+  subsections?: Subsection[];
+}
+
+interface CommitteeMembersProps {
+  sections: Section[];
+}
+
+const CommitteeMembersContent = ({
+  sections,
+}: CommitteeMembersProps) => {
+  // ==========================================
+  // TABLE SECTIONS
+  // ==========================================
+
+  // Index 16 = Sl. No
+  // Index 17 = Name
+  // Index 18 = Phone No
+  // Index 19 = Mail Id
+
+  const serialSection = sections[16];
+
+  const nameSection = sections[17];
+
+  const phoneSection = sections[18];
+
+  const emailSection = sections[19];
+
+  // Rows will come from Sl. No subsection
+  const rows =
+    serialSection?.subsections || [];
+
   return (
     <section className="land_info_wrap">
       <div className="container">
@@ -7,55 +43,64 @@ const CommitteeMembers = () => {
             <table>
               <thead>
                 <tr>
-                  <th>Sl. No</th>
-                  <th>Name</th>
-                  <th>Phone No</th>
-                  <th>Mail Id</th>
+                  <th>
+                    {serialSection?.title}
+                  </th>
+
+                  <th>
+                    {nameSection?.title}
+                  </th>
+
+                  <th>
+                    {phoneSection?.title}
+                  </th>
+
+                  <th>
+                    {emailSection?.title}
+                  </th>
                 </tr>
               </thead>
 
               <tbody>
-                <tr>
-                  <td>1.</td>
-                  <td>Mr. Dipak Manna</td>
-                  <td>9932940475</td>
-                  <td>dipak.manna27@gmail.com</td>
-                </tr>
+                {rows.map((_, index) => (
+                  <tr key={index}>
+                    {/* Sl. No */}
+                    <td>
+                      {
+                        serialSection
+                          ?.subsections?.[index]
+                          ?.title
+                      }
+                    </td>
 
-                <tr>
-                  <td>2.</td>
-                  <td>Mr. Rajib Lochan Samanta</td>
-                  <td>8250972267</td>
-                  <td>rajiblochansamanta@gmail.com</td>
-                </tr>
+                    {/* Name */}
+                    <td>
+                      {
+                        nameSection
+                          ?.subsections?.[index]
+                          ?.title
+                      }
+                    </td>
 
-                <tr>
-                  <td>3.</td>
-                  <td>Miss. Sulagna Chakraborty</td>
-                  <td>9126471740</td>
-                  <td>chakraborty.sulagna7@gmail.com</td>
-                </tr>
+                    {/* Phone No */}
+                    <td>
+                      {
+                        phoneSection
+                          ?.subsections?.[index]
+                          ?.title
+                      }
+                    </td>
 
-                <tr>
-                  <td>4.</td>
-                  <td>Miss Chinmoyee Ghosh</td>
-                  <td>8768475994</td>
-                  <td>chinmoyeeg6@gmail.com</td>
-                </tr>
-
-                <tr>
-                  <td>5.</td>
-                  <td>Mr. Shamu Khatik</td>
-                  <td>9775578466</td>
-                  <td>shamu55khatik@gmail.com</td>
-                </tr>
-
-                <tr>
-                  <td>6.</td>
-                  <td>Mr. Srihari Das</td>
-                  <td>8250863497</td>
-                  <td>sriharidas1990@gmail.com</td>
-                </tr>
+                    {/* Mail Id */}
+                    <td>
+                      {
+                        emailSection
+                          ?.subsections?.[index]
+                          ?.title
+                      }
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -65,4 +110,4 @@ const CommitteeMembers = () => {
   );
 };
 
-export default CommitteeMembers;
+export default CommitteeMembersContent;

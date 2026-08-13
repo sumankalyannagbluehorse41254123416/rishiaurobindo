@@ -1,18 +1,27 @@
 import Image from "next/image";
 
-const PlacementCellBanner = () => {
+interface PlacementCellBannerProps {
+  section?: {
+    title?: string;
+    image?: string;
+  };
+}
+
+const PlacementCellBanner = ({
+  section,
+}: PlacementCellBannerProps) => {
   return (
     <section className="page_title_wrap bottom_border">
       <Image
-        src="https://www.rabedc.com/img/page_title_bg.jpg"
-        alt="page_title_bg"
-        width={1920}
-        height={300}
         className="page_title_bg"
+        src={section?.image || "/images/page_title_bg.jpg"}
+        alt={section?.title || "page_title_bg"}
+        fill
+        priority
       />
 
       <div className="container">
-        <h3>placement-cell</h3>
+        <h3>{section?.title}</h3>
       </div>
     </section>
   );

@@ -1,4 +1,34 @@
-const CommitteeMembersContent = () => {
+import { fetchPageData } from "@/service/fetchdata.services";
+
+interface Subsection {
+  title?: string;
+}
+
+interface Section {
+  title?: string;
+  subsections?: Subsection[];
+}
+
+interface PageData {
+  pageItemdataWithSubsection?: Section[];
+}
+
+const CommitteeMembersContent = async () => {
+  const uid = "216946b4-0970-44b3-9449-c43ef2106faf";
+
+  const data = (await fetchPageData({}, uid)) as PageData;
+
+  console.log("Committee Members Data:", data);
+
+  const sections = data?.pageItemdataWithSubsection || [];
+
+  const serialSection = sections[3];
+  const nameSection = sections[4];
+  const phoneSection = sections[5];
+  const emailSection = sections[6];
+
+  const rows = serialSection?.subsections || [];
+
   return (
     <section className="land_info_wrap">
       <div className="container">
@@ -6,57 +36,34 @@ const CommitteeMembersContent = () => {
           <div>
             <table>
               <thead>
-                 <tr>
-                  <th>Sl. No</th>
-                  <th>Name</th>
-                  <th>Phone No</th>
-                  <th>Mail Id</th>
+                <tr>
+                  <th>{serialSection?.title || "Sl. No"}</th>
+                  <th>{nameSection?.title || "Name"}</th>
+                  <th>{phoneSection?.title || "Phone No"}</th>
+                  <th>{emailSection?.title || "Mail Id"}</th>
                 </tr>
-                </thead>
+              </thead>
+
               <tbody>
-               
+                {rows.map((_, index) => (
+                  <tr key={index}>
+                    <td>
+                      {serialSection?.subsections?.[index]?.title || `${index + 1}.`}
+                    </td>
 
-                <tr>
-                  <td>1.</td>
-                  <td>Mr. Dipak Manna</td>
-                  <td>9932940475</td>
-                  <td>dipak.manna27@gmail.com</td>
-                </tr>
+                    <td>
+                      {nameSection?.subsections?.[index]?.title || ""}
+                    </td>
 
-                <tr>
-                  <td>2.</td>
-                  <td>Mr. Rajib Lochan Samanta</td>
-                  <td>8250972267</td>
-                  <td>rajiblochansamanta@gmail.com</td>
-                </tr>
+                    <td>
+                      {phoneSection?.subsections?.[index]?.title || ""}
+                    </td>
 
-                <tr>
-                  <td>3.</td>
-                  <td>Miss. Sulagna Chakraborty</td>
-                  <td>9126471740</td>
-                  <td>chakraborty.sulagna7@gmail.com</td>
-                </tr>
-
-                <tr>
-                  <td>4.</td>
-                  <td>Miss Chinmoyee Ghosh</td>
-                  <td>8768475994</td>
-                  <td>chinmoyeeg6@gmail.com</td>
-                </tr>
-
-                <tr>
-                  <td>5.</td>
-                  <td>Mr. Shamu Khatik</td>
-                  <td>9775578466</td>
-                  <td>shamu55khatik@gmail.com</td>
-                </tr>
-
-                <tr>
-                  <td>6.</td>
-                  <td>Mr. Srihari Das</td>
-                  <td>8250863497</td>
-                  <td>sriharidas1990@gmail.com</td>
-                </tr>
+                    <td>
+                      {emailSection?.subsections?.[index]?.title || ""}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

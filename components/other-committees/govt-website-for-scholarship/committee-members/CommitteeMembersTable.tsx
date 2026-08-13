@@ -1,4 +1,26 @@
-export default function CommitteeMembersTable() {
+interface Subsection {
+  title?: string;
+}
+
+interface TableSection {
+  title?: string;
+  subsections?: Subsection[];
+}
+
+interface CommitteeMembersTableProps {
+  sections: TableSection[];
+}
+
+export default function CommitteeMembersTable({
+  sections,
+}: CommitteeMembersTableProps) {
+  const slNo = sections[0];
+  const name = sections[1];
+  const phone = sections[2];
+  const mail = sections[3];
+
+  const rows = slNo?.subsections || [];
+
   return (
     <section className="land_info_wrap">
       <div className="container">
@@ -7,55 +29,22 @@ export default function CommitteeMembersTable() {
             <table>
               <thead>
                 <tr>
-                  <th>Sl. No</th>
-                  <th>Name</th>
-                  <th>Phone No</th>
-                  <th>Mail Id</th>
+                  <th>{slNo?.title}</th>
+                  <th>{name?.title}</th>
+                  <th>{phone?.title}</th>
+                  <th>{mail?.title}</th>
                 </tr>
               </thead>
 
               <tbody>
-                <tr>
-                  <td>1.</td>
-                  <td>Mr. Dipak Manna</td>
-                  <td>9932940475</td>
-                  <td>dipak.manna27@gmail.com</td>
-                </tr>
-
-                <tr>
-                  <td>2.</td>
-                  <td>Mr. Rajib Lochan Samanta</td>
-                  <td>8250972267</td>
-                  <td>rajiblochansamanta@gmail.com</td>
-                </tr>
-
-                <tr>
-                  <td>3.</td>
-                  <td>Miss. Sulagna Chakraborty</td>
-                  <td>9126471740</td>
-                  <td>chakraborty.sulagna7@gmail.com</td>
-                </tr>
-
-                <tr>
-                  <td>4.</td>
-                  <td>Miss Chinmoyee Ghosh</td>
-                  <td>8768475994</td>
-                  <td>chinmoyeeg6@gmail.com</td>
-                </tr>
-
-                <tr>
-                  <td>5.</td>
-                  <td>Mr. Shamu Khatik</td>
-                  <td>9775578466</td>
-                  <td>shamu55khatik@gmail.com</td>
-                </tr>
-
-                <tr>
-                  <td>6.</td>
-                  <td>Mr. Srihari Das</td>
-                  <td>8250863497</td>
-                  <td>sriharidas1990@gmail.com</td>
-                </tr>
+                {rows.map((_, index: number) => (
+                  <tr key={index}>
+                    <td>{slNo?.subsections?.[index]?.title}</td>
+                    <td>{name?.subsections?.[index]?.title}</td>
+                    <td>{phone?.subsections?.[index]?.title}</td>
+                    <td>{mail?.subsections?.[index]?.title}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

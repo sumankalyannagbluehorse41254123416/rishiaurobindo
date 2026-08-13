@@ -1,18 +1,38 @@
 import Image from "next/image";
 
-const WomenWelfareSexualHarassmentCellBanner = () => {
+interface Section {
+  title?: string;
+  image?: string;
+}
+
+interface WomenWelfareSexualHarassmentCellBannerProps {
+  sectionData?: Section;
+}
+
+const WomenWelfareSexualHarassmentCellBanner = ({
+  sectionData,
+}: WomenWelfareSexualHarassmentCellBannerProps) => {
   return (
     <section className="page_title_wrap bottom_border">
       <Image
         className="page_title_bg"
-        src="/images/page_title_bg.jpg"
-        alt="Women Welfare Sexual Harassment Cell"
+        src={
+          sectionData?.image ||
+          "/images/page_title_bg.jpg"
+        }
+        alt={
+          sectionData?.title ||
+          "Women Welfare Sexual Harassment Cell"
+        }
         fill
         priority
       />
 
       <div className="container">
-        <h3>WOMEN WELFARE SEXUAL HARASSMENT CELL</h3>
+        <h3>
+          {sectionData?.title ||
+            "Women Welfare Sexual Harassment Cell"}
+        </h3>
       </div>
     </section>
   );

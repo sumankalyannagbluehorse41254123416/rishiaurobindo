@@ -1,18 +1,39 @@
 import Image from "next/image";
+import { fetchPageData } from "@/service/fetchdata.services";
 
-const Notice = () => {
+interface Section {
+  title?: string;
+  image?: string;
+}
+
+interface PageData {
+  pageItemdataWithSubsection?: Section[];
+}
+
+const Notice = async () => {
+  const uid = "216946b4-0970-44b3-9449-c43ef2106faf";
+
+  const data = (await fetchPageData({}, uid)) as PageData;
+
+  console.log("Notice Data:", data);
+
+  const section = data?.pageItemdataWithSubsection?.[7];
+
+  const title = section?.title || "NOTICE";
+  const image = section?.image || "/images/page_title_bg.jpg";
+
   return (
     <section className="page_title_wrap bottom_border">
       <Image
-        src="/images/page_title_bg.jpg"
-        alt="page_title_bg"
+        src={image}
+        alt={title}
         width={1920}
         height={300}
         className="page_title_bg"
       />
 
       <div className="container">
-        <h3>NOTICE</h3>
+        <h3>{title}</h3>
       </div>
     </section>
   );

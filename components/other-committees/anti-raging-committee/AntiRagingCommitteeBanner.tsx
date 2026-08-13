@@ -1,18 +1,39 @@
 import Image from "next/image";
 
-const AntiRagingCommitteeBanner = () => {
+type SectionData = {
+  section?: {
+    title?: string;
+    images?: string[];
+  };
+};
+
+interface AntiRagingCommitteeBannerProps {
+  sectionData: SectionData | null;
+}
+
+const AntiRagingCommitteeBanner = ({
+  sectionData,
+}: AntiRagingCommitteeBannerProps) => {
+  const sectionTitle =
+    sectionData?.section?.title ||
+    "Anti Raging Committee";
+
+  const sectionImage =
+    sectionData?.section?.images?.[0] ||
+    "/images/page_title_bg.jpg";
+
   return (
     <section className="page_title_wrap bottom_border">
       <Image
         className="page_title_bg"
-        src="/images/page_title_bg.jpg"
-        alt="Anti Raging Committee"
+        src={sectionImage}
+        alt={sectionTitle}
         fill
         priority
       />
 
       <div className="container">
-        <h3>Anti Raging Committee</h3>
+        <h3>{sectionTitle}</h3>
       </div>
     </section>
   );

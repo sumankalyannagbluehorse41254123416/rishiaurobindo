@@ -1,71 +1,72 @@
 import Image from "next/image";
 
-const MinutesOfMeetings = () => {
-  const meetings = [
-    {
-      title: "ACTION TAKEN REPORT 2020-2021",
-      image:
-        "https://wip.tezcommerce.com:3304/admin/module/25/1670934789440.jpg",
-      pdf: "https://wip.tezcommerce.com:3304/admin/module/25/1670934789601.pdf",
-    },
-    {
-      title: "4TH MEETING",
-      image:
-        "https://wip.tezcommerce.com:3304/admin/module/25/1670934736390.jpg",
-      pdf: "https://wip.tezcommerce.com:3304/admin/module/25/1670934736506.pdf",
-    },
-    {
-      title: "3RD MEETING",
-      image:
-        "https://wip.tezcommerce.com:3304/admin/module/25/1670934691738.jpg",
-      pdf: "https://wip.tezcommerce.com:3304/admin/module/25/1670934691868.pdf",
-    },
-    {
-      title: "2ND MEETING",
-      image:
-        "https://wip.tezcommerce.com:3304/admin/module/25/1670934652586.jpg",
-      pdf: "https://wip.tezcommerce.com:3304/admin/module/25/1670934652710.pdf",
-    },
-    {
-      title: "1ST MEETING",
-      image:
-        "https://wip.tezcommerce.com:3304/admin/module/25/1670934596590.jpg",
-      pdf: "https://wip.tezcommerce.com:3304/admin/module/25/1670934596716.pdf",
-    },
-  ];
+interface DocumentItem {
+  title?: string;
+  description?: string;
+  file_url?: string;
+  download_button_name?: string;
+  thumbnail_url?: string;
+  sequence?: number;
+  status?: string;
+}
 
+interface MinutesOfMeetingsProps {
+  documents?: DocumentItem[];
+}
+
+export default function MinutesOfMeetings({
+  documents = [],
+}: MinutesOfMeetingsProps) {
   return (
     <section className="land_info_wrap">
       <div className="container">
         <div className="lan_info_inner">
-          {meetings.map((meeting) => (
-            <div key={meeting.title}>
-              <Image
-                className="img-responsive land_img"
-                src={meeting.image}
-                alt={meeting.title}
-                width={800}
-                height={500}
-              />
 
+          {documents.map((document) => (
+            <div
+              key={
+                document.sequence ??
+                document.title
+              }
+            >
+
+              {/* Document Thumbnail */}
+              {document.thumbnail_url && (
+                <Image
+                  className="img-responsive land_img"
+                  src={document.thumbnail_url}
+                  alt={
+                    document.title || ""
+                  }
+                  width={800}
+                  height={500}
+                />
+              )}
+
+              {/* Document Title + Download */}
               <p className="download_button">
-                {meeting.title}
+                {document.title}
 
-                <a
-                  href={meeting.pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn_theme"
-                >
-                  Download
-                </a>
+                {document.file_url && (
+                  <a
+                    href={document.file_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn_theme"
+                  >
+                    {
+                      document.download_button_name ||
+                      "Download"
+                    }
+                  </a>
+                )}
               </p>
+
             </div>
           ))}
+
         </div>
       </div>
     </section>
   );
-};
-
-export default MinutesOfMeetings;
+}

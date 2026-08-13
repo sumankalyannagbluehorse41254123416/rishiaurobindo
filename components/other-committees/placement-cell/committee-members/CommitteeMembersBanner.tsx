@@ -1,18 +1,27 @@
 import Image from "next/image";
 
-const CommitteeMembersBanner = () => {
+interface CommitteeMembersBannerProps {
+  section?: {
+    title?: string;
+    image?: string;
+  };
+}
+
+const CommitteeMembersBanner = ({
+  section,
+}: CommitteeMembersBannerProps) => {
   return (
     <section className="page_title_wrap bottom_border">
       <Image
         className="page_title_bg"
-        src="https://www.rabedc.com/img/page_title_bg.jpg"
-        alt="Committee Members"
+        src={section?.image || "/images/page_title_bg.jpg"}
+        alt={section?.title || "Committee Members"}
         fill
         priority
       />
 
       <div className="container">
-        <h3>Committee Members</h3>
+        <h3>{section?.title}</h3>
       </div>
     </section>
   );

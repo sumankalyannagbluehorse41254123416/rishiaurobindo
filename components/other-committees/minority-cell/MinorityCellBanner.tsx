@@ -1,18 +1,38 @@
 import Image from "next/image";
 
-const MinorityCellBanner = () => {
+interface Section {
+  title?: string;
+  image?: string;
+}
+
+interface MinorityCellBannerProps {
+  sectionData?: Section;
+}
+
+const MinorityCellBanner = ({
+  sectionData,
+}: MinorityCellBannerProps) => {
   return (
     <section className="page_title_wrap bottom_border">
       <Image
         className="page_title_bg"
-        src="/images/page_title_bg.jpg"
-        alt="Minority Cell"
+        src={
+          sectionData?.image ||
+          "/images/page_title_bg.jpg"
+        }
+        alt={
+          sectionData?.title ||
+          "Minority Cell"
+        }
         fill
         priority
       />
 
       <div className="container">
-        <h3>minority-cell</h3>
+        <h3>
+          {sectionData?.title ||
+            "Minority Cell"}
+        </h3>
       </div>
     </section>
   );

@@ -1,18 +1,37 @@
 import Image from "next/image";
 
-const GrievancesBanner = () => {
+interface Section {
+  title?: string;
+  image?: string;
+}
+
+interface GrievancesBannerProps {
+  sectionData?: Section;
+}
+
+const GrievancesBanner = ({
+  sectionData,
+}: GrievancesBannerProps) => {
   return (
     <section className="page_title_wrap bottom_border">
       <Image
         className="page_title_bg"
-        src="/images/page_title_bg.jpg"
-        alt="Grievances"
+        src={
+          sectionData?.image ||
+          "/images/page_title_bg.jpg"
+        }
+        alt={
+          sectionData?.title ||
+          "Grievances"
+        }
         fill
         priority
       />
 
       <div className="container">
-        <h3>Grievances</h3>
+        <h3>
+          {sectionData?.title || "Grievances"}
+        </h3>
       </div>
     </section>
   );
