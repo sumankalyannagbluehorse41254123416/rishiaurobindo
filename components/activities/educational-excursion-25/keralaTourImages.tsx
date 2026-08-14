@@ -1,5 +1,6 @@
 "use client";
 
+import { Expand } from "lucide-react";
 import Image from "next/image";
 
 interface Subsection {
@@ -49,6 +50,7 @@ export default function KeralaTourGallery({
                   height={300}
                   className="w-100"
                 />
+                <Expand/>
               </a>
             </div>
           ))}

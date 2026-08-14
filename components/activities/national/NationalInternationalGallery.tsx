@@ -1,5 +1,6 @@
 "use client";
 
+import { Expand } from "lucide-react";
 import Image from "next/image";
 
 interface Subsection {
@@ -44,6 +45,7 @@ export default function NationalInternationalGallery({
                       className="img-fluid"
                       unoptimized
                     />
+                    <Expand/>
                   </a>
                 </div>
               ) : null

@@ -1,5 +1,6 @@
 "use client";
 
+import { Expand } from "lucide-react";
 import Image from "next/image";
 
 
@@ -69,7 +70,7 @@ export default function EnvironmentalAwarenessImages({
                   height={300}
                   className="img-fluid"
                 />
-
+<Expand/>
               </a>
 
             </div>

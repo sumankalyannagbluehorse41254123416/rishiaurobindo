@@ -1,5 +1,6 @@
 "use client";
 
+import { Expand } from "lucide-react";
 import Image from "next/image";
 
 interface Props {
@@ -52,6 +53,7 @@ export default function DataPrivacyAwareness({
                   height={300}
                   className="img-fluid"
                 />
+                <Expand/>
               </a>
             </div>
           ))}
