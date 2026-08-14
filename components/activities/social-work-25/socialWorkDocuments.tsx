@@ -28,36 +28,38 @@ export default function SocialWorkDocuments({
   const yearDocuments = collection?.documents?.slice(1) || [];
 
   return (
-    <section>
+    <section className="land_info_wrap">
       <div className="container">
-        <h3>{collection?.name}</h3>
+        <div className="lan_info_inner">
+          <h3>{collection?.name}</h3>
 
-        <div>
-          <p></p>
-        </div>
-
-        {coverDocument && (
           <div>
-            <Image
-              className="img-responsive land_img"
-              src={coverDocument.thumbnail_url}
-              alt={coverDocument.title}
-              width={800}
-              height={500}
-            />
-
-            <p className="download_button">
-              <a
-                href={coverDocument.file_url}
-                className="btn_theme"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                DOCUMENTS
-              </a>
-            </p>
+            <p></p>
           </div>
+
+          {coverDocument && (
+            <div>
+              <Image
+                className="img-responsive land_img"
+                src={coverDocument.thumbnail_url}
+                alt={coverDocument.title}
+                width={800}
+                height={500}
+              />
+
+              <p className="download_button">
+                <a
+                  href={coverDocument.file_url}
+                  className="btn_theme"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  DOCUMENTS
+                </a>
+              </p>
+            </div>
         )}
+        </div>
       </div>
 
       <div className="container">
@@ -67,7 +69,7 @@ export default function SocialWorkDocuments({
               className="col-lg-2 col-md-4 col-6"
               key={document.id}
             >
-              <p className="download_button">
+              <p className="download_button" style={{display:"flex", justifyContent:"center"}}>
                 <a
                   href={document.file_url}
                   className="btn_theme"

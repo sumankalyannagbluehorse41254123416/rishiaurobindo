@@ -63,7 +63,7 @@ export default function AdmissionForm({
               B.Ed Section
           ========================================== */}
 
-          <div className="column">
+          <div className="column col-12 col-md-6">
             <div className="title_box4">
               <h3>B.ED</h3>
             </div>
@@ -125,7 +125,7 @@ export default function AdmissionForm({
               D.El.Ed Section
           ========================================== */}
 
-          <div className="column">
+          <div className="column col-12 col-md-6 mt-4 mt-md-0">
             <div className="title_box4">
               <h3>D.El.ED</h3>
             </div>
