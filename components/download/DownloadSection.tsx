@@ -78,7 +78,7 @@ const DownloadSection = ({
                           href={
                             document.file_url
                           }
-                          className="btn_theme"
+                          className="btn_theme ml-sm-2"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -122,7 +122,7 @@ const DownloadSection = ({
                           href={
                             document.file_url
                           }
-                          className="btn_theme"
+                          className="btn_theme ml-sm-2"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
