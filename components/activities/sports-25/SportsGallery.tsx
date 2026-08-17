@@ -1,5 +1,6 @@
 "use client";
 
+import { Expand } from "lucide-react";
 import Image from "next/image";
 
 interface Subsection {
@@ -50,6 +51,7 @@ export default function SportsGallery({ section }: Props) {
                     height={300}
                     className="img-fluid"
                   />
+                  <Expand/>
                 </a>
               </div>
             ) : null

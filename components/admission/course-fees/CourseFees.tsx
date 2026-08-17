@@ -31,29 +31,30 @@ export default function CourseFees({
                 {document.title}
               </div>
 
-              <div className="courses_in"></div>
+              <div className="courses_in">
 
-              {document.description && (
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: document.description,
-                  }}
-                />
-              )}
+                {document.description && (
+                  <span
+                    dangerouslySetInnerHTML={{
+                      __html: document.description,
+                    }}
+                  />
+                )}
 
-              {" "}
+                {" "}
 
-              {document.file_url && (
-                <a
-                  href={document.file_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-border"
-                >
-                  {document.download_button_name ||
-                    "Download"}
-                </a>
-              )}
+                {document.file_url && (
+                  <a
+                    href={document.file_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-border"
+                  >
+                    {document.download_button_name ||
+                      "Download"}
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>
