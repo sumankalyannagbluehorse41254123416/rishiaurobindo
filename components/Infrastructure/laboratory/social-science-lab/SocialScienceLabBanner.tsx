@@ -1,18 +1,38 @@
 import Image from "next/image";
 
-const SocialScienceLabBanner = () => {
+interface Section {
+  title?: string;
+  image?: string;
+}
+
+interface SocialScienceLabBannerProps {
+  sectionData?: Section;
+}
+
+const SocialScienceLabBanner = ({
+  sectionData,
+}: SocialScienceLabBannerProps) => {
   return (
     <section className="page_title_wrap bottom_border">
       <Image
         className="page_title_bg"
-        src="https://www.rabedc.com/img/page_title_bg.jpg"
-        alt="page_title_bg"
-        width={1920}
-        height={300}
+        src={
+          sectionData?.image ||
+          "/images/page_title_bg.jpg"
+        }
+        alt={
+          sectionData?.title ||
+          "Social Science Lab"
+        }
+        fill
+        priority
       />
 
       <div className="container">
-        <h3>Social Science Lab</h3>
+        <h3>
+          {sectionData?.title ||
+            "Social Science Lab"}
+        </h3>
       </div>
     </section>
   );

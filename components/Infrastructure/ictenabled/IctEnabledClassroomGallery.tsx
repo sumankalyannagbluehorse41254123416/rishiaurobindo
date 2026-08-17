@@ -1,62 +1,67 @@
-import { Expand, ExpandIcon } from "lucide-react";
+import { ExpandIcon } from "lucide-react";
 import Image from "next/image";
 
-const galleryImages = [
-  {
-    src: "https://wip.tezcommerce.com:3304/admin/module/25/1670313642167.jpeg",
-    title: "",
-  },
-  {
-    src: "https://wip.tezcommerce.com:3304/admin/module/25/1670313623503.jpeg",
-    title: "",
-  },
-  {
-    src: "https://wip.tezcommerce.com:3304/admin/module/25/1670313584793.jpeg",
-    title: "",
-  },
-  {
-    src: "https://wip.tezcommerce.com:3304/admin/module/25/1670313546825.jpeg",
-    title: "",
-  },
-  {
-    src: "https://wip.tezcommerce.com:3304/admin/module/25/1670313492932.jpeg",
-    title: "pp",
-  },
-  {
-    src: "https://wip.tezcommerce.com:3304/admin/module/25/1670313473234.jpeg",
-    title: "dd",
-  },
-];
+interface Subsection {
+  title?: string;
+  image?: string;
+  description?: string;
+  link?: string;
+}
 
-export default function IctEnabledClassroomGallery() {
+interface Section {
+  subsections?: Subsection[];
+}
+
+interface Props {
+  section?: Section;
+}
+
+export default function IctEnabledClassroomGallery({
+  section,
+}: Props) {
+  const galleryImages =
+    section?.subsections || [];
+
   return (
     <section className="land_info_wrap">
       <div className="container main-gallery">
         <div className="row">
-          {galleryImages.map((image, index) => (
-            <div
-              className="col-lg-3 col-md-4 col-6"
-              key={image.src}
-            >
-              <div>
-                <h3>{image.title}</h3>
-              </div>
-
-              <a
-                className="gal-inr"
-                href={image.src}
-                data-lightbox="Gallery 1"
+          {galleryImages.map(
+            (image, index) => (
+              <div
+                className="col-lg-3 col-md-4 col-6"
+                key={index}
               >
-                <Image
-                  src={image.src}
-                  alt={`main-gallery${index + 1}`}
-                  width={800}
-                  height={600}
-                />
-                <ExpandIcon/>
-              </a>
-            </div>
-          ))}
+                {/* <div>
+                  <h3>
+                    {image.title}
+                  </h3>
+                </div> */}
+
+                <a
+                  className="gal-inr"
+                  href={
+                    image.image || "#"
+                  }
+                  data-lightbox="Gallery 1"
+                >
+                  <Image
+                    src={
+                      image.image ||
+                      "/images/no-image.png"
+                    }
+                    alt={`main-gallery${
+                      index + 1
+                    }`}
+                    width={800}
+                    height={600}
+                  />
+
+                  <ExpandIcon />
+                </a>
+              </div>
+            )
+          )}
         </div>
       </div>
     </section>

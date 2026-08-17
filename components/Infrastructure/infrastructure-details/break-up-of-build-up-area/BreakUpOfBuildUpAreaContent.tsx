@@ -1,88 +1,163 @@
-const BreakUpOfBuildUpAreaContent = () => {
+interface Subsection {
+  title?: string;
+  description?: string;
+  shortDescription?: string;
+  image?: string;
+  subsections?: Subsection[];
+}
+
+interface Section {
+  title?: string;
+  shortDescription?: string;
+  description?: string;
+  image?: string;
+  subsections?: Subsection[];
+}
+
+interface Props {
+  sections: Section[];
+}
+
+const BreakUpOfBuildUpAreaContent = ({
+  sections,
+}: Props) => {
+  // ==========================================
+  // SECTION INDEX
+  // ==========================================
+
+  const contentSection = sections[1];
+
+  const roomNoSection = sections[2];
+
+  const roomSizeSection = sections[3];
+
+  const remainingAreaSection = sections[4];
+
+  // ==========================================
+  // ROOM DATA
+  // ==========================================
+
+  const roomNumbers =
+    roomNoSection?.subsections || [];
+
+  const roomSizes =
+    roomSizeSection?.subsections || [];
+
+  // ==========================================
+  // REMAINING AREA DATA
+  // ==========================================
+
+  const remainingAreaItems =
+    remainingAreaSection?.subsections || [];
+
+  // ==========================================
+  // NUMBER OF TABLE ROWS
+  // ==========================================
+
+  const totalRows = Math.max(
+    roomNumbers.length,
+    roomSizes.length
+  );
+
   return (
     <section className="land_info_wrap">
       <div className="container">
         <div className="lan_info_inner">
-          <div>
-            <p></p>
-          </div>
+
+          {/* ==========================================
+              CONTENT
+          ========================================== */}
 
           <div>
-            <p>
-              <strong>
-                BREAK- UP OF BUILT UP AREA MENTIONED IN THE BUILDING PLAN FOR
-                THE TEACHER EDUCATION PROGRAM
-              </strong>
-            </p>
 
-            <h3>Class Rooms</h3>
+            {/* SECTION 1 SHORT DESCRIPTION */}
+
+            {contentSection?.shortDescription && (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html:
+                    contentSection.shortDescription,
+                }}
+              />
+            )}
+
+            {/* SECTION 1 TITLE */}
+
+            {contentSection?.title && (
+              <h3>
+                {contentSection.title}
+              </h3>
+            )}
+
+            {/* ==========================================
+                ROOM TABLE
+            ========================================== */}
 
             <figure className="table">
               <table>
-                <tbody>
+                <thead>
                   <tr>
-                    <th>Room No</th>
-                    <th>Room Size(Sqm.)</th>
+                    {/* SECTION 2 TITLE */}
+
+                    <th>
+                      {roomNoSection?.title}
+                    </th>
+
+                    {/* SECTION 3 TITLE */}
+
+                    <th>
+                      {roomSizeSection?.title}
+                    </th>
                   </tr>
-                  <tr><th>1</th><th>61.21</th></tr>
-                  <tr><th>2</th><th>60.56</th></tr>
-                  <tr><th>3</th><th>48.86</th></tr>
-                  <tr><th>4</th><th>48.86</th></tr>
-                  <tr><th>5</th><th>43</th></tr>
-                  <tr><th>6</th><th>48.86</th></tr>
-                  <tr><th>7</th><th>48.86</th></tr>
-                  <tr><th>8</th><th>52.39</th></tr>
-                  <tr><th>9</th><th>61.12</th></tr>
-                  <tr><th>10</th><th>61.12</th></tr>
-                  <tr><th>11</th><th>51.28</th></tr>
-                  <tr><th>12</th><th>61.12</th></tr>
-                  <tr><th>13</th><th>61.50</th></tr>
-                  <tr><th>14</th><th>55.63</th></tr>
-                  <tr><th>15</th><th>46.46</th></tr>
-                  <tr><th>16</th><th>47</th></tr>
-                  <tr><th>17</th><th>67.82</th></tr>
-                  <tr><th>18</th><th>51.20</th></tr>
+                </thead>
+
+                <tbody>
+
+                  {Array.from(
+                    { length: totalRows },
+                    (_, index) => (
+                      <tr key={index}>
+
+                        {/* ROOM NUMBER */}
+
+                        <th>
+                          {
+                            roomNumbers[index]
+                              ?.title
+                          }
+                        </th>
+
+                        {/* ROOM SIZE */}
+
+                        <th>
+                          {
+                            roomSizes[index]
+                              ?.title
+                          }
+                        </th>
+
+                      </tr>
+                    )
+                  )}
+
                 </tbody>
               </table>
             </figure>
 
-            <p>Multipurpose Hall (in Sq m.) 212</p>
-            <p>Library-Cum-Reading Room (in Sq m.) 99</p>
-            <p>ICT Resource Centre (In Sq m.) 50.29</p>
-            <p>Curriculum Laboratory (in Sq m.) 323.4</p>
-            <p>Art &amp; Craft Resource Centre (In Sq m.) 49.61</p>
-            <p>Teaching Learning Resource Centre (In Sq m.) 51.12</p>
-            <p>for Arts &amp; Work Experience</p>
-            <p>Health &amp; Physical Education Resource Centre (In Sq m.) 24</p>
-            <p>Principals Office (in Sq m.) 34</p>
-            <p>Staff Room (in Sq m.) 49.24</p>
-            <p>Administrative Office (in Sq m.) 31.38</p>
-            <p>Girls Common Room (in Sq m.) 27.24</p>
-            <p>Seminar Room (in Sq m.) 99</p>
-            <p>Canteen (in Sq m.) 36.46</p>
-            <p>Separate Toilet Facility for Boys &amp; Girls (in Sq m.) 186.71</p>
-            <p>Parking Space (in Sq m.) 231</p>
-            <p>Store Room1 (in Sq m.) 22.63</p>
-            <p>Store Room2 (in Sq m.) 22.63</p>
-            <p>Multi Purpose Play Filed (in Sq m.) 2698</p>
-            <p>Boys Common Room (in Sq m.) 17</p>
-            <p>Office Room-1 (in Sq m.) 25</p>
-            <p>Office Room-2 (in Sq m.) 33</p>
-            <p>Security Room (in Sq m.) 19</p>
-            <p>Performing Arts Room (in Sq m.) 23</p>
-            <p>Generator Room (in Sq m.) 20</p>
-            <p>Other Remaining Built Up Area viz gallery,</p>
-            <p>Staircase, Ramp etc. (in Sq m.) 588.4</p>
+            {/* ==========================================
+                REMAINING AREA
+            ========================================== */}
 
-            <p>
-              <strong>
-                Total Built-Up Area on the basis of above details (in Sq m.)
-                3211.87
-              </strong>
-            </p>
+            {remainingAreaItems.map(
+              (item, index) => (
+                <p key={index}>
+                  {item.title}
+                </p>
+              )
+            )}
 
-            <p></p>
           </div>
+
         </div>
       </div>
     </section>

@@ -1,18 +1,38 @@
 import Image from "next/image";
 
-const LanguageLabBanner = () => {
+interface Section {
+  title?: string;
+  image?: string;
+}
+
+interface LanguageLabBannerProps {
+  sectionData?: Section;
+}
+
+const LanguageLabBanner = ({
+  sectionData,
+}: LanguageLabBannerProps) => {
   return (
     <section className="page_title_wrap bottom_border">
       <Image
         className="page_title_bg"
-        src="https://www.rabedc.com/img/page_title_bg.jpg"
-        alt="page_title_bg"
-        width={1920}
-        height={300}
+        src={
+          sectionData?.image ||
+          "/images/page_title_bg.jpg"
+        }
+        alt={
+          sectionData?.title ||
+          "Language Lab"
+        }
+        fill
+        priority
       />
 
       <div className="container">
-        <h3>Language Lab</h3>
+        <h3>
+          {sectionData?.title ||
+            "Language Lab"}
+        </h3>
       </div>
     </section>
   );
