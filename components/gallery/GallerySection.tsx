@@ -1,5 +1,6 @@
 "use client";
 
+import { Expand } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
@@ -56,6 +57,7 @@ const GallerySection = ({ subsections = [] }: GallerySectionProps) => {
                     }}
                     priority={index < 8}
                   />
+                  <Expand/>
                 </div>
               </div>
             ))}
