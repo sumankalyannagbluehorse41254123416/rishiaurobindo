@@ -38,11 +38,10 @@ export default function DocumentsSection({
             <button
               key={index}
               type="button"
-              className={`tablinks year_link ${
-                activeIndex === index
+              className={`tablinks year_link ${activeIndex === index
                   ? "active"
                   : ""
-              }`}
+                }`}
               onClick={() =>
                 setActiveIndex(index)
               }
@@ -53,20 +52,30 @@ export default function DocumentsSection({
         </div>
 
         {/* Download Buttons */}
-        <div className="tabcontent year_section itemId-1305">
+        <div id="tablink5097" className="tabcontent year_section itemId-1305 flex-tab">
           {activeSection?.subsections?.map(
             (item, index) =>
               item.image ? (
-                <div key={index}>
-                  <a
-                    href={item.image}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-border"
-                  >
-                    Download
-                  </a>
-                </div>
+                // <div key={index}>
+                //   <a
+                //     href={item.image}
+                //     target="_blank"
+                //     rel="noopener noreferrer"
+                //     className="btn-border"
+                //   >
+                //     Download
+                //   </a>
+                // </div>
+
+                <a key={index}
+                  href={item.image}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-border"
+                >
+                  Download
+                </a>
+
               ) : null
           )}
         </div>
