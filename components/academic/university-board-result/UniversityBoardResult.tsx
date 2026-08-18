@@ -132,7 +132,7 @@ const UniversityBoardResultContent = () => {
                                 Download
                               </a>
                             ) : (
-                              <span>Download</span>
+                              <a className="text-white">Download</a>
                             )}
                           </td>
                         </tr>

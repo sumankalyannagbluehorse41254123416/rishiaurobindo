@@ -20,6 +20,7 @@ export default function MinutesOfMeetingsSection() {
               alt="ACTION TAKEN REPORT 2020-2021"
               width={800}
               height={500}
+                style={{height:"auto"}}
             />
 
             <p className="download_button">
@@ -42,6 +43,7 @@ export default function MinutesOfMeetingsSection() {
               alt="4TH MEETING"
               width={800}
               height={500}
+                style={{height:"auto"}}
             />
 
             <p className="download_button">
@@ -64,6 +66,7 @@ export default function MinutesOfMeetingsSection() {
               alt="3RD MEETING"
               width={800}
               height={500}
+                style={{height:"auto"}}
             />
 
             <p className="download_button">
@@ -86,6 +89,7 @@ export default function MinutesOfMeetingsSection() {
               alt="2ND MEETING"
               width={800}
               height={500}
+                style={{height:"auto"}}
             />
 
             <p className="download_button">
@@ -108,6 +112,7 @@ export default function MinutesOfMeetingsSection() {
               alt="1ST MEETING"
               width={800}
               height={500}
+                style={{height:"auto"}}
             />
 
             <p className="download_button">

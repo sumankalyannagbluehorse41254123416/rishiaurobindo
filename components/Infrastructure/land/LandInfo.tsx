@@ -184,6 +184,7 @@ export default function LandInfo({
               {landMutationSection?.image && (
                 <Image
                   className="img-responsive land_img"
+                  style={{height:"auto"}}
                   src={
                     landMutationSection.image
                   }
@@ -243,6 +244,7 @@ export default function LandInfo({
                 {document.thumbnail_url && (
                   <Image
                     className="img-responsive land_img"
+                    style={{height:"auto"}}
                     src={
                       document.thumbnail_url
                     }

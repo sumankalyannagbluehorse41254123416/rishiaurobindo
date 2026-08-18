@@ -52,7 +52,7 @@ export default function IqacCommitteeMembers({
   console.log("Total Rows:", maxRows);
 
   return (
-    <section className="land_info_wrap">
+    <section className="land_info_wrap table-background">
       <div className="container">
         <div className="lan_info_inner">
           <div>
