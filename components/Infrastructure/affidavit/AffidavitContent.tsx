@@ -1,30 +1,40 @@
 import Link from "next/link";
 
-const AffidavitContent = () => {
+interface Document {
+  title?: string;
+  file_url?: string;
+  download_button_name?: string;
+}
+
+interface Props {
+  document?: Document;
+}
+
+const AffidavitContent = ({
+  document,
+}: Props) => {
   return (
     <section className="land_info_wrap">
       <div className="container">
         <div className="lan_info_inner">
-          <div>
-            <p></p>
-          </div>
+          <div></div>
 
-          <div>
-            <p></p>
-          </div>
+          <div></div>
 
           <div>
             <p className="download_button">
-              1. Affidavit on Rs. 100/- stamp paper duly attested by oath
-              commissioner or notary public
+              {document?.title}
 
               <Link
-                href="https://wip.tezcommerce.com:3304/admin/module/25/1668167628835.pdf"
+                href={
+                  document?.file_url || "#"
+                }
                 className="btn_theme"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Download
+                {document?.download_button_name ||
+                  "Download"}
               </Link>
             </p>
           </div>
