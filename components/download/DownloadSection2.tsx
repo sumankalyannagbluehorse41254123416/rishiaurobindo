@@ -73,9 +73,10 @@ const DownloadSection2 = ({
                 {migrationDocument?.file_url && (
                   <a
                     href={migrationDocument.file_url}
-                    className="btn_theme"
+                    className="btn_theme ml-sm-2 mt-0 mb-2 mb-sm-0"
                     target="_blank"
                     rel="noopener noreferrer"
+                    style={{width:"100%"}}
                   >
                     {migrationDocument.download_button_name || "Download"}
                   </a>
@@ -101,7 +102,7 @@ const DownloadSection2 = ({
                 {coCurricularDocument?.file_url && (
                   <a
                     href={coCurricularDocument.file_url}
-                    className="btn_theme"
+                    className="btn_theme ml-sm-2"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

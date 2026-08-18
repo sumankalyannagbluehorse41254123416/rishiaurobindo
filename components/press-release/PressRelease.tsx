@@ -1,5 +1,6 @@
 "use client";
 
+import { Expand } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -24,8 +25,9 @@ export default function PressRelease({
         <div className="row mb-5">
           {galleryImages.map((image, index) => (
             <div
-              className="col-md-3"
+              className="col-6 col-sm-4 col-md-3"
               key={`${image}-${index}`}
+              style={{display:"flex", justifyContent:"center"}}
             >
               <button
                 type="button"
@@ -43,6 +45,7 @@ export default function PressRelease({
                     objectFit: "cover",
                   }}
                 />
+                <Expand/>
               </button>
             </div>
           ))}
