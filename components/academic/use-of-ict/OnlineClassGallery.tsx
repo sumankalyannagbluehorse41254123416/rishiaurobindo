@@ -1,3 +1,4 @@
+import { Expand } from "lucide-react";
 import Image from "next/image";
 
 const OnlineClassGallery = () => {
@@ -46,6 +47,7 @@ const OnlineClassGallery = () => {
           height={700}
           priority
         />
+       
       </div>
 
       <div className="container main-gallery">
@@ -67,6 +69,7 @@ const OnlineClassGallery = () => {
                   width={400}
                   height={300}
                 />
+                <Expand/>
               </a>
             </div>
           ))}

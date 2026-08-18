@@ -10,6 +10,7 @@ export default function MinutesOfMeetingsPageTitle() {
         width={1920}
         height={300}
         priority
+      
       />
 
       <div className="container">

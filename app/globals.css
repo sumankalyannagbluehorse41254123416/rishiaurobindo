@@ -939,9 +939,11 @@
     padding-left: 10px;
   }
 }
-.gal-inr img{
+
+.gal-inr img {
   margin-bottom: 10px;
 }
+
 h {
   text-align: inherit;
 }
@@ -995,22 +997,38 @@ nav-pills .nav-link {
   margin-bottom: 5px;
 }
 
-.year_section.flex-tab{
+.year_section.flex-tab {
   display: flex;
   justify-content: center;
   gap: 12px;
 }
 
-@media (max-width:575px){
-  .year_section.flex-tab{
+@media (max-width:575px) {
+  .year_section.flex-tab {
     gap: 8px;
     display: grid;
     grid-template-columns: auto auto;
   }
-  .year_section.flex-tab .btn-border{
+
+  .year_section.flex-tab .btn-border {
     padding: 8px;
   }
 }
-.gal-inr-width{
+
+.gal-inr-width {
   width: 100%;
+}
+
+.land-text-center tbody td {
+  text-align: center;
+}
+
+.left-gap {
+  margin-left: 10px;
+}
+
+@media (max-width:768px){
+  .left-gap {
+  margin-left: 0px;
+}
 }
