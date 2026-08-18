@@ -1,206 +1,280 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function LandInfo() {
+interface Subsection {
+  title?: string;
+  image?: string;
+  description?: string;
+  file_url?: string;
+  subsections?: Subsection[];
+}
+
+interface Section {
+  title?: string;
+  shortDescription?: string;
+  short_description?: string;
+  description?: string;
+  image?: string;
+  file_url?: string;
+  download_button_name?: string;
+  subsections?: Subsection[];
+}
+
+interface DocumentItem {
+  id?: number;
+  uid?: string;
+  title?: string;
+  slug?: string;
+  description?: string;
+  file_url?: string;
+  file_type?: string;
+  file_size?: number;
+  download_button_name?: string;
+  download_count?: number;
+  is_downloadable?: boolean;
+  cta_text?: string;
+  cta_url?: string | null;
+  thumbnail_url?: string;
+  sequence?: number;
+  status?: string;
+}
+
+interface LandInfoProps {
+  sectionData?: Section;
+  affidavitSection?: Section;
+  landMutationSection?: Section;
+  documents?: DocumentItem[];
+}
+
+export default function LandInfo({
+  sectionData,
+  affidavitSection,
+  landMutationSection,
+  documents = [],
+}: LandInfoProps) {
   return (
     <div className="land-banner">
       <section className="land_info_wrap">
         <div className="container">
           <div className="lan_info_inner">
 
-            {/* Land Details */}
+            {/* =========================================
+                LAND DETAILS
+                API ARRAY INDEX 29
+            ========================================== */}
+
             <div>
-              <p>
-                <span
-                  style={{
-                    fontFamily: "Century",
-                    fontSize: "18px",
+              {/* Section Title */}
+
+              {sectionData?.title && (
+                <h3>
+                  {sectionData.title}
+                </h3>
+              )}
+
+              {/* Short Description */}
+
+              {sectionData?.shortDescription && (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      sectionData.shortDescription,
                   }}
-                >
-                  Amaranth Altruist Charitable Trust is in possession of own
-                  land for setting up B.Ed. College titled
-                  <br />
-                  <strong>RISHI AUROBINDO INSTITUTE OF TEACHERS’ EDUCATION</strong>
-                  <br />
-                  The details of land are as follows:
-                </span>
+                />
+              )}
 
-                <br />
-                <br />
+              {/* Alternative Short Description */}
 
-                <span
-                  style={{
-                    fontFamily: "Bookman Old Style",
-                    fontSize: "20px",
+              {!sectionData?.shortDescription &&
+                sectionData?.short_description && (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        sectionData.short_description,
+                    }}
+                  />
+                )}
+
+              {/* Description */}
+
+              {sectionData?.description && (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      sectionData.description,
                   }}
-                >
-                  <u>
-                    <strong>Area of land</strong>
-                  </u>
-                </span>
+                />
+              )}
 
-                <br />
+              {/* Subsections */}
 
-                <span
-                  style={{
-                    fontFamily: "Times New Roman",
-                    fontSize: "18px",
-                  }}
-                >
-                  100 decm. = 1 ACRE (4046.82 SQ.MT)
-                </span>
+              {sectionData?.subsections?.map(
+                (subsection, index) => (
+                  <div key={index}>
 
-                <br />
-                <br />
+                    {subsection.title && (
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            subsection.title,
+                        }}
+                      />
+                    )}
 
-                <span
-                  style={{
-                    fontFamily: "Bookman Old Style",
-                    fontSize: "20px",
-                  }}
-                >
-                  <strong>
-                    <u>Location</u>
-                  </strong>
-                </span>
+                    {subsection.description && (
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            subsection.description,
+                        }}
+                      />
+                    )}
 
-                <br />
-
-                <span
-                  style={{
-                    fontFamily: "Times New Roman",
-                    fontSize: "18px",
-                  }}
-                >
-                  Mouza – Panchkhuri,
-                  <br />
-                  Gram Panchayat – Panchkhuri
-                  <br />
-                  Block – Midnapore Sadar
-                  <br />
-                  Dist. – Paschim Medinipur
-                  <br />
-                  State – West Bengal
-                </span>
-
-                <br />
-                <br />
-
-                <span
-                  style={{
-                    fontFamily: "Bookman Old Style",
-                    fontSize: "20px",
-                  }}
-                >
-                  <strong>
-                    <u>Land particulars</u>
-                  </strong>
-                </span>
-
-                <br />
-
-                <span
-                  style={{
-                    fontFamily: "Times New Roman",
-                    fontSize: "18px",
-                  }}
-                >
-                  L.R. Plot No. 482,
-                  <br />
-                  J.L. No. 241,
-                  <br />
-                  L.R. Khatian No. 746
-                </span>
-              </p>
+                  </div>
+                )
+              )}
             </div>
 
-            {/* Affidavit Description */}
+            {/* =========================================
+                AFFIDAVIT MANDATORY DISCLOSURE
+                API ARRAY INDEX 0
+            ========================================== */}
+
             <div>
-              <h3>
-                <strong>AFFIDAVIT (Mandatory Disclosure)</strong>
-              </h3>
+              {affidavitSection?.title && (
+                <h3>
+                  <strong>
+                    {affidavitSection.title}
+                  </strong>
+                </h3>
+              )}
 
-              <p>
-                <strong>
-                  Copy of Affidavit on Rs. 100 on Non-Judicial Stamp Paper
-                  before Notary Public, Midnapore (In terms of provision of
-                  NCTE (Recognition Norms and Procedure) Regulation 2007 as
-                  amended to time to time)
-                </strong>
-              </p>
+              {(affidavitSection?.shortDescription ||
+                affidavitSection?.short_description) && (
+                <p>
+                  <strong
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        affidavitSection.shortDescription ||
+                        affidavitSection.short_description ||
+                        "",
+                    }}
+                  />
+                </p>
+              )}
             </div>
 
-            {/* Land Mutation */}
+            {/* =========================================
+                LAND MUTATION
+                API ARRAY INDEX 1
+            ========================================== */}
+
             <div className="land-image">
-              <h3>LAND MUTATION</h3>
 
-              <Image
-                className="img-responsive land_img"
-                src="https://wip.tezcommerce.com:3304/admin/module/25/LAND%20MUTATION.jpg"
-                alt="Land Mutation"
-                width={800}
-                height={600}
-              />
+              {/* Dynamic Section Title */}
 
-              <p className="download_button pt-3">
-                <Link
-                  href="https://wip.tezcommerce.com:3304/admin/module/25/1646134072789.jpg"
-                  className="btn_theme"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Download
-                </Link>
-              </p>
+              {landMutationSection?.title && (
+                <h3>
+                  {landMutationSection.title}
+                </h3>
+              )}
+
+              {/* Dynamic Section Image */}
+
+              {landMutationSection?.image && (
+                <Image
+                  className="img-responsive land_img"
+                  src={
+                    landMutationSection.image
+                  }
+                  alt={
+                    landMutationSection.title ||
+                    "Land Mutation"
+                  }
+                  width={800}
+                  height={600}
+                />
+              )}
+
+              {/* Download Same Image */}
+
+              {landMutationSection?.image && (
+                <p className="download_button pt-3">
+                  <Link
+                    href={
+                      landMutationSection.image
+                    }
+                    className="btn_theme"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Download
+                  </Link>
+                </p>
+              )}
+
             </div>
 
-            {/* Land Deed */}
-            <div className="land-image">
-              <h3>LAND DEED</h3>
+            {/* =========================================
+                LAND DEED + AFFIDAVIT
+                DOCUMENT COLLECTION
+            ========================================== */}
 
-              <Image
-                className="img-responsive land_img"
-                src="https://wip.tezcommerce.com:3304/admin/module/25/LAND%20DEED-2.jpg"
-                alt="Land Deed"
-                width={800}
-                height={600}
-              />
+            {documents.map((document) => (
+              <div
+                className="land-image"
+                key={
+                  document.uid ||
+                  document.id ||
+                  document.sequence
+                }
+              >
 
-              <p className="download_button pt-3">
-                <Link
-                  href="https://wip.tezcommerce.com:3304/admin/module/25/1646133886710.pdf"
-                  className="btn_theme"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Download
-                </Link>
-              </p>
-            </div>
+                {/* Document Title */}
 
-            {/* Affidavit */}
-            <div className="land-image">
-              <h3>AFFIDAVIT</h3>
+                {document.title && (
+                  <h3>
+                    {document.title}
+                  </h3>
+                )}
 
-              <Image
-                className="img-responsive land_img"
-                src="https://wip.tezcommerce.com:3304/admin/module/25/AFFIDAVIT%20(Mandatory%20Disclosure).jpg"
-                alt="Affidavit"
-                width={800}
-                height={600}
-              />
+                {/* Document Thumbnail */}
 
-              <p className="download_button pt-3">
-                <Link
-                  href="https://wip.tezcommerce.com:3304/admin/module/25/1646133799791.pdf"
-                  className="btn_theme"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Download
-                </Link>
-              </p>
-            </div>
+                {document.thumbnail_url && (
+                  <Image
+                    className="img-responsive land_img"
+                    src={
+                      document.thumbnail_url
+                    }
+                    alt={
+                      document.title ||
+                      "Document"
+                    }
+                    width={800}
+                    height={600}
+                  />
+                )}
+
+                {/* Document Download */}
+
+                {document.file_url && (
+                  <p className="download_button pt-3">
+                    <Link
+                      href={
+                        document.file_url
+                      }
+                      className="btn_theme"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {document.download_button_name ||
+                        "Download"}
+                    </Link>
+                  </p>
+                )}
+
+              </div>
+            ))}
 
           </div>
         </div>
