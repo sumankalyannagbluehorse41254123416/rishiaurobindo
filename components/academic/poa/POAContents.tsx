@@ -1,6 +1,6 @@
 export default function POAContents() {
   return (
-    <section className="land_info_wrap">
+    <section className="land_info_wrap land-text-center">
       <div className="container">
         <div>
           <p></p>

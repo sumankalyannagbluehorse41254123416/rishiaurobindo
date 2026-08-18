@@ -31,7 +31,7 @@ export default function PressRelease({
             >
               <button
                 type="button"
-                className="gal-inr"
+                className="gal-inr gal-inr-width"
                 onClick={() => setSelectedImage(image)}
               >
                 <Image
@@ -40,9 +40,9 @@ export default function PressRelease({
                   width={205}
                   height={200}
                   style={{
-                    width: "205px",
-                    height: "200px",
-                    objectFit: "cover",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "fill",
                   }}
                 />
                 <Expand/>

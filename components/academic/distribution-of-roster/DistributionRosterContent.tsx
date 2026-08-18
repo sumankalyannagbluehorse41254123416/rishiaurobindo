@@ -40,6 +40,7 @@ const DistributionRosterContent = () => {
             <div key={index}>
               <Image
                 className="img-responsive land_img"
+                style={{height:"auto"}}
                 src={item.image}
                 alt="land_img2"
                 width={1200}
@@ -53,7 +54,7 @@ const DistributionRosterContent = () => {
                   href={item.pdf}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn_theme"
+                  className="btn_theme left-gap"
                 >
                   Download
                 </a>
