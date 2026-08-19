@@ -621,6 +621,7 @@ html.open-rightmenu .menu-right span.close-r {
 
     header a.navbar-brand img {
         width: 50px;
+        height: auto;
     }
 
     header a.navbar-brand span {
