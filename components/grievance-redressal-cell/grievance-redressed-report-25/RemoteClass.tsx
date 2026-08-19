@@ -21,7 +21,7 @@ export default function RemoteClass({
   const subsections = section?.subsections ?? [];
 
   return (
-    <section className="land_info_wrap">
+    <section className="land_info_wrap land-text-center">
       <h3>{section?.title}</h3>
 
       <div className="container">

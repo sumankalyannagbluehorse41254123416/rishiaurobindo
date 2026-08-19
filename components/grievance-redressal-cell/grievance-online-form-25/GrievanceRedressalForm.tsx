@@ -32,6 +32,7 @@ export default function GrievanceRedressalForm({
               {document.thumbnail_url && (
                 <Image
                   className="img-responsive land_img"
+                  style={{height:"auto"}}
                   src={document.thumbnail_url}
                   alt={document.title || "Grievance Redressal Form"}
                   width={800}
