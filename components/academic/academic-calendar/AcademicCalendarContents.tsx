@@ -1,4 +1,31 @@
-export default function AcademicCalendarContents() {
+interface DocumentItem {
+  id?: number;
+  title?: string;
+  description?: string;
+  file_url?: string;
+  fileUrl?: string;
+  file?: string;
+  sequence?: number;
+  status?: string;
+  [key: string]: unknown;
+}
+
+interface AcademicCalendarContentsProps {
+  documents?: DocumentItem[];
+}
+
+const stripHtml = (html?: string) => {
+  if (!html) return "";
+
+  return html
+    .replace(/<[^>]*>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .trim();
+};
+
+export default function AcademicCalendarContents({
+  documents = [],
+}: AcademicCalendarContentsProps) {
   return (
     <section className="land_info_wrap land-text-center">
       <div className="container">
@@ -25,140 +52,36 @@ export default function AcademicCalendarContents() {
                     </thead>
 
                     <tbody>
-                      <tr>
-                        <td>1.</td>
-                        <td>2023-2024</td>
-                        <td>
-                          <a
-                            href="/images/1724395353155.pdf"
-                            target="_blank"
-                            className="btn-border"
-                            rel="noopener noreferrer"
-                          >
-                            Download
-                          </a>
-                        </td>
-                      </tr>
+                      {documents.map((document, index) => {
+                        const fileUrl =
+                          document.file_url ||
+                          document.fileUrl ||
+                          document.file ||
+                          "";
 
-                      <tr>
-                        <td>2.</td>
-                        <td>2022-2023</td>
-                        <td>
-                          <a
-                            href="https://wip.tezcommerce.com:3304/admin/module/25/1669794082551.pdf"
-                            target="_blank"
-                            className="btn-border"
-                            rel="noopener noreferrer"
-                          >
-                            Download
-                          </a>
-                        </td>
-                      </tr>
+                        return (
+                          <tr key={document.id || index}>
+                            <td>{index + 1}.</td>
 
-                      <tr>
-                        <td>3.</td>
-                        <td>2021-2022</td>
-                        <td>
-                          <a
-                            href="https://wip.tezcommerce.com:3304/admin/module/25/1668489276111.pdf"
-                            target="_blank"
-                            className="btn-border"
-                            rel="noopener noreferrer"
-                          >
-                            Download
-                          </a>
-                        </td>
-                      </tr>
+                            <td>
+                              {stripHtml(
+                                document.description
+                              )}
+                            </td>
 
-                      <tr>
-                        <td>4.</td>
-                        <td>2020-2021</td>
-                        <td>
-                          <a
-                            href="https://wip.tezcommerce.com:3304/admin/module/25/1668488958791.pdf"
-                            target="_blank"
-                            className="btn-border"
-                            rel="noopener noreferrer"
-                          >
-                            Download
-                          </a>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td>5.</td>
-                        <td>2019-2020</td>
-                        <td>
-                          <a
-                            href="https://wip.tezcommerce.com:3304/admin/module/25/1668488784380.pdf"
-                            target="_blank"
-                            className="btn-border"
-                            rel="noopener noreferrer"
-                          >
-                            Download
-                          </a>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td>6.</td>
-                        <td>2018-2019</td>
-                        <td>
-                          <a
-                            href="https://wip.tezcommerce.com:3304/admin/module/25/1651832089536.pdf"
-                            target="_blank"
-                            className="btn-border"
-                            rel="noopener noreferrer"
-                          >
-                            Download
-                          </a>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td>7.</td>
-                        <td>2017-2018</td>
-                        <td>
-                          <a
-                            href="https://wip.tezcommerce.com:3304/admin/module/25/1651831291088.pdf"
-                            target="_blank"
-                            className="btn-border"
-                            rel="noopener noreferrer"
-                          >
-                            Download
-                          </a>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td>8.</td>
-                        <td>2016-2017</td>
-                        <td>
-                          <a
-                            href="https://wip.tezcommerce.com:3304/admin/module/25/1651830756466.pdf"
-                            target="_blank"
-                            className="btn-border"
-                            rel="noopener noreferrer"
-                          >
-                            Download
-                          </a>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td>9.</td>
-                        <td>2015-2016</td>
-                        <td>
-                          <a
-                            href="https://wip.tezcommerce.com:3304/admin/module/25/1668408953351.pdf"
-                            target="_blank"
-                            className="btn-border"
-                            rel="noopener noreferrer"
-                          >
-                            Download
-                          </a>
-                        </td>
-                      </tr>
+                            <td>
+                              <a
+                                href={fileUrl}
+                                target="_blank"
+                                className="btn-border"
+                                rel="noopener noreferrer"
+                              >
+                                Download
+                              </a>
+                            </td>
+                          </tr>
+                        );
+                      })}
                     </tbody>
                   </table>
                 </div>

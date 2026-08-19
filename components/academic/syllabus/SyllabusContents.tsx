@@ -1,7 +1,30 @@
-export default function SyllabusContents() {
+interface DocumentItem {
+  id: number;
+  uid: string;
+  title?: string;
+  description?: string;
+  file_url?: string;
+  file_type?: string;
+  file_size?: number;
+  download_button_name?: string;
+  download_count?: number;
+  is_downloadable?: boolean;
+  thumbnail_url?: string;
+  sequence?: number;
+  status?: string;
+}
+
+interface SyllabusContentsProps {
+  documents?: DocumentItem[];
+}
+
+export default function SyllabusContents({
+  documents = [],
+}: SyllabusContentsProps) {
   return (
     <section className="land_info_wrap land-text-center">
       <div className="container">
+
         <div>
           <p></p>
         </div>
@@ -11,7 +34,13 @@ export default function SyllabusContents() {
         </div>
 
         <div className="bd-border">
+
           <table className="table table-bordered">
+
+            {/* =====================================
+                STATIC TABLE HEADER
+            ====================================== */}
+
             <thead>
               <tr>
                 <th>Sl. No</th>
@@ -20,38 +49,88 @@ export default function SyllabusContents() {
               </tr>
             </thead>
 
-            <tbody>
-              <tr>
-                <td>1.</td>
-                <td>D.El.Ed</td>
-                <td>
-                  <a
-                    href="https://wip.tezcommerce.com:3304/admin/module/25/1644135268149.pdf"
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-              </tr>
+            {/* =====================================
+                DYNAMIC DOCUMENT DATA
+            ====================================== */}
 
-              <tr>
-                <td>1.</td>
-                <td>B.Ed</td>
-                <td>
-                  <a
-                    href="https://wip.tezcommerce.com:3304/admin/module/25/1644135067849.pdf"
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
+            <tbody>
+              {documents.length > 0 ? (
+                documents.map(
+                  (document, index) => {
+
+                    // Remove HTML tags like <p>, </p>, etc.
+                    const description =
+                      document.description
+                        ?.replace(/<[^>]*>/g, "")
+                        .trim();
+
+                    return (
+                      <tr
+                        key={
+                          document.uid ||
+                          document.id
+                        }
+                      >
+
+                        {/* =================================
+                            SL NO
+                        ================================== */}
+
+                        <td>
+                          {description ||
+                            `${index + 1}.`}
+                        </td>
+
+                        {/* =================================
+                            PROGRAMME NAME
+                        ================================== */}
+
+                        <td>
+                          {document.title}
+                        </td>
+
+                        {/* =================================
+                            DOWNLOAD
+                        ================================== */}
+
+                        <td>
+                          {document.file_url &&
+                          document.is_downloadable !==
+                            false ? (
+                            <a
+                              href={
+                                document.file_url
+                              }
+                              target="_blank"
+                              className="btn-border"
+                              rel="noopener noreferrer"
+                            >
+                              {document.download_button_name ||
+                                "Download"}
+                            </a>
+                          ) : (
+                            "-"
+                          )}
+                        </td>
+
+                      </tr>
+                    );
+                  }
+                )
+              ) : (
+                <tr>
+                  <td
+                    colSpan={3}
+                    className="text-center"
                   >
-                    Download
-                  </a>
-                </td>
-              </tr>
+                    No syllabus documents found.
+                  </td>
+                </tr>
+              )}
             </tbody>
+
           </table>
+
         </div>
       </div>
     </section>

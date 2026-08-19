@@ -1,4 +1,88 @@
-export default function PreviousInternalQuestionPaper() {
+interface SubSection {
+  title?: string;
+  description?: string;
+  [key: string]: unknown;
+}
+
+interface Section {
+  title?: string;
+
+  pageItemdataWithSubsection?: SubSection[];
+  subSectionData?: SubSection[];
+  subsection?: SubSection[];
+  subSections?: SubSection[];
+  subsections?: SubSection[];
+
+  [key: string]: unknown;
+}
+
+interface PreviousInternalQuestionPaperProps {
+  bedAcademicSection?: Section;
+  bedSemesterSection?: Section;
+  bedYearSection?: Section;
+
+  deledAcademicSection?: Section;
+  deledSemesterSection?: Section;
+  deledYearSection?: Section;
+}
+
+const stripHtml = (value?: string) => {
+  if (!value) return "";
+
+  return value
+    .replace(/<[^>]*>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .trim();
+};
+
+const getSubsections = (
+  section?: Section
+): SubSection[] =>
+  section?.subsections ||
+  section?.subSections ||
+  section?.subsection ||
+  section?.subSectionData ||
+  section?.pageItemdataWithSubsection ||
+  [];
+
+export default function PreviousInternalQuestionPaper({
+  bedAcademicSection,
+  bedSemesterSection,
+  bedYearSection,
+  deledAcademicSection,
+  deledSemesterSection,
+  deledYearSection,
+}: PreviousInternalQuestionPaperProps) {
+  const bedAcademic =
+    getSubsections(
+      bedAcademicSection
+    );
+
+  const bedSemester =
+    getSubsections(
+      bedSemesterSection
+    );
+
+  const bedYear =
+    getSubsections(
+      bedYearSection
+    );
+
+  const deledAcademic =
+    getSubsections(
+      deledAcademicSection
+    );
+
+  const deledSemester =
+    getSubsections(
+      deledSemesterSection
+    );
+
+  const deledYear =
+    getSubsections(
+      deledYearSection
+    );
+
   return (
     <section className="land_info_wrap land-text-center">
       <div className="container">
@@ -6,7 +90,10 @@ export default function PreviousInternalQuestionPaper() {
           <p></p>
         </div>
 
-        {/* B.Ed Section */}
+        {/* ==========================
+            B.ED
+        ========================== */}
+
         <div className="bd-border">
           <div className="bd-border-text">
             <h2>B.ED</h2>
@@ -15,277 +102,168 @@ export default function PreviousInternalQuestionPaper() {
           <table className="table table-bordered">
             <thead>
               <tr>
-                <th>Academic Session</th>
-                <th>Semester(year)</th>
-                <th>Year</th>
-                <th>Previous Internal Question Paper</th>
+                <th>
+                  {bedAcademicSection?.title}
+                </th>
+
+                <th>
+                  {bedSemesterSection?.title}
+                </th>
+
+                <th>
+                  {bedYearSection?.title}
+                </th>
+
+                <th>
+                  Previous Internal
+                  Question Paper
+                </th>
+
                 <th>Result</th>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
-                <td>
-                  <p>2015-2017</p>
-                </td>
-                <td>4th(2016-2017)</td>
-                <td>
-                  <p>2016-2017</p>
-                </td>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-              </tr>
+              {bedAcademic.map(
+                (_, index) => (
+                  <tr key={index}>
+                    <td>
+                      {stripHtml(
+                        bedAcademic[
+                          index
+                        ]?.title
+                      )}
+                    </td>
 
-              <tr>
-                <td>
-                  <p>2015-2017</p>
-                </td>
-                <td>3rd(2016-2017)</td>
-                <td>
-                  <p>2016-2017</p>
-                </td>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-              </tr>
+                    <td>
+                      {stripHtml(
+                        bedSemester[
+                          index
+                        ]?.title
+                      )}
+                    </td>
 
-              <tr>
-                <td>
-                  <p>2015-2017</p>
-                </td>
-                <td>2nd(2015-2016)</td>
-                <td>
-                  <p>2015-2016</p>
-                </td>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-              </tr>
+                    <td>
+                      {stripHtml(
+                        bedYear[
+                          index
+                        ]?.title
+                      )}
+                    </td>
 
-              <tr>
-                <td>
-                  <p>2015-2017</p>
-                </td>
-                <td>1st(2015-2016)</td>
-                <td>
-                  <p>2015-2016</p>
-                </td>
-                <td>
-                  <a
-                    href="https://wip.tezcommerce.com:3304/admin/module/25/1667200685158.docx"
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-                <td>
-                  <a
-                    href="https://wip.tezcommerce.com:3304/admin/module/25/1667211156305.PNG"
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-              </tr>
+                    <td>
+                      <a
+                        href=""
+                        target="_blank"
+                        className="btn-border"
+                        rel="noopener noreferrer"
+                      >
+                        Download
+                      </a>
+                    </td>
+
+                    <td>
+                      <a
+                        href=""
+                        target="_blank"
+                        className="btn-border"
+                        rel="noopener noreferrer"
+                      >
+                        Download
+                      </a>
+                    </td>
+                  </tr>
+                )
+              )}
             </tbody>
           </table>
         </div>
 
-        {/* D.El.Ed Section */}
+        {/* ==========================
+            D.EL.ED
+        ========================== */}
+
         <div className="bd-border mt-5">
           <div className="bd-border-text">
-            <h2>D.EL..ED</h2>
+            <h2>D.EL.ED</h2>
           </div>
 
           <table className="table table-bordered">
             <thead>
               <tr>
-                <th>Academic Session</th>
-                <th>Semester(year)</th>
-                <th>Year</th>
-                <th>Previous Internal Question Paper</th>
+                <th>
+                  {deledAcademicSection?.title}
+                </th>
+
+                <th>
+                  {deledSemesterSection?.title}
+                </th>
+
+                <th>
+                  {deledYearSection?.title}
+                </th>
+
+                <th>
+                  Previous Internal
+                  Question Paper
+                </th>
+
                 <th>Result</th>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
-                <td>
-                  <p>4th</p>
-                </td>
-                <td>2019-2021</td>
-                <td>
-                  <p>4th</p>
-                </td>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-              </tr>
+              {deledAcademic.map(
+                (_, index) => (
+                  <tr key={index}>
+                    <td>
+                      {stripHtml(
+                        deledAcademic[
+                          index
+                        ]?.title
+                      )}
+                    </td>
 
-              <tr>
-                <td>
-                  <p>3rd</p>
-                </td>
-                <td>2017-2019</td>
-                <td>
-                  <p>3rd</p>
-                </td>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-              </tr>
+                    <td>
+                      {stripHtml(
+                        deledSemester[
+                          index
+                        ]?.title
+                      )}
+                    </td>
 
-              <tr>
-                <td>
-                  <p>2 nd</p>
-                </td>
-                <td>2016-2018</td>
-                <td>
-                  <p>
-                    <strong>2 nd</strong>
-                  </p>
-                </td>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-              </tr>
+                    <td>
+                      {stripHtml(
+                        deledYear[
+                          index
+                        ]?.title
+                      )}
+                    </td>
 
-              <tr>
-                <td>
-                  <p>1st</p>
-                </td>
-                <td>2015-2017</td>
-                <td>
-                  <p>1st</p>
-                </td>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    className="btn-border"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </a>
-                </td>
-              </tr>
+                    <td>
+                      <a
+                        href=""
+                        target="_blank"
+                        className="btn-border"
+                        rel="noopener noreferrer"
+                      >
+                        Download
+                      </a>
+                    </td>
+
+                    <td>
+                      <a
+                        href=""
+                        target="_blank"
+                        className="btn-border"
+                        rel="noopener noreferrer"
+                      >
+                        Download
+                      </a>
+                    </td>
+                  </tr>
+                )
+              )}
             </tbody>
           </table>
         </div>

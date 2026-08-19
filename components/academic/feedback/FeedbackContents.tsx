@@ -1,4 +1,31 @@
-export default function FeedbackContents() {
+interface DocumentItem {
+  id?: number;
+  title?: string;
+  description?: string;
+  file_url?: string;
+  fileUrl?: string;
+  file?: string;
+  sequence?: number;
+  status?: string;
+  [key: string]: unknown;
+}
+
+interface FeedbackContentsProps {
+  documents?: DocumentItem[];
+}
+
+const stripHtml = (html?: string) => {
+  if (!html) return "";
+
+  return html
+    .replace(/<[^>]*>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .trim();
+};
+
+export default function FeedbackContents({
+  documents = [],
+}: FeedbackContentsProps) {
   return (
     <section className="land_info_wrap">
       <div className="container">
@@ -48,50 +75,44 @@ export default function FeedbackContents() {
                     </thead>
 
                     <tbody>
-                      <tr>
-                        <td>2</td>
-                        <td></td>
-                        <td>ALUMNI FEEDBACK FORM</td>
-                        <td>
-                          <a
-                            target="_blank"
-                            href="https://wip.tezcommerce.com:3304/admin/module/25/1666176866930.pdf"
-                            rel="noopener noreferrer"
-                          >
-                            Download
-                          </a>
-                        </td>
-                      </tr>
+                      {documents.map((document, index) => {
+                        const fileUrl =
+                          document.file_url ||
+                          document.fileUrl ||
+                          document.file ||
+                          "";
 
-                      <tr>
-                        <td>3</td>
-                        <td></td>
-                        <td>TEACHER FEEDBACK FORM</td>
-                        <td>
-                          <a
-                            target="_blank"
-                            href="https://wip.tezcommerce.com:3304/admin/module/25/1666176879735.pdf"
-                            rel="noopener noreferrer"
+                        return (
+                          <tr
+                            key={
+                              document.id ||
+                              index
+                            }
                           >
-                            Download
-                          </a>
-                        </td>
-                      </tr>
+                            <td>
+                              {stripHtml(
+                                document.description
+                              )}
+                            </td>
 
-                      <tr>
-                        <td>1</td>
-                        <td></td>
-                        <td>STUDENT FEEDBACK FORM</td>
-                        <td>
-                          <a
-                            target="_blank"
-                            href="https://wip.tezcommerce.com:3304/admin/module/25/1666176859076.pdf"
-                            rel="noopener noreferrer"
-                          >
-                            Download
-                          </a>
-                        </td>
-                      </tr>
+                            <td></td>
+
+                            <td>
+                              {document.title || ""}
+                            </td>
+
+                            <td>
+                              <a
+                                target="_blank"
+                                href={fileUrl}
+                                rel="noopener noreferrer"
+                              >
+                                Download
+                              </a>
+                            </td>
+                          </tr>
+                        );
+                      })}
                     </tbody>
                   </table>
                 </div>

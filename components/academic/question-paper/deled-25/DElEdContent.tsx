@@ -2,154 +2,178 @@
 
 import { useState } from "react";
 
-const dElEdData = [
-  {
-    year: "2015",
-    parts: [
-      {
-        sl: 2,
-        part: "PART-II",
-        link: "",
-      },
-      {
-        sl: 1,
-        part: "PART-I",
-        link: "https://wip.tezcommerce.com:3304/admin/module/25/1669970959036.pdf",
-      },
-    ],
-  },
-  {
-    year: "2016",
-    parts: [
-      {
-        sl: 2,
-        part: "PART-II",
-        link: "",
-      },
-      {
-        sl: 1,
-        part: "PART-I",
-        link: "https://wip.tezcommerce.com:3304/admin/module/25/1669971019236.pdf",
-      },
-    ],
-  },
-  {
-    year: "2017",
-    parts: [
-      {
-        sl: 2,
-        part: "PART-II",
-        link: "",
-      },
-      {
-        sl: 1,
-        part: "PART-I",
-        link: "https://wip.tezcommerce.com:3304/admin/module/25/1669971061681.pdf",
-      },
-    ],
-  },
-  {
-    year: "2018",
-    parts: [
-      {
-        sl: 2,
-        part: "PART-II",
-        link: "",
-      },
-      {
-        sl: 1,
-        part: "PART-I",
-        link: "https://wip.tezcommerce.com:3304/admin/module/25/1669971102368.pdf",
-      },
-    ],
-  },
-  {
-    year: "2019",
-    parts: [
-      {
-        sl: 2,
-        part: "PART-II",
-        link: "",
-      },
-      {
-        sl: 1,
-        part: "PART-I",
-        link: "https://wip.tezcommerce.com:3304/admin/module/25/1669971145334.pdf",
-      },
-    ],
-  },
-  {
-    year: "2021",
-    parts: [
-      {
-        sl: 2,
-        part: "PART-II",
-        link: "",
-      },
-      {
-        sl: 1,
-        part: "PART-I",
-        link: "https://wip.tezcommerce.com:3304/admin/module/25/1669971256377.pdf",
-      },
-    ],
-  },
-  {
-    year: "2022",
-    parts: [
-      {
-        sl: 2,
-        part: "PART-II",
-        link: "",
-      },
-      {
-        sl: 1,
-        part: "PART-1",
-        link: "https://wip.tezcommerce.com:3304/admin/module/25/1669971499550.pdf",
-      },
-    ],
-  },
+interface Subsection {
+  title?: string;
+  description?: string;
+  image?: string;
+  file_url?: string;
+  subsections?: Subsection[];
+}
+
+interface Section {
+  title?: string;
+  shortDescription?: string;
+  longDescription?: string;
+  description?: string;
+  image?: string;
+  subsections?: Subsection[];
+}
+
+interface DocumentItem {
+  id: number;
+  uid: string;
+  title?: string;
+  description?: string;
+  file_url?: string;
+  file_type?: string;
+  file_size?: number;
+  download_button_name?: string;
+  download_count?: number;
+  is_downloadable?: boolean;
+  thumbnail_url?: string;
+  sequence?: number;
+  status?: string;
+}
+
+interface DElEdContentProps {
+  sectionData?: Section;
+  documents?: DocumentItem[];
+}
+
+// ==========================================
+// STATIC YEARS
+// ==========================================
+
+const years = [
+  "2015",
+  "2016",
+  "2017",
+  "2018",
+  "2019",
+  "2021",
+  "2022",
 ];
 
-const DElEdContent = () => {
-  const [activeYear, setActiveYear] = useState("2015");
+// ==========================================
+// CLEAN <p></p> AND HTML
+// ==========================================
 
-  const activeData = dElEdData.find(
-    (item) => item.year === activeYear
-  );
+const cleanText = (value?: string): string => {
+  if (!value) return "";
+
+  return value
+    .replace(/<p[^>]*>/gi, "")
+    .replace(/<\/p>/gi, "")
+    .replace(/<br\s*\/?>/gi, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/<[^>]*>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+};
+
+// ==========================================
+// PART NAME
+// ==========================================
+
+const cleanPartName = (value?: string): string => {
+  return cleanText(value);
+};
+
+export default function DElEdContent({
+  sectionData,
+  documents = [],
+}: DElEdContentProps) {
+  const [activeYear, setActiveYear] =
+    useState("2015");
+
+  /*
+   * IMPORTANT:
+   *
+   * API section index 16-এর subsections
+   * থেকে PART data আসবে।
+   *
+   * Year static থাকবে।
+   */
+
+  const allSubsections =
+    sectionData?.subsections || [];
+
+  /*
+   * যদি API-তে year আলাদা subsection হিসেবে থাকে,
+   * সেটাও handle হবে।
+   *
+   * আর যদি সরাসরি PART থাকে,
+   * সেটাও রাখা হবে।
+   */
+
+  const activeYearParts =
+    allSubsections.filter((item) => {
+      const title = cleanText(item.title);
+      const description =
+        cleanText(item.description);
+
+      return (
+        title !== activeYear &&
+        description !== activeYear
+      );
+    });
+
+  /*
+   * যদি API structure year-wise না হয়,
+   * তাহলে সব subsection ব্যবহার হবে।
+   */
+
+  const parts =
+    activeYearParts.length > 0
+      ? activeYearParts
+      : allSubsections;
 
   return (
     <section className="land_info_wrap">
       <div className="container">
         <div className="row">
 
-          {/* Year Tabs */}
+          {/* ======================================
+              YEAR TABS
+          ======================================= */}
+
           <div className="col-lg-3 col-sm-6 col-xs-12">
             <div
               className="nav flex-column nav-pills college_routine"
               role="tablist"
               aria-orientation="vertical"
             >
-              {dElEdData.map((item) => (
+              {years.map((year) => (
                 <button
-                  key={item.year}
+                  key={year}
                   type="button"
                   className={`nav-link ${
-                    activeYear === item.year ? "active" : ""
+                    activeYear === year
+                      ? "active"
+                      : ""
                   }`}
-                  onClick={() => setActiveYear(item.year)}
+                  onClick={() =>
+                    setActiveYear(year)
+                  }
                 >
-                  {item.year}
+                  {year}
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Content */}
+          {/* ======================================
+              TABLE
+          ======================================= */}
+
           <div className="col-lg-9 col-sm-6 col-xs-12">
             <div className="tab-content">
               <div className="tab-pane show active">
+
                 <div className="theme_table">
+
                   <table className="table table-bordered">
+
                     <thead>
                       <tr>
                         <th>Sl</th>
@@ -159,28 +183,114 @@ const DElEdContent = () => {
                     </thead>
 
                     <tbody>
-                      {activeData?.parts.map((item) => (
-                        <tr key={item.sl}>
-                          <td>{item.sl}</td>
-                          <td>{item.part}</td>
-                          <td>
-                            {item.link ? (
-                              <a
-                                href={item.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
+
+                      {parts.length > 0 ? (
+                        parts.map(
+                          (item, index) => {
+
+                            // ==============================
+                            // SL
+                            // subsection.description
+                            // ==============================
+
+                            const sl =
+                              cleanText(
+                                item.description
+                              ) ||
+                              String(index + 1);
+
+                            // ==============================
+                            // PART
+                            // subsection.title
+                            // ==============================
+
+                            const part =
+                              cleanPartName(
+                                item.title
+                              );
+
+                            /*
+                             * PDF খোঁজা হবে।
+                             *
+                             * Document sequence অনুযায়ী
+                             * document নেওয়া হবে।
+                             */
+
+                            const document =
+                              documents.find(
+                                (doc) =>
+                                  doc.sequence ===
+                                  index + 1
+                              );
+
+                            const fileUrl =
+                              document?.file_url;
+
+                            const buttonName =
+                              document?.download_button_name ||
+                              "Download";
+
+                            return (
+                              <tr
+                                key={
+                                  `${activeYear}-${index}`
+                                }
                               >
-                                Download
-                              </a>
-                            ) : (
-                              <a className="text-white">Download</a>
-                            )}
+
+                                {/* SL */}
+                                <td>
+                                  {sl}
+                                </td>
+
+                                {/* PART */}
+                                <td>
+                                  {part}
+                                </td>
+
+                                {/* DOWNLOAD */}
+                                <td>
+                                  {fileUrl ? (
+                                    <a
+                                      href={fileUrl}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      {buttonName}
+                                    </a>
+                                  ) : (
+                                    <a
+                                      className="text-white"
+                                      href="#"
+                                      onClick={(e) =>
+                                        e.preventDefault()
+                                      }
+                                    >
+                                      {buttonName}
+                                    </a>
+                                  )}
+                                </td>
+
+                              </tr>
+                            );
+                          }
+                        )
+                      ) : (
+                        <tr>
+                          <td
+                            colSpan={3}
+                            className="text-center"
+                          >
+                            No data available
                           </td>
                         </tr>
-                      ))}
+                      )}
+
                     </tbody>
+
                   </table>
+
                 </div>
+
               </div>
             </div>
           </div>
@@ -189,6 +299,4 @@ const DElEdContent = () => {
       </div>
     </section>
   );
-};
-
-export default DElEdContent;
+}

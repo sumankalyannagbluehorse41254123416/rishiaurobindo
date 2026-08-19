@@ -1,19 +1,37 @@
 import Image from "next/image";
 
-const DElEdBanner = () => {
+interface Section {
+  title?: string;
+  image?: string;
+  shortDescription?: string;
+  longDescription?: string;
+  description?: string;
+}
+
+interface DElEdBannerProps {
+  sectionData?: Section;
+}
+
+const DElEdBanner = ({
+  sectionData,
+}: DElEdBannerProps) => {
   return (
     <section className="page_title_wrap bottom_border">
-      <Image
-        className="page_title_bg"
-        src="https://www.rabedc.com/img/page_title_bg.jpg"
-        alt="page_title_bg"
-        width={1920}
-        height={400}
-        priority
-      />
+      {sectionData?.image && (
+        <Image
+          className="page_title_bg"
+          src={sectionData.image}
+          alt={sectionData.title || "D.El.Ed"}
+          width={1920}
+          height={400}
+          priority
+        />
+      )}
 
       <div className="container">
-        <h3>D.El.Ed</h3>
+        <h3>
+          {sectionData?.title}
+        </h3>
       </div>
     </section>
   );

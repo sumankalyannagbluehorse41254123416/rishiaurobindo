@@ -1,19 +1,37 @@
 import Image from "next/image";
 
-const QuestionPaperBanner = () => {
+interface Section {
+  title?: string;
+  image?: string;
+  shortDescription?: string;
+  longDescription?: string;
+  description?: string;
+}
+
+interface QuestionPaperBannerProps {
+  sectionData?: Section;
+}
+
+const QuestionPaperBanner = ({
+  sectionData,
+}: QuestionPaperBannerProps) => {
   return (
     <section className="page_title_wrap bottom_border">
-      <Image
-        className="page_title_bg"
-        src="https://www.rabedc.com/img/page_title_bg.jpg"
-        alt="page_title_bg"
-        width={1920}
-        height={400}
-        priority
-      />
+      {sectionData?.image && (
+        <Image
+          className="page_title_bg"
+          src={sectionData.image}
+          alt={sectionData.title || "B.Ed. Question Paper"}
+          width={1920}
+          height={400}
+          priority
+        />
+      )}
 
       <div className="container">
-        <h3>B.Ed. Question Paper</h3>
+        <h3>
+          {sectionData?.title || "B.Ed. Question Paper"}
+        </h3>
       </div>
     </section>
   );
