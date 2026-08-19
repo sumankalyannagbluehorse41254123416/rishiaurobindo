@@ -28,6 +28,7 @@ export default function MinutesOfMeetings({
               {document.thumbnail_url && (
                 <Image
                   className="img-responsive land_img"
+                  style={{height:"auto"}}
                   src={document.thumbnail_url}
                   alt={document.title || ""}
                   width={800}

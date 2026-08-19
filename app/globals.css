@@ -1117,3 +1117,9 @@ nav-pills .nav-link {
 .contact_info {
   margin-bottom: 40px;
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
