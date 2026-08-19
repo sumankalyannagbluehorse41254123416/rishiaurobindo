@@ -28,6 +28,7 @@ export default function Grievances({
             {section?.image && (
               <Image
                 className="img-responsive land_img"
+                style={{height:"auto"}}
                 src={section.image}
                 alt={section.title || "Grievances"}
                 width={800}

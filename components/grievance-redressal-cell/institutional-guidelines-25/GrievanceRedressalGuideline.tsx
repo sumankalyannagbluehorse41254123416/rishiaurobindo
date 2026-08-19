@@ -37,6 +37,7 @@ const GrievanceRedressalGuideline = ({
               <Image
                 className="img-responsive land_img"
                 src={document.thumbnail_url}
+                style={{height:"auto"}}
                 alt={
                   document.title ||
                   "Grievance Redressal Guideline"

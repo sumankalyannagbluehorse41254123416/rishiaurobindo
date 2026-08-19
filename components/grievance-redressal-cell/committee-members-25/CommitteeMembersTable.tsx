@@ -49,7 +49,7 @@ export default function CommitteeMembersTable({
     [];
 
   return (
-    <section className="land_info_wrap">
+    <section className="land_info_wrap table-background">
       <div className="container">
         <div className="lan_info_inner table-responsive">
           <div>

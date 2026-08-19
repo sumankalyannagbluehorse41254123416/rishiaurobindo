@@ -1027,8 +1027,99 @@ nav-pills .nav-link {
   margin-left: 10px;
 }
 
-@media (max-width:768px){
+@media (max-width:768px) {
   .left-gap {
-  margin-left: 0px;
+    margin-left: 0px;
+  }
 }
+
+.contact_info .info_block {
+  text-align: center;
+  background-color: #ededed;
+  position: relative;
+  margin-top: 50px;
+  border-radius: 20px;
+  padding: 20px 10px;
+  padding-top: 50px;
+  min-height: 142px;
+  margin-bottom: 20px;
+}
+
+.contact_info .info_block .info_icon {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translate(-50%, 0px);
+  background-color: #3476bc;
+  color: #fff;
+  height: 85px;
+  width: 85px;
+  font-size: 35px;
+  text-align: center;
+  border-radius: 50%;
+  border: solid 3px #fff;
+}
+
+.contact_info .info_block .info_icon i {
+  line-height: 80px;
+}
+
+.contact_info .info_block .info_details p {
+  margin: 0px;
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 600;
+}
+.contact_info .info_block .info_details p a{
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+.contact_map iframe {
+  height: 435px;
+  width: 100%;
+  border-radius: 0px;
+  box-shadow: 0px 5px 15px rgb(204 204 204 / 42%);
+  border: 0px;
+}
+
+.contact_form {
+  padding: 30px 20px;
+  box-shadow: 0px 5px 15px rgb(204 204 204 / 42%);
+  text-align: center;
+}
+
+.contact_form .form-group {
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 500;
+  font-size: 15px;
+  margin: 0px;
+}
+
+.contact_form .form-control {
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0px;
+  color: #333;
+}
+
+.contact_form .btn_theme {
+  font-size: 16px;
+  line-height: 24px;
+  padding: 8px 30px;
+  border-radius: 40px;
+  margin-top: 20px;
+}
+
+.contact_info {
+  margin-bottom: 40px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
