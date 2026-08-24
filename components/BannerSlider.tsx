@@ -174,7 +174,7 @@ export default function BannerSlider({ banners }: BannerSliderProps) {
               unoptimized
               style={{
                 width: "100%",
-                height: "auto",
+                // height: "auto",
                 display: "block",
                 objectFit: "cover",
               }}
