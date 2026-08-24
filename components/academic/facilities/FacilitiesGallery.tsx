@@ -1,7 +1,16 @@
+"use client";
+
 import Image from "next/image";
 
-const FacilitiesGallery = () => {
-  const galleryImages = [
+interface FacilitiesGalleryProps {
+  galleryImages?: string[];
+}
+
+const FacilitiesGallery = ({
+  galleryImages = [],
+}: FacilitiesGalleryProps) => {
+  // Default gallery images as fallback (যদি API থেকে ডেটা না আসে)
+  const defaultImages = [
     "https://wip.tezcommerce.com:3304/admin/module/25/1669801563488.jpeg",
     "https://wip.tezcommerce.com:3304/admin/module/25/1669801549027.jpeg",
     "https://wip.tezcommerce.com:3304/admin/module/25/1669799272625.jpeg",
@@ -30,11 +39,14 @@ const FacilitiesGallery = () => {
     "https://wip.tezcommerce.com:3304/admin/module/25/1643806850183.jpg",
   ];
 
+  // API থেকে ইমেজ এলে সেটা ব্যবহার করবে, না হলে ডিফল্ট ব্যবহার করবে
+  const images = galleryImages.length > 0 ? galleryImages : defaultImages;
+
   return (
     <section className="land_info_wrap">
       <div className="container main-gallery">
         <div className="row">
-          {galleryImages.map((image, index) => (
+          {images.map((image, index) => (
             <div
               className="col-lg-3 col-md-4 col-6"
               key={`${image}-${index}`}
