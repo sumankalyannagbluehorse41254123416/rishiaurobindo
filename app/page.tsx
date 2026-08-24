@@ -59,7 +59,7 @@ export default async function Home() {
         host,
         ...headersObj,
       },
-      "24dd981f-bd93-458e-a0c3-cca752c0e34e"
+      "24dd981f-bd93-458e-a0c3-cca752c0e34e",
     );
 
     console.log("HOME API RESPONSE:", JSON.stringify(siteData, null, 2));
@@ -81,7 +81,7 @@ export default async function Home() {
   // ==========================================
 
   const bannerSection = sections.find(
-    (section) => section.title === "BannerSlider"
+    (section) => section.title === "BannerSlider",
   );
 
   const banners =
@@ -103,7 +103,7 @@ export default async function Home() {
         host,
         ...headersObj,
       },
-      noticeCollectionId
+      noticeCollectionId,
     )) as NoticeData;
 
     console.log("================================");
@@ -120,7 +120,7 @@ export default async function Home() {
 
   return (
     <>
-       <BannerSlider banners={banners} />
+      <BannerSlider banners={banners} />
 
       <WelcomeSection section={sections[1]} />
 
