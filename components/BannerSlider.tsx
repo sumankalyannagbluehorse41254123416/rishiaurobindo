@@ -225,7 +225,7 @@ export default function BannerSlider({ banners }: BannerSliderProps) {
               unoptimized
               style={{
                 width: "100%",
-              
+
                 display: "block",
               }}
             />
@@ -282,7 +282,7 @@ export default function BannerSlider({ banners }: BannerSliderProps) {
           </button>
 
           {/* Dots */}
-          <div
+          {/* <div
             style={{
               position: "absolute",
               bottom: "20px",
@@ -312,7 +312,7 @@ export default function BannerSlider({ banners }: BannerSliderProps) {
                 }}
               />
             ))}
-          </div>
+          </div> */}
         </>
       )}
     </section>
