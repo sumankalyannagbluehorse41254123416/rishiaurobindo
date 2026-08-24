@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="container">
           <div className="row">
             {/* Important Links - Server Component */}
-            <div className="col-md-3 text-left p-text">
+            <div className="col-sm-6 col-md-3 text-left p-text">
               <h2 className="title-bx1">Important Link</h2>
               <ul className="area8">
                 <li>
@@ -40,7 +40,7 @@ export default function Footer() {
             <div className="Links" style={{ display: "none" }}></div>
 
             {/* Useful Links - Server Component */}
-            <div className="col-md-3 ul-link" id="NavBarIudyogFooter">
+            <div className="col-sm-6 col-md-3 ul-link" id="NavBarIudyogFooter">
               <h2 className="footer_title">Useful Links</h2>
               <ul>
                 <li className="gr1"><a href="/Infrastructure/building">BUILDING</a></li>
@@ -52,7 +52,7 @@ export default function Footer() {
             </div>
 
             {/* External Links - Server Component */}
-            <div className="col-md-3 ul-link">
+            <div className="col-sm-6 col-md-3 ul-link">
               <h2 className="footer_title">External Links</h2>
               <ul>
                 <li><a href="http://vidyasagar.ac.in/" target="_blank" rel="noopener noreferrer">Vidyasagar University</a></li>
@@ -64,7 +64,7 @@ export default function Footer() {
             </div>
 
             {/* Get In Touch - Client Component with Newsletter */}
-            <div className="col-md-3">
+            <div className="col-sm-6 col-md-3">
               <h2 className="footer_title">Get in Touch</h2>
               <p>
                 At: Panchkhuri P.O.: Panchkhuri,
@@ -73,10 +73,10 @@ export default function Footer() {
                 <br />
                 Pin: 721150, West Bengal
               </p>
-              
+
               {/* শুধু placeholder পাস করুন, কোনো event handler নেই */}
               <Newsletter placeholder="Enter your email" />
-              
+
               <ul className="f-share">
                 <li>
                   <a href="https://www.facebook.com/rishiaurobindo.shikhanmahavidyalaya/" target="_blank" rel="noopener noreferrer">

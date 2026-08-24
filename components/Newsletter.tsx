@@ -32,7 +32,7 @@ interface NewsletterProps {
   formUid?: string;
 }
 
-export default function Newsletter({ 
+export default function Newsletter({
   placeholder = "Enter your email",
   formUid = "68e15efd-701f-43d8-9a24-ec770e269a01"
 }: NewsletterProps) {
@@ -49,7 +49,7 @@ export default function Newsletter({
         const host = typeof window !== 'undefined' ? window.location.host : 'localhost:3000';
         const res = await fetchFormFields({ host }, formUid);
         const data = res as FormResponse;
-        
+
         if (data?.success) {
           setFields(data.fields);
           setFormTitle(data.form?.title || "Subscribe");
@@ -104,12 +104,12 @@ export default function Newsletter({
       setLoading(true);
       const host = typeof window !== 'undefined' ? window.location.host : 'localhost:3000';
       const res = await handleSubmitForm(host, dataObj);
-      
+
       setMessage("✅ Successfully submitted your subscription!");
       setEmail('');
       formElement.reset();
       console.log("Response:", res);
-      
+
       setTimeout(() => setMessage(''), 3000);
     } catch (err) {
       console.error("❌ Error submitting form:", err);
@@ -131,7 +131,7 @@ export default function Newsletter({
                 name={field.name}
                 required={field.required}
                 placeholder={field.placeholder || field.label || placeholder}
-                className="form-control"
+                className=""
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={loading}
@@ -177,8 +177,8 @@ export default function Newsletter({
 
         {/* ✅ মেসেজ */}
         {message && (
-          <p style={{ 
-            clear: 'both', 
+          <p style={{
+            clear: 'both',
             paddingTop: '10px',
             color: message.includes('✅') ? 'green' : 'red',
             fontSize: '14px',

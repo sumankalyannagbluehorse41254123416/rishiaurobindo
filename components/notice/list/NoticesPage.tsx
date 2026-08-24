@@ -29,7 +29,7 @@ export default function NoticesPage({
             PAGE TITLE
         ========================================== */}
 
-        <div className="row">
+        {/* <div className="row">
           <div className="col-12">
             <h1 className="text-center mb-4 display-5 fw-bold text-primary">
               Notice Board
@@ -40,7 +40,7 @@ export default function NoticesPage({
               for students
             </p>
           </div>
-        </div>
+        </div> */}
 
         {/* ==========================================
             NOTICE LIST
@@ -78,14 +78,14 @@ export default function NoticesPage({
                         className="notice-part mb-3"
                       >
 
-                        <div className="download_button p-3 bg-white rounded-3 shadow-sm hover-shadow transition-all">
+                        <div className="download_button bg-white rounded-3 shadow-sm hover-shadow transition-all">
 
                           {document.file_url ? (
                             <a
                               href={
                                 document.file_url
                               }
-                              className="btn_theme d-flex align-items-center text-decoration-none text-dark hover-text-primary"
+                              className="btn_theme d-flex align-items-center text-decoration-none text-dark hover-text-primary gap-2"
                               target="_blank"
                               rel="noopener noreferrer"
                             >
@@ -94,7 +94,7 @@ export default function NoticesPage({
                                   FILE ICON
                               ============================== */}
 
-                              <span className="file-icon me-3">
+                              {/* <span className="file-icon me-3">
 
                                 {isPdf ? (
                                   <svg
@@ -156,7 +156,7 @@ export default function NoticesPage({
                                   </svg>
                                 )}
 
-                              </span>
+                              </span> */}
 
                               {/* ==============================
                                   DOCUMENT TITLE
@@ -170,9 +170,9 @@ export default function NoticesPage({
                                   FILE TYPE
                               ============================== */}
 
-                              <span className="badge bg-secondary ms-2">
+                              {/* <span className="badge bg-secondary ms-2">
                                 {fileType.toUpperCase()}
-                              </span>
+                              </span> */}
 
                               {/* ==============================
                                   OPEN ICON
