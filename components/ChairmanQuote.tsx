@@ -35,151 +35,151 @@ export default function ChairmanQuote({
 
 
   return (
-    <div className="container">
-    <div className="banner_slider_wrap">
-      <div className="row">
+    <div className="">
+      <div className="banner_slider_wrap">
+        <div className="row">
 
-        {/* =====================================
+          {/* =====================================
             PRINCIPAL'S QUOTE
         ====================================== */}
 
-        <div className="col-lg-6 col-md-6">
+          <div className="col-lg-6 col-md-6">
 
-          <section className="chairmainQuote">
+            <section className="chairmainQuote">
 
-            <div className="title_box">
+              <div className="title_box text-center">
 
-              <h3>
-                Principal&apos;s Quote
-              </h3>
+                <h3>
+                  Principal&apos;s Quote
+                </h3>
 
-              <p>
-                Golden inspirational words
-                from our Principal
-              </p>
+                <p>
+                  Golden inspirational words
+                  from our Principal
+                </p>
 
 
-              <div className="pl-md-5 text-center">
+                <div className="pl-md-5 text-center">
 
-                {principal?.image && (
-                  <Image
-                    className="chairman_img"
-                    src={principal.image}
-                    alt={
-                      principal.title ||
-                      "Principal"
-                    }
-                    width={500}
-                    height={500}
-                    unoptimized
-                  />
-                )}
+                  {principal?.image && (
+                    <Image
+                      className="chairman_img"
+                      src={principal.image}
+                      alt={
+                        principal.title ||
+                        "Principal"
+                      }
+                      width={500}
+                      height={500}
+                      unoptimized
+                    />
+                  )}
+
+                </div>
 
               </div>
 
-            </div>
+
+              <div className="pera-dtls">
+
+                <h5>
+                  We Offer You a{" "}
+                  <span>
+                    Bright Future
+                  </span>
+                </h5>
 
 
-            <div className="pera-dtls">
-
-              <h5>
-                We Offer You a{" "}
-                <span>
-                  Bright Future
-                </span>
-              </h5>
-
-
-              <p>
-                {stripHtml(
-                  principal?.description ||
+                <p>
+                  {stripHtml(
+                    principal?.description ||
                     "",
-                )}
-              </p>
+                  )}
+                </p>
 
 
-              <span className="signature">
-                {principal?.title || ""}
-              </span>
+                <span className="signature">
+                  {principal?.title || ""}
+                </span>
 
-            </div>
+              </div>
 
-          </section>
+            </section>
 
-        </div>
+          </div>
 
 
-        {/* =====================================
+          {/* =====================================
             CHAIRMAN'S QUOTE
         ====================================== */}
 
-        <div className="col-lg-6 col-md-6">
+          <div className="col-lg-6 col-md-6">
 
-          <section className="chairmainQuote">
+            <section className="chairmainQuote">
 
-            <div className="title_box">
+              <div className="title_box text-center">
 
-              <h3>
-                Chairman&apos;s Quote
-              </h3>
+                <h3>
+                  Chairman&apos;s Quote
+                </h3>
 
-              <p>
-                Golden inspirational words
-                from our Chairman
-              </p>
+                <p>
+                  Golden inspirational words
+                  from our Chairman
+                </p>
 
 
-              <div className="pl-md-5 text-center">
+                <div className="pl-md-5 text-center">
 
-                {chairman?.image && (
-                  <Image
-                    className="chairman_img"
-                    src={chairman.image}
-                    alt={
-                      chairman.title ||
-                      "Chairman"
-                    }
-                    width={500}
-                    height={500}
-                    unoptimized
-                  />
-                )}
+                  {chairman?.image && (
+                    <Image
+                      className="chairman_img"
+                      src={chairman.image}
+                      alt={
+                        chairman.title ||
+                        "Chairman"
+                      }
+                      width={500}
+                      height={500}
+                      unoptimized
+                    />
+                  )}
+
+                </div>
 
               </div>
 
-            </div>
+
+              <div className="pera-dtls">
+
+                <h5>
+                  We Offer You a{" "}
+                  <span>
+                    Bright Future
+                  </span>
+                </h5>
 
 
-            <div className="pera-dtls">
-
-              <h5>
-                We Offer You a{" "}
-                <span>
-                  Bright Future
-                </span>
-              </h5>
-
-
-              <p>
-                {stripHtml(
-                  chairman?.description ||
+                <p>
+                  {stripHtml(
+                    chairman?.description ||
                     "",
-                )}
-              </p>
+                  )}
+                </p>
 
 
-              <span className="signature">
-                {chairman?.title || ""}
-              </span>
+                <span className="signature">
+                  {chairman?.title || ""}
+                </span>
 
-            </div>
+              </div>
 
-          </section>
+            </section>
+
+          </div>
 
         </div>
-
       </div>
-    </div>
     </div>
   );
 }

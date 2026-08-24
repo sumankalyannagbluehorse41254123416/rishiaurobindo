@@ -206,7 +206,7 @@ button {
     content: "";
     clear: both;
     display: block;
-    height: 3px;
+    height: 4px;
     width: 60px;
     background: var(--orange);
     margin: 0px auto;
@@ -2974,6 +2974,18 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
     font-size: 13px;
 }
 
+.notice-part .download_button a {
+    color: #3476bc !important;
+    font-weight: 500;
+    font-size: 13px;
+    width: fit-content;
+}
+
+.notice-part .download_button a:hover {
+    color: #fff !important;
+    text-decoration: none;
+}
+
 .download_button .btn_theme {
     /* margin-left: 60px; */
 }
@@ -3240,9 +3252,11 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
 .download1:hover {
     background-color: #666;
 }
-.fontpage-image{
-    object-fit:contain;
+
+.fontpage-image {
+    object-fit: contain;
 }
+
 .bd-border {
     border: 1px solid #c4c0c0;
     padding: 8px 8px;
@@ -3258,11 +3272,13 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
     color: #ffffff;
     border-radius: 5px;
 }
-@media (max-width:575px){
-    .btn-border{
+
+@media (max-width:575px) {
+    .btn-border {
         padding: 8px 12px;
     }
 }
+
 .btn-border:hover {
     background: #181818;
     padding: 8px 27px;
@@ -3437,7 +3453,7 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
 }
 
 @media (max-width:575px) {
-    .lan_info_inner ul{
+    .lan_info_inner ul {
         padding: 0px 10px;
     }
 }
@@ -3474,16 +3490,16 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
     margin-top: 10px;
     color: #ffffff;
     font-family: auto;
-   
+
 }
 
-@media (max-width:768px){
-    .lan_info_inner a{
+@media (max-width:768px) {
+    .lan_info_inner a {
         margin-left: 0px;
     }
 }
 
-.college_routine button{
+.college_routine button {
     border: none;
 }
 
@@ -3636,6 +3652,6 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
     background-color: #dddddd;
 }
 
-.courses_gallery .courses_in{
+.courses_gallery .courses_in {
     margin-bottom: 20px;
 }
