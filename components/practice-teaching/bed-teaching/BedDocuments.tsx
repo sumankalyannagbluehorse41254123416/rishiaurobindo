@@ -1,5 +1,6 @@
 "use client";
 
+import { Expand } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -343,6 +344,7 @@ export default function BedDocuments({
                       width={800}
                       height={600}
                     />
+                    <Expand/>
 
                   </a>
 
