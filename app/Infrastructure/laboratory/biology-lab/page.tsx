@@ -5,7 +5,12 @@ import BiologyLabBanner from "@/components/Infrastructure/laboratory/biology-lab
 import BiologyLabGallery from "@/components/Infrastructure/laboratory/biology-lab/BiologyLabGallery";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Biology Lab",
+  description:
+    "Biology Lab"
+};
 interface Subsection {
   title?: string;
   image?: string;

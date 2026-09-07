@@ -4,7 +4,12 @@ import CulturalActivities from "@/components/activities/cultural-activities-25/C
 import CulturalActivitiesImages from "@/components/activities/cultural-activities-25/culturalActivitiesImages";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Cultural Activities 25",
+  description:
+    "Cultural Activities 25"
+};
 interface Subsection {
   image?: string;
 }

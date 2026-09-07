@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import AntiRagingCommitteeBanner from "@/components/other-committees/anti-raging-committee/AntiRagingCommitteeBanner";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Anti-Ragging-Committee",
+  description:
+    "Anti-Ragging-Committee"
+};
 type PageData = Awaited<
   ReturnType<typeof fetchPageData>
 >;

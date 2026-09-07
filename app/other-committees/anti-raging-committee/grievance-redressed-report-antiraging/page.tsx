@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import RedressReportBanner from "@/components/other-committees/anti-raging-committee/grievance-redressed-report-antiraging/RedressReportBanner";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Grievance-Redressed-Report-Anti-Raging",
+  description:
+    "Grievance-Redressed-Report-Anti-Raging"
+};
 interface Subsection {
   title?: string;
   subsections?: Subsection[];

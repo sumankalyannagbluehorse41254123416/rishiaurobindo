@@ -4,7 +4,12 @@ import { fetchPageData } from "@/service/fetchdata.services";
 
 import PsychologyLabBanner from "@/components/Infrastructure/laboratory/psychology-lab/PsychologyLabBanner";
 import PsychologyLabGallery from "@/components/Infrastructure/laboratory/psychology-lab/PsychologyLabGallery";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Psychology Lab",
+  description:
+    "Psychology Lab"
+};
 interface Subsection {
   title?: string;
   image?: string;

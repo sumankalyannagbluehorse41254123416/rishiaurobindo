@@ -4,7 +4,12 @@ import EducationalSurveyBanner from "@/components/activities/educational-survey-
 
 import { fetchPageData } from "@/service/fetchdata.services";
 import EducationalSurveyGallery from "@/components/activities/educational-survey-25/educationalSurveyImages ";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Educational Survey 25",
+  description:
+    "Educational Survey 25"
+};
 interface Subsection {
   image?: string;
 }

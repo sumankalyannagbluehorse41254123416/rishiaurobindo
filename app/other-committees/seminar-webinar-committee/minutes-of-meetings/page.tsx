@@ -7,7 +7,12 @@ import MinutesOfMeetings from "@/components/other-committees/seminar-webinar-com
 import {
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Minutes Of Meetings",
+  description:
+    "Minutes Of Meetings"
+};
 type DocumentCollectionData = Awaited<
   ReturnType<typeof fetchDocumentCollection>
 >;

@@ -4,7 +4,12 @@ import SeminarPresentationBanner from "@/components/activities/seminar-presentat
 import SeminarPresentationContent from "@/components/activities/seminar-presentation/SeminarPresentationContent";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Seminar Presentation",
+  description:
+    "Seminar Presentation"
+};
 interface Subsection {
   title?: string;
   image?: string;

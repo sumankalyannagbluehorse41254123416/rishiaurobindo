@@ -4,7 +4,12 @@ import CommitteeMembersBanner from "@/components/other-committees/placement-cell
 import CommitteeMembers from "@/components/other-committees/placement-cell/committee-members/CommitteeMembers";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Committee Members",
+  description:
+    "Committee Members"
+};
 interface Subsection {
   title?: string;
   subsections?: Subsection[];

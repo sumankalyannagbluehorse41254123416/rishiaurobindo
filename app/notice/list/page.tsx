@@ -7,9 +7,9 @@ import NoticesPage from "@/components/notice/list/NoticesPage";
 import { fetchDocumentCollection } from "@/service/fetchdata.services";
 
 export const metadata: Metadata = {
-  title: "Notices - Rishi Aurobindo Shikshan Mahavidyalaya",
+  title: "Notice list",
   description:
-    "View all notices and announcements from Rishi Aurobindo Shikshan Mahavidyalaya",
+    "Notice list",
 };
 
 interface DocumentItem {

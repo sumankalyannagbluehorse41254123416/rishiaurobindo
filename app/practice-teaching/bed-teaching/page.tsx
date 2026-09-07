@@ -5,7 +5,12 @@ import BedSchoolList from "@/components/practice-teaching/bed-teaching/BedSchool
 import BedDocuments from "@/components/practice-teaching/bed-teaching/BedDocuments";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Bed-Teaching",
+  description:
+    "Bed-Teaching"
+};
 // ==========================================
 // TYPES
 // ==========================================

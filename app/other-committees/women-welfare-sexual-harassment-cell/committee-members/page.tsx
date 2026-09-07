@@ -5,7 +5,12 @@ import CommitteeMembersComponent from "@/components/other-committees/women-welfa
 import { fetchPageData } from "@/service/fetchdata.services";
 
 import { headers } from "next/headers";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Commitee Members",
+  description:
+    "Commitee Members"
+};
 interface Subsection {
   title?: string;
   subsections?: Subsection[];
@@ -80,7 +85,7 @@ export default async function CommitteeMembers() {
         sectionData={bannerSection}
       />
 
-      <CommitteeMembersComponent   sections={sections}/>
+      <CommitteeMembersComponent sections={sections} />
     </>
   );
 }

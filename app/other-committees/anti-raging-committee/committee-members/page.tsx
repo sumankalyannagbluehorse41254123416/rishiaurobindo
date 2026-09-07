@@ -5,7 +5,12 @@ import CommitteeMembersBanner from "@/components/other-committees/anti-raging-co
 import CommitteeMembers from "@/components/other-committees/anti-raging-committee/committee-members/CommitteeMembersContent";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Committee Members",
+  description:
+    "Committee Members"
+};
 interface Subsection {
   title?: string;
   subsections?: Subsection[];

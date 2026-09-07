@@ -4,7 +4,12 @@ import TeachingBanner from "@/components/about/teachers/TeachingBanner";
 import TeachingStaff from "@/components/about/teachers/TeachingStaff";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Teachers",
+  description:
+    "Teachers"
+};
 interface Subsection {
   id?: number;
   title?: string;

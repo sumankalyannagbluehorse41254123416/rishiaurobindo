@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import AQARReport from "@/components/aqar-report/AQARReport";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "AQAR Report",
+  description:
+    "AQAR Report"
+};
 interface Section {
   title?: string;
   shortdescription?: string[];

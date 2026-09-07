@@ -7,7 +7,12 @@ import {
   fetchPageData,
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Land",
+  description:
+    "Land"
+};
 interface Subsection {
   title?: string;
   image?: string;

@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Recognition",
+  description:
+    "Recognition"
+};
 export default function RecognitionPage() {
   return (
     <div className="container">

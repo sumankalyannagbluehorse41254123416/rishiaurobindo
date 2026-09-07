@@ -1,6 +1,11 @@
 import Image from "next/image";
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Govt Circulars",
+  description:
+    "Govt Circulars"
+};
 interface Section {
   title?: string;
   image?: string;

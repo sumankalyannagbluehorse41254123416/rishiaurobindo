@@ -2,7 +2,12 @@ import Image from "next/image";
 import { headers } from "next/headers";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Smart Class Room",
+  description:
+    "Smart Class Room"
+};
 interface Section {
   title?: string;
   image?: string;

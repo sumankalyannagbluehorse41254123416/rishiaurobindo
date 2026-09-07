@@ -5,7 +5,12 @@ import SocialScienceLabBanner from "@/components/Infrastructure/laboratory/socia
 import SocialScienceLabGallery from "@/components/Infrastructure/laboratory/social-science-lab/SocialScienceLabGallery";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Social Science Lab",
+  description:
+    "Social Science Lab"
+};
 interface Subsection {
   title?: string;
   image?: string;

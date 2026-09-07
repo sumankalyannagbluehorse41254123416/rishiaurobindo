@@ -6,7 +6,12 @@ import {
   fetchPageData,
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "University Board Result",
+  description:
+    "University Board Result"
+};
 interface SubSection {
   title?: string;
   description?: string;
@@ -144,7 +149,7 @@ export default async function UniversityBoardResultPage() {
     documentCollection.data?.documents ||
     documentCollection.collection?.documents ||
     [];
-const bannerSection = sections[19];
+  const bannerSection = sections[19];
   return (
     <>
       <UniversityBoardResultBanner section={bannerSection} />

@@ -5,7 +5,12 @@ import PracticeSection from "@/components/practice-teaching/PracticeSection";
 
 import { fetchPageData } from "@/service/fetchdata.services";
 import { headers } from "next/headers";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Practice Teaching",
+  description:
+    "Practice Teaching"
+};
 // ==========================================
 // TYPES
 // ==========================================

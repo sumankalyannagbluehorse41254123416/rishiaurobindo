@@ -5,7 +5,12 @@ import BreakUpOfBuildUpAreaContent from "@/components/Infrastructure/infrastruct
 import BreakUpOfBuildingAreaBanner from "@/components/Infrastructure/infrastructure-details/break-up-of-build-up-area/BreakUpOfBuildingAreaBanner";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Break Up Of Build Up Area",
+  description:
+    "Break Up Of Build Up Area"
+};
 interface Subsection {
   title?: string;
   description?: string;

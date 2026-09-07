@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Grievance Redressal Cell",
+  description:
+    "Grievance Redressal Cell"
+};
 export default function GrievanceRedressalCell() {
   return (
     <div className="container">

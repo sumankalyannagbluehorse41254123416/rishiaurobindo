@@ -4,7 +4,12 @@ import CommitteeMembersBanner from "@/components/grievance-redressal-cell/commit
 import CommitteeMembersTable from "@/components/grievance-redressal-cell/committee-members-25/CommitteeMembersTable";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Committee Members 25",
+  description:
+    "Committee Members 25"
+};
 interface Subsection {
   title?: string;
 }

@@ -7,7 +7,12 @@ import {
   fetchPageData,
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Distribution of Roster",
+  description:
+    "Distribution of Roster"
+};
 interface Section {
   title?: string;
   image?: string;
@@ -177,7 +182,7 @@ export default async function DistributionOfRoster() {
   // ==========================================
 
 
-  
+
   // ==========================================
   // DOCUMENTS
   // ==========================================
@@ -216,24 +221,24 @@ export default async function DistributionOfRoster() {
       );
     }
   );
-const bannerSection = sections[43];
+  const bannerSection = sections[43];
 
-console.log(
-  "========== BANNER SECTION [44] =========="
-);
+  console.log(
+    "========== BANNER SECTION [44] =========="
+  );
 
-console.log(
-  JSON.stringify(
-    bannerSection,
-    null,
-    2
-  )
-);
+  console.log(
+    JSON.stringify(
+      bannerSection,
+      null,
+      2
+    )
+  );
   return (
     <>
-     <DistributionRosterBanner
-      section={bannerSection}
-    />
+      <DistributionRosterBanner
+        section={bannerSection}
+      />
 
 
       <DistributionRosterContent

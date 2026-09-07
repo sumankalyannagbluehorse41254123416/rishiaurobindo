@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import WomenWelfareSexualHarassmentCellBanner from "@/components/other-committees/women-welfare-sexual-harassment-cell/committee-members/WomenWelfareSexualHarassmentCellBanner";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Women Welfare Sexual Harassment Cell",
+  description:
+    "Women Welfare Sexual Harassment Cell"
+};
 interface Subsection {
   title?: string;
   subsections?: Subsection[];

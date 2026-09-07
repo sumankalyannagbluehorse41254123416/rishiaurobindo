@@ -1,7 +1,12 @@
 
 import { fetchPageData } from "@/service/fetchdata.services";
 import { headers } from "next/headers";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Remote Classes",
+  description:
+    "Remote Classes"
+};
 // ==========================================
 // TYPES
 // ==========================================

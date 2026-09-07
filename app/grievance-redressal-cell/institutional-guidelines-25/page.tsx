@@ -7,7 +7,12 @@ import {
   fetchPageData,
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Institutional Guidelines 25",
+  description:
+    "Institutional Guidelines 25"
+};
 interface Section {
   title?: string;
   image?: string;

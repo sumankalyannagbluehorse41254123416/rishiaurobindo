@@ -7,7 +7,12 @@ import {
   fetchPageData,
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "College Routine",
+  description:
+    "College Routine"
+};
 interface DocumentItem {
   id?: number;
   title?: string;

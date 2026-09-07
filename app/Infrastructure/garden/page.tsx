@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import GardenBannerContent from "@/components/Infrastructure/garden/GardenBannerContent";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Garden",
+  description:
+    "Garden"
+};
 interface Section {
   title?: string;
   image?: string;

@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import OnlineClassGallery from "@/components/academic/use-of-ict/OnlineClassGallery";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Use of ICT",
+  description:
+    "Use of ICT"
+};
 interface SubSection {
   id?: number;
   title?: string;

@@ -5,7 +5,12 @@ import ChemistryLabBanner from "@/components/Infrastructure/laboratory/chemistry
 import ChemistryLabGallery from "@/components/Infrastructure/laboratory/chemistry-lab/ChemistryLabGallery";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Chemistry Lab",
+  description:
+    "Chemistry Lab"
+};
 interface Subsection {
   title?: string;
   image?: string;

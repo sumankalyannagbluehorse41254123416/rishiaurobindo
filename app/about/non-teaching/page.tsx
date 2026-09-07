@@ -4,7 +4,12 @@ import NonTeachingStaff from "@/components/about/non-teaching/NonTeachingStaff";
 import StaffData from "@/components/about/non-teaching/staffData";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Non Teaching",
+  description:
+    "Non Teaching"
+};
 interface Subsection {
   id?: number;
   title?: string;

@@ -2,7 +2,12 @@ import PageTitle from "@/components/gallery/PageTitle";
 import GallerySection from "@/components/gallery/GallerySection";
 import { fetchPageData } from "@/service/fetchdata.services";
 import { headers } from "next/headers";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Gallery",
+  description:
+    "Gallery"
+};
 interface Subsection {
   image?: string;
   [key: string]: unknown;
@@ -54,7 +59,7 @@ export default async function Gallery() {
 
   // Get first section (index 0)
   const firstSection = sections[0];
-const gallerySection = sections[1];
+  const gallerySection = sections[1];
   return (
     <>
       <PageTitle
@@ -63,8 +68,8 @@ const gallerySection = sections[1];
       />
 
       <GallerySection
-      subsections={gallerySection?.subsections || []}
-    />
+        subsections={gallerySection?.subsections || []}
+      />
     </>
   );
 }

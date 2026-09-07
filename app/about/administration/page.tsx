@@ -3,7 +3,13 @@ import { headers } from "next/headers";
 import Administration from "@/components/about/administration/Administration";
 
 import { fetchPageData } from "@/service/fetchdata.services";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Administration",
+  description:
+    "Administration"
+};
 interface Section {
   title?: string;
   image?: string;

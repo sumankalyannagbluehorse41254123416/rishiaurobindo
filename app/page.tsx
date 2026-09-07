@@ -13,11 +13,16 @@ import {
 } from "@/service/fetchdata.services";
 
 import { headers } from "next/headers";
+import { Metadata } from "next";
 
 // ==========================================
 // TYPES
 // ==========================================
-
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "Home"
+};
 interface Section {
   title?: string;
   shortDescription?: string;

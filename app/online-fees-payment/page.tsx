@@ -1,7 +1,12 @@
 import OnlineFeesPayment from "@/components/online-fees-payment/OnlineFeesPayment";
 import { fetchPageData } from "@/service/fetchdata.services";
 import { headers } from "next/headers";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Online Fees Payment",
+  description:
+    "Online Fees Payment"
+};
 interface Subsection {
   title?: string;
   description?: string;

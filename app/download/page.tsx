@@ -5,7 +5,12 @@ import DownloadSection2 from "@/components/download/DownloadSection2";
 import { fetchDocumentCollection } from "@/service/fetchdata.services";
 
 import { headers } from "next/headers";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Download",
+  description:
+    "Download"
+};
 type DocumentCollectionData = Awaited<
   ReturnType<typeof fetchDocumentCollection>
 >;

@@ -4,7 +4,12 @@ import PerformingArtsBanner from "@/components/Infrastructure/laboratory/perform
 import PerformingArtsGallery from "@/components/Infrastructure/laboratory/performing-art-lab/PerformingArtsGallery";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Performing Arts Lab",
+  description:
+    "Performing Arts Lab"
+};
 interface Subsection {
   title?: string;
   image?: string;

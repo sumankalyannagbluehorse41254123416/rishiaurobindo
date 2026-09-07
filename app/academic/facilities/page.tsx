@@ -7,7 +7,12 @@ import {
   fetchPageData,
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Facilities",
+  description:
+    "Facilities"
+};
 interface SubSection {
   title?: string;
   description?: string;
@@ -82,7 +87,7 @@ export default async function Facilities() {
   // ==========================================
   const getSubSectionValues = (section?: Section): SubSection[] => {
     if (!section) return [];
-    
+
     return (
       section.pageItemdataWithSubsection ||
       section.subSectionData ||
@@ -95,7 +100,7 @@ export default async function Facilities() {
 
   // Trim function
   const trimText = (text?: string) => text?.trim() || "";
-  
+
   // Clean array function
   const cleanArray = (arr: string[]) => {
     return arr

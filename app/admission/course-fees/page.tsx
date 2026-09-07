@@ -6,7 +6,12 @@ import CourseFeesComponent from "@/components/admission/course-fees/CourseFees";
 import {
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Course Fees",
+  description:
+    "Course Fees"
+};
 type DocumentCollectionData = Awaited<
   ReturnType<typeof fetchDocumentCollection>
 >;

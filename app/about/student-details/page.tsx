@@ -5,11 +5,16 @@ import StudentDetails from "@/components/about/student-details/StudentDetails";
 import {
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
+import { Metadata } from "next";
 
 type DocumentCollectionData = Awaited<
   ReturnType<typeof fetchDocumentCollection>
 >;
-
+export const metadata: Metadata = {
+  title: "Student Details",
+  description:
+    "Student Details"
+};
 export default async function StudentDetailsPage() {
   const rqHeaders = await headers();
 

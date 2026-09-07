@@ -4,7 +4,12 @@ import IqacCommitteeMembers from "@/components/iqec-cell/iqac-committee-member/I
 import IqacCommitteeMemberPageTitle from "@/components/iqec-cell/iqac-committee-member/IqacCommitteeMemberPageTitle";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "IQAC Committee Member",
+  description:
+    "IQAC Committee Member"
+};
 interface Subsection {
   id?: number;
   title?: string;

@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import CourseOfferedPage from "@/components/about/management/CourseOfferedPage";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Management",
+  description:
+    "Management"
+};
 interface Section {
   title?: string;
   shortDescription?: string;

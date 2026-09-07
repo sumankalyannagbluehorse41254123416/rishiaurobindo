@@ -4,7 +4,12 @@ import IctEnabledClassroomBanner from "@/components/Infrastructure/ictenabled/Ic
 import IctEnabledClassroomGallery from "@/components/Infrastructure/ictenabled/IctEnabledClassroomGallery";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "ICT Enabled",
+  description:
+    "ICT Enabled"
+};
 interface Subsection {
   title?: string;
   description?: string;

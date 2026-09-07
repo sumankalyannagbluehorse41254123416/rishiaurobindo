@@ -4,7 +4,12 @@ import ApprovalPageComponent from "@/components/approval/ApprovalPage";
 import ApprovalImages from "@/components/approval/approvalImages";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Approval",
+  description:
+    "Approval"
+};
 interface Subsection {
   title?: string;
   image?: string;

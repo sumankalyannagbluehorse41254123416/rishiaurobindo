@@ -3,7 +3,7 @@ import AcademicComponent from "@/components/academic/AcademicComponent";
 
 export default function Academic() {
   return <>
-  <AcademicBanner />
-  <AcademicComponent />
+    <AcademicBanner />
+    <AcademicComponent />
   </>;
 }

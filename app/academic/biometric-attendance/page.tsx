@@ -6,7 +6,12 @@ import {
   fetchPageData,
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Biometric Attendance",
+  description:
+    "Biometric Attendance"
+};
 interface SubSection {
   title?: string;
   description?: string;

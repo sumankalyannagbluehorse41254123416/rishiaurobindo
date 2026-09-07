@@ -6,7 +6,12 @@ import RulesAndRegulationComponent from "@/components/admission/rules-and-regula
 import {
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Rules and Regulation",
+  description:
+    "Rules and Regulation"
+};
 type DocumentCollectionData = Awaited<
   ReturnType<typeof fetchDocumentCollection>
 >;

@@ -4,7 +4,12 @@ import PhysicsLabBanner from "@/components/Infrastructure/laboratory/physics-lab
 import PhysicsLabGallery from "@/components/Infrastructure/laboratory/physics-lab/PhysicsLabGallery";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Physics Lab",
+  description:
+    "Physics Lab"
+};
 interface Subsection {
   title?: string;
   image?: string;

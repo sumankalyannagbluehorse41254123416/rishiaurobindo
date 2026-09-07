@@ -7,7 +7,12 @@ import {
   fetchDocumentCollection,
   fetchPageData,
 } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Deled-1",
+  description:
+    "Deled-1"
+};
 type DocumentCollectionData = Awaited<
   ReturnType<typeof fetchDocumentCollection>
 >;

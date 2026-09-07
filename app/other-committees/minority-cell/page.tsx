@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import MinorityCellBanner from "@/components/other-committees/minority-cell/MinorityCellBanner";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Minority Cell",
+  description:
+    "Minority Cell"
+};
 interface Subsection {
   title?: string;
   subsections?: Subsection[];

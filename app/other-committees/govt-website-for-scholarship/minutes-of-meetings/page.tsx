@@ -8,7 +8,12 @@ interface Section {
   title?: string;
   shortDescription?: string;
 }
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Minutes of Meetings",
+  description:
+    "Minutes of Meetings"
+};
 interface PageData {
   pageItemdataWithSubsection?: Section[];
   data?: {

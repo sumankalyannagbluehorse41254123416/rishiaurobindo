@@ -5,7 +5,12 @@ import LanguageLabBanner from "@/components/Infrastructure/laboratory/language-l
 import LanguageLabGallery from "@/components/Infrastructure/laboratory/language-lab/LanguageLabGallery";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Language Lab",
+  description:
+    "Language Lab"
+};
 interface Subsection {
   title?: string;
   image?: string;
