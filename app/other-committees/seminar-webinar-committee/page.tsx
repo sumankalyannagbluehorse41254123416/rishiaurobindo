@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import SeminarWebinarCommitteeBanner from "@/components/other-committees/seminar-webinar-committee/SeminarWebinarCommitteeBanner";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Seminar Webinar Committee",
+  description:
+    "Seminar Webinar Committee"
+};
 interface Section {
   title?: string;
   image?: string;

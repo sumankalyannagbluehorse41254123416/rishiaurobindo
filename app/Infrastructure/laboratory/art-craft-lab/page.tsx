@@ -4,7 +4,12 @@ import ArtCraftLabBanner from "@/components/Infrastructure/laboratory/art-craft-
 import ArtCraftLabGallery from "@/components/Infrastructure/laboratory/art-craft-lab/ArtCraftLabGallery";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Art & Craft Lab",
+  description:
+    "Art & Craft Lab"
+};
 interface Subsection {
   title?: string;
   image?: string;

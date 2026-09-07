@@ -4,7 +4,12 @@ import { headers } from "next/headers";
 import PageTitle from "@/components/naac/video-image-visit/PageTitle";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Video Image Visit",
+  description:
+    "Video Image Visit"
+};
 interface Section {
   title?: string;
   image?: string;

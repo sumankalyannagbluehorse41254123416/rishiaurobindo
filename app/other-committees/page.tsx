@@ -1,6 +1,11 @@
 import Image from "next/image";
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Other Committees",
+  description:
+    "Other Committees"
+};
 interface PageData {
   pagedata?: {
     title?: string;

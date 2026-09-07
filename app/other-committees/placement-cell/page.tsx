@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import PlacementCellBanner from "@/components/other-committees/sc-st-obc-cell/placement-cell/PlacementCellBanner";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Placement Cell",
+  description:
+    "Placement Cell"
+};
 interface Section {
   title?: string;
   image?: string;

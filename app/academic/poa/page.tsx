@@ -4,7 +4,12 @@ import POABanner from "@/components/academic/poa/POABanner";
 import POAContents from "@/components/academic/poa/POAContents";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "POA",
+  description:
+    "POA"
+};
 interface SubSection {
   title?: string;
   image?: string;

@@ -5,7 +5,12 @@ import CommitteeMembersBanner from "@/components/other-committees/sports-cultura
 import CommitteeMembersContent from "@/components/other-committees/sports-cultural-committee/committee-members/CommitteeMembersContent";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Committee Members",
+  description:
+    "Committee Members"
+};
 interface Subsection {
   title?: string;
   subsections?: Subsection[];

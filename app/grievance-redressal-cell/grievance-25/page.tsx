@@ -4,7 +4,12 @@ import GrievancesBanner from "@/components/grievance-redressal-cell/grievance-25
 import Grievances from "@/components/grievance-redressal-cell/grievance-25/Grievances";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Grivance 25",
+  description:
+    "Grivance 25"
+};
 interface Section {
   title?: string;
   image?: string;

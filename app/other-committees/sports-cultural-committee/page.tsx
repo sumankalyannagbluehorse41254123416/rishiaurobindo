@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import SportsCulturalCommitteeBanner from "@/components/other-committees/sports-cultural-committee/SportsCulturalCommitteeBanner";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Sports Cultural Committee",
+  description:
+    "Sports Cultural Committee"
+};
 interface Section {
   title?: string;
   image?: string;

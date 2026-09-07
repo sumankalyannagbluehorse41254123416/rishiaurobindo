@@ -5,7 +5,12 @@ import CommitteeMembersBanner from "@/components/other-committees/seminar-webina
 import CommitteeMembersContent from "@/components/other-committees/seminar-webinar-committee/committee-members/CommitteeMembersContent";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Committee Members",
+  description:
+    "Committee Members"
+};
 interface Subsection {
   title?: string;
   subsections?: Subsection[];

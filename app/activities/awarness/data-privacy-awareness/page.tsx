@@ -4,7 +4,12 @@ import PageTitle from "@/components/activities/awarness/data-privacy-awareness/P
 import DataPrivacyAwareness from "@/components/activities/awarness/data-privacy-awareness/DataPrivacyAwareness";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Data Privacy Awareness",
+  description:
+    "Data Privacy Awareness"
+};
 interface Section {
   title?: string;
   image?: string;

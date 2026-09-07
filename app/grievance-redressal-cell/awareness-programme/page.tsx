@@ -4,7 +4,12 @@ import AwarenessProgrammeBanner from "@/components/grievance-redressal-cell/awar
 import AwarenessProgrammeContent from "@/components/grievance-redressal-cell/awareness-programme/AwarenessProgrammeContent";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Awareness Programme",
+  description:
+    "Awareness Programme"
+};
 interface Section {
   title?: string;
   image?: string;

@@ -1,8 +1,12 @@
 import { headers } from "next/headers";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "School Activities",
+  description:
+    "School Activities"
+};
 interface Section {
   title?: string;
   shortDescription?: string;
@@ -46,7 +50,7 @@ export default async function SchoolActivities25() {
       pageId
     );
 
-  } catch(error) {
+  } catch (error) {
 
     console.error(
       "PAGE DATA ERROR:",

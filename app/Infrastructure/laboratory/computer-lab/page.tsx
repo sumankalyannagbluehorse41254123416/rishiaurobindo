@@ -4,7 +4,12 @@ import ComputerLabBanner from "@/components/Infrastructure/laboratory/computer-l
 import ComputerLabGallery from "@/components/Infrastructure/laboratory/computer-lab/ComputerLabGallery";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Computer Lab",
+  description:
+    "Computer Lab"
+};
 interface Subsection {
   title?: string;
   image?: string;

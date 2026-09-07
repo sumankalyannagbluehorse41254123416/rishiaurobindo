@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import MinutesOfMeetingsBanner from "@/components/other-committees/sports-cultural-committee/minutes-of-meetings/MinutesOfMeetingsBanner";
 
 import MinutesOfMeetings from "@/components/other-committees/sports-cultural-committee/minutes-of-meetings/MinutesOfMeetings";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Minutes Of Meetings",
+  description:
+    "Minutes Of Meetings"
+};
 import {
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";

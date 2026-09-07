@@ -4,7 +4,12 @@ import ContactDetailsBanner from "@/components/contact-us/ContactDetailsBanner";
 import ContactDetails from "@/components/contact-us/ContactDetails";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Contact Us"
+};
 interface Section {
   title?: string;
   image?: string;

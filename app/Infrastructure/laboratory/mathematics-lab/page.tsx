@@ -4,7 +4,12 @@ import MathematicsLabBanner from "@/components/Infrastructure/laboratory/mathema
 import MathematicsLabGallery from "@/components/Infrastructure/laboratory/mathematics-lab/MathematicsLabGallery";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Mathematics Lab",
+  description:
+    "Mathematics Lab"
+};
 interface Subsection {
   title?: string;
   image?: string;

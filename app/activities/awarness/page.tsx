@@ -4,7 +4,12 @@ import MainPage from "@/components/activities/awarness/MainPage";
 
 import { fetchPageData } from "@/service/fetchdata.services";
 
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Vigilance Awareness",
+  description:
+    "Vigilance Awareness"
+};
 interface Section {
   title?: string;
   shortDescription?: string;

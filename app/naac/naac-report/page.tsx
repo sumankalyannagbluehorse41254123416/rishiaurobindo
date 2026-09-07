@@ -7,7 +7,12 @@ import {
   fetchPageData,
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "NAAC Report",
+  description:
+    "NAAC Report"
+};
 interface Section {
   title?: string;
   image?: string;

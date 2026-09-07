@@ -7,7 +7,12 @@ import KeralaTourGallery from "@/components/activities/educational-excursion-25/
 import RajasthanTour from "@/components/activities/educational-excursion-25/RajasthanTour";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Educational Excursion 25",
+  description:
+    "Educational Excursion 25"
+};
 interface Subsection {
   image?: string;
 }

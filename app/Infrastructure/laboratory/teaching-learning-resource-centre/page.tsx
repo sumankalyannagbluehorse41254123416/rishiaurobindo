@@ -5,7 +5,12 @@ import TeachingLearningResourceCentreBanner from "@/components/Infrastructure/la
 import TeachingLearningResourceCentreGallery from "@/components/Infrastructure/laboratory/teaching-learning-resource-centre-for-arts-work-experience-lab/TeachingLearningResourceCentreGallery";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Teaching Learning Resource Centre",
+  description:
+    "Teaching Learning Resource Centre"
+};
 interface Subsection {
   title?: string;
   image?: string;
@@ -103,7 +108,7 @@ export default async function TeachingLearningResourceCentre() {
       />
 
       <TeachingLearningResourceCentreGallery
-     
+
       />
     </>
   );

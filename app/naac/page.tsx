@@ -1,7 +1,12 @@
 
 import { headers } from "next/headers";
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "NAAC",
+  description:
+    "NAAC"
+};
 interface Section {
   title?: string;
   shortDescription?: string;
@@ -67,7 +72,7 @@ export default async function Naac() {
         </h3>
 
         <p>
-          {shortDescription }
+          {shortDescription}
         </p>
       </div>
     </div>

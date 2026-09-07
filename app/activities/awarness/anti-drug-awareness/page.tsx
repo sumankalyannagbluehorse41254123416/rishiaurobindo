@@ -4,7 +4,12 @@ import AntiDrugAwarenessBanner from "@/components/activities/awarness/anti-drug-
 import AntiDrugAwareness from "@/components/activities/awarness/anti-drug-awareness/AntiDrugAwareness";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Anti Drug Awareness",
+  description:
+    "Anti Drug Awareness"
+};
 interface Subsection {
   image?: string;
 }

@@ -4,7 +4,12 @@ import CommitteeMembers from "@/components/naac/committee-members-25/CommitteeMe
 import PageTitle from "@/components/naac/committee-members-25/PageTitle";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Committee Members 25",
+  description:
+    "Committee Members 25"
+};
 interface Subsection {
   title?: string;
   description?: string;

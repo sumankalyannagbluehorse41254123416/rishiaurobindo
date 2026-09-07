@@ -4,7 +4,12 @@ import PageTitle from "@/components/about/PageTitle";
 import LandInfo from "@/components/about/LandInfo";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "About"
+};
 type PageData = Awaited<
   ReturnType<typeof fetchPageData>
 >;

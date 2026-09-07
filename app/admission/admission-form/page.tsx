@@ -6,7 +6,12 @@ import AdmissionForm from "@/components/admission/admission-form/AdmissionForm";
 import {
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Admission Form",
+  description:
+    "Admission Form"
+};
 type DocumentCollectionData = Awaited<
   ReturnType<typeof fetchDocumentCollection>
 >;

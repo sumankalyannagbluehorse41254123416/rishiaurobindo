@@ -5,11 +5,16 @@ import AuditReport from "@/components/about/audit-report/AuditReport";
 import {
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
+import { Metadata } from "next";
 
 type DocumentCollectionData = Awaited<
   ReturnType<typeof fetchDocumentCollection>
 >;
-
+export const metadata: Metadata = {
+  title: "Audit Report",
+  description:
+    "Audit Report"
+};
 export default async function AuditReportPage() {
   const rqHeaders = await headers();
 

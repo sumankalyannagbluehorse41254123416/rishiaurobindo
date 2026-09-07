@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import CircularsBanner from "@/components/other-committees/anti-raging-committee/circulars/CircularsBanner";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Circulars",
+  description:
+    "Circulars"
+};
 interface Subsection {
   title?: string;
   subsections?: Subsection[];

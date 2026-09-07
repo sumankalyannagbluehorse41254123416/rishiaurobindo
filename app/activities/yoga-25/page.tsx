@@ -4,7 +4,12 @@ import YogaPageTitle from "@/components/activities/yoga-25/YogaPageTitle";
 import YogaGallery from "@/components/activities/yoga-25/yogaImages";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Yoga 25",
+  description:
+    "Yoga 25"
+};
 interface Subsection {
   image?: string;
 }

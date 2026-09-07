@@ -1,5 +1,10 @@
 import GovtCircularsContain from "@/components/other-committees/govt-website-for-scholarship/govt-circulars/GovtCircularsContain";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Govt Circulars",
+  description:
+    "Govt Circulars"
+};
 const sections = [
   {
     id: "16998dff-0ec7-47e2-94e0-ae03c4828bf2",

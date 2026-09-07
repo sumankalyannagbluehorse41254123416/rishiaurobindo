@@ -4,7 +4,12 @@ import HealthAwareness from "@/components/activities/awarness/health-awareness/H
 import HealthAwarenessImages from "@/components/activities/awarness/health-awareness/HealthAwarenessImages";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Health Awareness",
+  description:
+    "Health Awareness"
+};
 interface Subsection {
   image?: string;
 }

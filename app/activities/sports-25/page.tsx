@@ -4,7 +4,12 @@ import SportsBanner from "@/components/activities/sports-25/SportsBanner";
 import SportsGallery from "@/components/activities/sports-25/SportsGallery";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Sports 25",
+  description:
+    "Sports 25"
+};
 interface Subsection {
   image?: string;
 }

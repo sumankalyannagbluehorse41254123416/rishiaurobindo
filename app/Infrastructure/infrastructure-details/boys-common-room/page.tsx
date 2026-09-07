@@ -2,7 +2,12 @@ import Image from "next/image";
 import { headers } from "next/headers";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Boys Common Room",
+  description:
+    "Boys Common Room"
+};
 interface Section {
   title?: string;
   image?: string;

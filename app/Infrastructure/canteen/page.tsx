@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import CanteenContent from "@/components/Infrastructure/canteen/CanteenContent";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Canteen",
+  description:
+    "Canteen"
+};
 interface Subsection {
   title?: string;
   description?: string;

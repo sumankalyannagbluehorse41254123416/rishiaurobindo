@@ -5,7 +5,12 @@ import {
   fetchPageData,
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Abstract",
+  description:
+    "Abstract"
+};
 // ==========================================
 // TYPES
 // ==========================================
@@ -197,7 +202,7 @@ export default async function Abstract() {
 
         <div className="container">
           <h3>
-            {pageTitleSection?.title }
+            {pageTitleSection?.title}
           </h3>
         </div>
       </section>

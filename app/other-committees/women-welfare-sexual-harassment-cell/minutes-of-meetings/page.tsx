@@ -7,7 +7,12 @@ import MinutesOfMeetingsComponent from "@/components/other-committees/women-welf
 import {
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Minutes of Meetings",
+  description:
+    "Minutes of Meetings"
+};
 type DocumentCollectionData = Awaited<
   ReturnType<typeof fetchDocumentCollection>
 >;

@@ -1,7 +1,12 @@
 import Image from "next/image";
 import { fetchPageData } from "@/service/fetchdata.services";
 import { headers } from "next/headers";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "New-Seminar",
+  description:
+    "New-Seminar"
+};
 interface Subsection {
   title?: string;
   description?: string;

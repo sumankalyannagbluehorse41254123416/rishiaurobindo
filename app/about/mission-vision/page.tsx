@@ -4,7 +4,12 @@ import MissionVisionPageTitle from "@/components/about/mission-vision/MissionVis
 import MissionVision from "@/components/about/mission-vision/MissionVision";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Mission Vision",
+  description:
+    "Mission Vision"
+};
 interface Subsection {
   title?: string;
   description?: string;

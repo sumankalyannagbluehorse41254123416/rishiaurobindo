@@ -5,7 +5,12 @@ import DElEdSchoolList from "@/components/practice-teaching/deled-teaching/DElEd
 
 import { fetchPageData } from "@/service/fetchdata.services";
 import DocumentsSection from "@/components/practice-teaching/deled-teaching/DocumentsSection";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Deled-Teaching",
+  description:
+    "Deled-Teaching"
+};
 // ==========================================
 // TYPES
 // ==========================================
@@ -160,7 +165,7 @@ export default async function DeledTeaching() {
   // ==========================================
   // RETURN
   // ==========================================
-const documentSections = sections.slice(2);
+  const documentSections = sections.slice(2);
   return (
     <>
       <PageTitle
@@ -170,7 +175,7 @@ const documentSections = sections.slice(2);
       <DElEdSchoolList
         schools={schools}
       />
-    <DocumentsSection sections={documentSections} />
+      <DocumentsSection sections={documentSections} />
     </>
   );
 }

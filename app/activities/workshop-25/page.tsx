@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import Workshop from "@/components/activities/workshop-25/Workshop";
 import WorkshopBanner from "@/components/activities/workshop-25/WorkshopBanner";
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Workshop 25",
+  description:
+    "Workshop 25"
+};
 interface Subsection {
   image?: string;
 }

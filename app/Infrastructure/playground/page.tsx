@@ -4,7 +4,12 @@ import GardenBanner from "@/components/Infrastructure/playground/GardenBanner";
 import GardenGallery from "@/components/Infrastructure/playground/GardenGallery";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Playground",
+  description:
+    "Playground"
+};
 interface Subsection {
   title?: string;
   image?: string;

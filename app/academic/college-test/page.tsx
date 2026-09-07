@@ -4,7 +4,13 @@ import EmptyBanner from "@/components/academic/college-test/EmptyBanner";
 import PreviousInternalQuestionPaper from "@/components/academic/college-test/PreviousInternalQuestionPaper";
 
 import { fetchPageData } from "@/service/fetchdata.services";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "College Test",
+  description:
+    "College Test"
+};
 interface SubSection {
   title?: string;
   description?: string;

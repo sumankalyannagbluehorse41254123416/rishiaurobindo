@@ -4,7 +4,12 @@ import HealthPhysicalEducationLabBanner from "@/components/Infrastructure/labora
 import HealthPhysicalEducationLabGallery from "@/components/Infrastructure/laboratory/health-physical-education-lab/HealthPhysicalEducationLabGallery";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Health & Physical Education Lab",
+  description:
+    "Health & Physical Education Lab"
+};
 interface Subsection {
   title?: string;
   image?: string;

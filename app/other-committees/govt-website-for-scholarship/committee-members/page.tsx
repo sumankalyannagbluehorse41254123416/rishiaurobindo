@@ -4,7 +4,12 @@ import CommitteeMembersBanner from "@/components/other-committees/govt-website-f
 import CommitteeMembersTable from "@/components/other-committees/govt-website-for-scholarship/committee-members/CommitteeMembersTable";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Committee Members",
+  description:
+    "Committee Members"
+};
 interface Section {
   title?: string;
   image?: string;
@@ -54,17 +59,17 @@ export default async function CommitteeMembers() {
 
   // Array index 1
   const section = sections[1];
-const tableSections = sections.slice(2, 6);
+  const tableSections = sections.slice(2, 6);
   return (
     <>
       <CommitteeMembersBanner
         section={section}
       />
 
-    
-    <CommitteeMembersTable
-      sections={tableSections}
-    />
+
+      <CommitteeMembersTable
+        sections={tableSections}
+      />
     </>
   );
 }

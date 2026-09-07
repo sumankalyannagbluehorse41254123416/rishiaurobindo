@@ -1,6 +1,11 @@
 import Image from "next/image";
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Sc st obc cell",
+  description:
+    "Sc st obc cell"
+};
 interface Section {
   title?: string;
   image?: string;

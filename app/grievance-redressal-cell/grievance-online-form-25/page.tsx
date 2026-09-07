@@ -7,7 +7,12 @@ import {
   fetchPageData,
   fetchDocumentCollection,
 } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Grievance Online Form 25",
+  description:
+    "Grievance Online Form 25"
+};
 interface Section {
   title?: string;
   image?: string;

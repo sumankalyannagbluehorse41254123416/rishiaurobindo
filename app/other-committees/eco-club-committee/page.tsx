@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import EcoClubCommitteeBanner from "@/components/other-committees/eco-club-committee/EcoClubCommitteeBanner";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Eco Club Committee",
+  description:
+    "Eco Club Committee"
+};
 interface Subsection {
   title?: string;
   subsections?: Subsection[];

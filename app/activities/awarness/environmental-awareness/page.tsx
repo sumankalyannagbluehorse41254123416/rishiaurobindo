@@ -3,7 +3,12 @@ import Image from "next/image";
 import EnvironmentalAwarenessImages from "@/components/activities/awarness/environmental-awareness/environmentalAwarenessImages";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Environmental Awareness",
+  description:
+    "Environmental Awareness"
+};
 
 interface Subsection {
   image?: string;
@@ -56,7 +61,7 @@ export default async function EnvironmentalAwarenessPage() {
       pageId
     );
 
-  } catch(error) {
+  } catch (error) {
 
     console.error(
       "ENVIRONMENTAL AWARENESS ERROR:",
@@ -88,16 +93,16 @@ export default async function EnvironmentalAwarenessPage() {
 
       <section className="page_title_wrap bottom_border">
 
-      {titleSection?.image && (
-  <Image
-    src={titleSection.image}
-    alt=""
-    fill
-    priority
-    className="page_title_bg"
-    sizes="100vw"
-  />
-)}
+        {titleSection?.image && (
+          <Image
+            src={titleSection.image}
+            alt=""
+            fill
+            priority
+            className="page_title_bg"
+            sizes="100vw"
+          />
+        )}
 
 
         <div className="container">

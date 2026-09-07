@@ -4,7 +4,12 @@ import NationalInternationalDayCelebrationBanner from "@/components/activities/n
 import NationalInternationalGallery from "@/components/activities/national/NationalInternationalGallery";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "National",
+  description:
+    "National"
+};
 interface Subsection {
   title?: string;
   image?: string;

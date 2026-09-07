@@ -4,7 +4,12 @@ import EcoClubBanner from "@/components/activities/eco-club-25/EcoClubBanner";
 
 import { fetchPageData } from "@/service/fetchdata.services";
 import EcoClub from "@/components/activities/eco-club-25/ecoClubImages";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Eco Club 25",
+  description:
+    "Eco Club 25"
+};
 interface Subsection {
   image?: string;
 }

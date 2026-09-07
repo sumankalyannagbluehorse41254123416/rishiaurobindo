@@ -1,7 +1,12 @@
 import PressRelease from "@/components/press-release/PressRelease";
 import { fetchPageData } from "@/service/fetchdata.services";
 import { headers } from "next/headers";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Press Release",
+  description:
+    "Press Release"
+};
 interface Subsection {
   image?: string;
   [key: string]: unknown;
@@ -61,7 +66,7 @@ export default async function PressReleasePage() {
       ?.map((subsection) => subsection.image)
       .filter((image): image is string => Boolean(image)) || [];
 
-  
+
 
   return (
     <PressRelease

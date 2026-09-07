@@ -3,7 +3,12 @@ import { headers } from "next/headers";
 import LaboratoryBanner from "@/components/Infrastructure/laboratory/LaboratoryBanner";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Laboratory",
+  description:
+    "Laboratory"
+};
 interface Section {
   title?: string;
   image?: string;

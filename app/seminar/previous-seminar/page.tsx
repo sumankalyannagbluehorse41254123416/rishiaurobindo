@@ -1,6 +1,11 @@
 import { fetchPageData } from "@/service/fetchdata.services";
 import { headers } from "next/headers";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Previous-Seminar",
+  description:
+    "Previous-Seminar"
+};
 interface Subsection {
   title?: string;
   description?: string;

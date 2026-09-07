@@ -4,7 +4,12 @@ import LibraryBanner from "@/components/Infrastructure/library/LibraryBanner";
 import LibraryInfo from "@/components/Infrastructure/library/LibraryInfo";
 
 import { fetchPageData } from "@/service/fetchdata.services";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Library",
+  description:
+    "Library"
+};
 interface Subsection {
   title?: string;
   description?: string;

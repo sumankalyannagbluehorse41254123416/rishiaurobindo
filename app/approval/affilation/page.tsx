@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Affiliation",
+  description:
+    "Affiliation"
+};
 export default function AffiliationPage() {
   return (
     <div className="container">
