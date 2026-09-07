@@ -28,8 +28,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "rabedc",
-  description: "rabedc",
+  title: {
+    default: "Rishi Aurobindo Shikshan Mahavidyalaya",
+    template: "%s | Rishi Aurobindo Shikshan Mahavidyalaya",
+  },
+  description:
+    "Official website of Rishi Aurobindo Shikshan Mahavidyalaya - A premier teacher education college offering B.Ed and D.El.Ed courses.",
 };
 
 export default function RootLayout({

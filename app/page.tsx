@@ -21,7 +21,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Home",
   description:
-    "Home"
+    "Welcome to Rishi Aurobindo Shikshan Mahavidyalaya. Explore our B.Ed and D.El.Ed courses, campus facilities, notices, academic activities, and admissions.",
 };
 interface Section {
   title?: string;
