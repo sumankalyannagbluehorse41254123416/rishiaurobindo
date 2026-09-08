@@ -114,9 +114,9 @@ export default function AuditReport({
                       <table className="table table-bordered">
                         <thead>
                           <tr>
-                            <th>Sl</th>
-                            <th>Title</th>
-                            <th>Action</th>
+                            <th className="text-center">Sl</th>
+                            <th className="text-center">Title</th>
+                            <th className="text-center">Action</th>
                           </tr>
                         </thead>
 
@@ -129,17 +129,17 @@ export default function AuditReport({
                               <tr
                                 key={index}
                               >
-                                <td>
+                                <td className="text-center">
                                   {item.sl}
                                 </td>
 
-                                <td>
+                                <td className="text-center">
                                   {
                                     item.title
                                   }
                                 </td>
 
-                                <td>
+                                <td className="text-center">
                                   <a
                                     href={
                                       item.pdf

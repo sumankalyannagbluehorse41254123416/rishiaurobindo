@@ -3480,7 +3480,7 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
 }
 
 
-.lan_info_inner a {
+/* .lan_info_inner a {
     text-align: -webkit-center;
     font-size: 24px;
     display: inline-block;
@@ -3491,6 +3491,17 @@ header .navbar-light .navbar-nav li .sub-menu li:hover .sub-menu {
     color: #ffffff;
     font-family: auto;
 
+} */
+.lan_info_inner a {
+    text-align: -webkit-center;
+    font-size: 24px;
+    display: inline-block;
+    background: #3476bc;
+    width: 24%;
+    padding: 5px 0px;
+    margin-top: 10px;
+    color: #ffffff;
+    font-family: auto;
 }
 
 @media (max-width:768px) {
