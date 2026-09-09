@@ -1,4 +1,5 @@
 "use client";
+
 interface DocumentItem {
   id: number;
   uid: string;
@@ -49,143 +50,169 @@ export default function AdmissionForm({
     );
 
   return (
-    <section className="land_info_wrap">
-      <div className="container">
+    <>
+      <style>{`
+        .admission-form-table th,
+        .admission-form-table td {
+          text-align: center !important;
+          vertical-align: middle !important;
+        }
 
-        {/* Main Title */}
-        <div className="title_box2">
-          <h3>Admission Form</h3>
-        </div>
+        .admission-form-table .btn-border {
+          width: 136px !important;
+          height: 36px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+          margin: 0 auto;
+        }
 
-        <div className="row">
+        @media (max-width: 768px) {
+          .admission-form-table .btn-border {
+            width: 136px !important;
+            height: 36px;
+          }
+        }
+      `}</style>
 
-          {/* ==========================================
-              B.Ed Section
-          ========================================== */}
+      <section className="land_info_wrap">
+        <div className="container">
 
-          <div className="column col-12 col-md-6">
-            <div className="title_box4">
-              <h3>B.ED</h3>
-            </div>
-
-            <div className="bd-border">
-              <table className="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Sl. No</th>
-                    <th>Session</th>
-                    <th>Download</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {bedDocuments.length > 0 ? (
-                    bedDocuments.map((document, index) => (
-                      <tr
-                        key={
-                          document.uid || document.id
-                        }
-                      >
-                        <td>{index + 1}.</td>
-
-                        <td>
-                          {document.title || ""}
-                        </td>
-
-                        <td>
-                          {document.file_url ? (
-                            <a
-                              href={document.file_url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="btn-border"
-                            >
-                              {document.download_button_name ||
-                                "Download"}
-                            </a>
-                          ) : (
-                            ""
-                          )}
-                        </td>
-                      </tr>
-                    ))
-                  ) : (
-                    <tr>
-                      <td colSpan={3}>
-                        No documents available.
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
+          {/* Main Title */}
+          <div className="title_box2">
+            <h3>Admission Form</h3>
           </div>
 
-          {/* ==========================================
-              D.El.Ed Section
-          ========================================== */}
+          <div className="row">
 
-          <div className="column col-12 col-md-6 mt-4 mt-md-0">
-            <div className="title_box4">
-              <h3>D.El.ED</h3>
-            </div>
+            {/* ==========================================
+                B.Ed Section
+            ========================================== */}
 
-            <div className="bd-border">
-              <table className="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Sl. No</th>
-                    <th>Session</th>
-                    <th>Download</th>
-                  </tr>
-                </thead>
+            <div className="column col-12 col-md-6">
+              <div className="title_box4">
+                <h3>B.ED</h3>
+              </div>
 
-                <tbody>
-                  {deledDocuments.length > 0 ? (
-                    deledDocuments.map((document, index) => (
-                      <tr
-                        key={
-                          document.uid || document.id
-                        }
-                      >
-                        <td>{index + 1}.</td>
+              <div className="bd-border">
+                <table className="table table-bordered admission-form-table">
+                  <thead>
+                    <tr>
+                      <th>Sl. No</th>
+                      <th>Session</th>
+                      <th>Download</th>
+                    </tr>
+                  </thead>
 
-                        <td>
-                          {document.title || ""}
-                        </td>
+                  <tbody>
+                    {bedDocuments.length > 0 ? (
+                      bedDocuments.map((document, index) => (
+                        <tr
+                          key={
+                            document.uid || document.id
+                          }
+                        >
+                          <td>{index + 1}.</td>
 
-                        <td>
-                          {document.file_url ? (
-                            <a
-                              href={document.file_url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="btn-border"
-                            >
-                              {document.download_button_name ||
-                                "Download"}
-                            </a>
-                          ) : (
-                            ""
-                          )}
+                          <td>
+                            {document.title || ""}
+                          </td>
+
+                          <td>
+                            {document.file_url ? (
+                              <a
+                                href={document.file_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-border"
+                              >
+                                {document.download_button_name ||
+                                  "Download"}
+                              </a>
+                            ) : (
+                              ""
+                            )}
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan={3}>
+                          No documents available.
                         </td>
                       </tr>
-                    ))
-                  ) : (
-                    <tr>
-                      <td colSpan={3}>
-                        No documents available.
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
+                    )}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
 
+            {/* ==========================================
+                D.El.Ed Section
+            ========================================== */}
+
+            <div className="column col-12 col-md-6 mt-4 mt-md-0">
+              <div className="title_box4">
+                <h3>D.El.ED</h3>
+              </div>
+
+              <div className="bd-border">
+                <table className="table table-bordered admission-form-table">
+                  <thead>
+                    <tr>
+                      <th>Sl. No</th>
+                      <th>Session</th>
+                      <th>Download</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {deledDocuments.length > 0 ? (
+                      deledDocuments.map((document, index) => (
+                        <tr
+                          key={
+                            document.uid || document.id
+                          }
+                        >
+                          <td>{index + 1}.</td>
+
+                          <td>
+                            {document.title || ""}
+                          </td>
+
+                          <td>
+                            {document.file_url ? (
+                              <a
+                                href={document.file_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-border"
+                              >
+                                {document.download_button_name ||
+                                  "Download"}
+                              </a>
+                            ) : (
+                              ""
+                            )}
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan={3}>
+                          No documents available.
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
-

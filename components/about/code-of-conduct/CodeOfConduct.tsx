@@ -48,8 +48,8 @@ export default function CodeOfConduct({
                       document.title ||
                       "Document thumbnail"
                     }
-                    width={800}
-                    height={500}
+                    width={300}
+                    height={425}
                   />
                 )}
 
@@ -59,7 +59,7 @@ export default function CodeOfConduct({
 
                   {document.file_url &&
                     document.is_downloadable !==
-                      false && (
+                    false && (
                       <a
                         href={
                           document.file_url

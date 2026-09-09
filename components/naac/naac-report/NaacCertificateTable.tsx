@@ -19,51 +19,80 @@ export default function NaacCertificateTable({
   documents = [],
 }: NaacCertificateTableProps) {
   return (
-    <section className="land_info_wrap">
-      <div className="container">
-        <table className="table table-bordered">
-          <thead>
-            <tr>
-              <th>Sl. No</th>
-              <th>CYCLE WISE CERTIFICATE</th>
-              <th>Link</th>
-            </tr>
-          </thead>
+    <>
+      <style>{`
+        .naac-certificate-table th,
+        .naac-certificate-table td {
+          text-align: center !important;
+          vertical-align: middle !important;
+        }
 
-          <tbody>
-            {documents.length > 0 ? (
-              documents.map((document, index) => (
-                <tr key={document.uid || document.id}>
-                  <td>{index + 1}</td>
+        .naac-certificate-table .btn-border {
+          width: 136px !important;
+          height: 36px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+          margin: 0 auto;
+        }
 
-                  <td style={{textAlign: "center"}}>{document.title || ""}</td>
+        @media (max-width: 768px) {
+          .naac-certificate-table .btn-border {
+            width: 136px !important;
+            height: 36px;
+          }
+        }
+      `}</style>
 
-                  <td >
-                    {document.file_url ? (
-                      <a
-                        href={document.file_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-border"
-                      >
-                        {document.download_button_name || "View"}
-                      </a>
-                    ) : (
-                      ""
-                    )}
+      <section className="land_info_wrap">
+        <div className="container">
+          <table className="table table-bordered naac-certificate-table">
+            <thead>
+              <tr>
+                <th>Sl. No</th>
+                <th>CYCLE WISE CERTIFICATE</th>
+                <th>Link</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {documents.length > 0 ? (
+                documents.map((document, index) => (
+                  <tr key={document.uid || document.id}>
+                    <td>{index + 1}</td>
+
+                    <td>
+                      {document.title || ""}
+                    </td>
+
+                    <td>
+                      {document.file_url ? (
+                        <a
+                          href={document.file_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-border"
+                        >
+                          {document.download_button_name || "View"}
+                        </a>
+                      ) : (
+                        ""
+                      )}
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={3} className="text-center">
+                    No certificates available.
                   </td>
                 </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan={3} className="text-center">
-                  No certificates available.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
-    </section>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </>
   );
 }

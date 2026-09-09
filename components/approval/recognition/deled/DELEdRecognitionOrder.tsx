@@ -50,8 +50,8 @@ export default function DELEdRecognitionOrder({
                   className="img-responsive land_img"
                   src={document.thumbnail_url}
                   alt="land_img2"
-                  width={800}
-                  height={600}
+                  width={300}
+                  height={389}
                 />
               )}
 
@@ -63,8 +63,8 @@ export default function DELEdRecognitionOrder({
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
-                      width: "230px",
-                      height: "84px",
+                      width: "283px",
+                      height: "59px",
                       display: "inline-flex",
                       alignItems: "center",
                       justifyContent: "center",

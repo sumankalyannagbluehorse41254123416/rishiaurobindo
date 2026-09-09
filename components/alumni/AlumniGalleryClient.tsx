@@ -1,46 +1,30 @@
 "use client";
 
-import { Expand } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-interface HealthAwarenessProps {
-  section?: {
-    title?: string;
-    subsections?: {
-      image?: string;
-    }[];
-  };
+interface Props {
+  title: string;
+  galleryImages: string[];
 }
 
-export default function HealthAwarenessImages({ section }: HealthAwarenessProps) {
+export default function AlumniGalleryClient({ title, galleryImages }: Props) {
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const images =
-    section?.subsections
-      ?.map((item) => item.image)
-      .filter((image): image is string => Boolean(image)) || [];
-
   return (
     <section className="land_info_wrap">
-      <div
-        className="container main-gallery"
-        style={{
-          textAlign: "center",
-          margin: "70px auto",
-        }}
-      >
-        {section?.title && <h3>{section.title}</h3>}
-      </div>
-
       <div className="container main-gallery">
+        <div>
+          <h4>{title}</h4>
+        </div>
+
         <div className="row">
-          {images.map((image, index) => (
+          {galleryImages.map((image, index) => (
             <div
-              className="col-lg-3 col-md-4 col-6"
+              className="col-lg-3 col-md-4 col-6 mt-4"
               key={`${image}-${index}`}
             >
               <div
@@ -53,23 +37,21 @@ export default function HealthAwarenessImages({ section }: HealthAwarenessProps)
               >
                 <Image
                   src={image}
-                  alt={`Health Awareness ${index + 1}`}
-                  width={400}
-                  height={300}
-                  className="img-fluid"
+                  alt={`${title} ${index + 1}`}
+                  width={800}
+                  height={600}
                 />
-                <Expand />
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {images.length > 0 && (
+      {galleryImages.length > 0 && (
         <Lightbox
           open={open}
           close={() => setOpen(false)}
-          slides={images.map((src) => ({ src }))}
+          slides={galleryImages.map((src) => ({ src }))}
           index={currentIndex}
           carousel={{ finite: false }}
           styles={{

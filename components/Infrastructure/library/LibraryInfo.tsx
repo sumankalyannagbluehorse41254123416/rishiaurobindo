@@ -1,4 +1,10 @@
+"use client";
+
+import { Expand } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 interface Subsection {
   title?: string;
@@ -27,6 +33,13 @@ export default function LibraryInfo({
   libraryDetails = [],
   images = [],
 }: LibraryInfoProps) {
+  const [open, setOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const galleryImages = images
+    .map((item) => item.image)
+    .filter((img): img is string => Boolean(img));
+
   return (
     <section className="land_info_wrap">
       <div className="container">
@@ -36,20 +49,19 @@ export default function LibraryInfo({
 
         <div className="lan_info_inner">
           <div className="title_box2">
-            <h3>
-              {librarySection?.title ||
-                "Library"}
-            </h3>
+            <h3>{librarySection?.title || "Library"}</h3>
           </div>
 
-          <ul className="land_details_li">
-            {libraryDetails.map(
-              (item, index) => (
-                <li key={index}>
-                  {item.title}
-                </li>
-              )
-            )}
+          <ul
+            className="land_details_li"
+            style={{
+              margin: "0 auto",
+              padding: 0,
+            }}
+          >
+            {libraryDetails.map((item, index) => (
+              <li key={index}>{item.title}</li>
+            ))}
           </ul>
         </div>
 
@@ -58,9 +70,7 @@ export default function LibraryInfo({
         ===================================== */}
 
         <div className="title_box2">
-          <h3>
-            {imageSection?.title || "Image"}
-          </h3>
+          <h3>{imageSection?.title || "Image"}</h3>
         </div>
 
         <div className="row mb-5">
@@ -72,32 +82,43 @@ export default function LibraryInfo({
             }
 
             return (
-              <div
-                className="col-md-3"
-                key={index}
-              >
-                <a
+              <div className="col-md-3" key={index}>
+                <div
                   className="gal-inr"
-                  href={imageUrl}
-                  data-lightbox="Gallery 1"
+                  onClick={() => {
+                    setCurrentIndex(index);
+                    setOpen(true);
+                  }}
+                  style={{ cursor: "pointer" }}
                 >
                   <Image
                     src={imageUrl}
-                    alt={
-                      item.title ||
-                      `Library Image ${
-                        index + 1
-                      }`
-                    }
-                    width={218}
-                    height={164}
+                    alt={item.title || `Library Image ${index + 1}`}
+                    width={275}
+                    height={204}
                   />
-                </a>
+                  <Expand />
+                </div>
               </div>
             );
           })}
         </div>
       </div>
+
+      {galleryImages.length > 0 && (
+        <Lightbox
+          open={open}
+          close={() => setOpen(false)}
+          slides={galleryImages.map((src) => ({ src }))}
+          index={currentIndex}
+          carousel={{ finite: false }}
+          styles={{
+            container: {
+              backgroundColor: "rgba(0, 0, 0, 0.9)",
+            },
+          }}
+        />
+      )}
     </section>
   );
 }

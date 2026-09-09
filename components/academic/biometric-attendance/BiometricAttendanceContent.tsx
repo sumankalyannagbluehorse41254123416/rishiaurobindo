@@ -228,25 +228,25 @@ const BiometricAttendanceContent = ({
                     <h2>B.ED</h2>
                   </div>
 
-                  <table className="table table-bordered">
+                  <table className="table table-bordered text-center align-middle" style={{ textAlign: "center" }}>
                     <thead>
                       <tr>
-                        <th>
+                        <th style={{ textAlign: "center" }}>
                           {bedAcademicSessionSection?.title || "Academic Session"}
                         </th>
-                        <th>
+                        <th style={{ textAlign: "center" }}>
                           {bedSemesterSection?.title || "Semester"}
                         </th>
-                        <th>Download</th>
+                        <th style={{ textAlign: "center" }}>Download</th>
                       </tr>
                     </thead>
 
                     <tbody>
                       {bedTableData.map((item, index) => (
                         <tr key={index}>
-                          <td>{item.academicSession}</td>
-                          <td>{item.semester}</td>
-                          <td>
+                          <td style={{ textAlign: "center", verticalAlign: "middle" }}>{item.academicSession}</td>
+                          <td style={{ textAlign: "center", verticalAlign: "middle" }}>{item.semester}</td>
+                          <td style={{ textAlign: "center", verticalAlign: "middle" }}>
                             {item.link ? (
                               <a
                                 href={item.link}
@@ -278,25 +278,25 @@ const BiometricAttendanceContent = ({
                     <h2>D.EL.ED</h2>
                   </div>
 
-                  <table className="table table-bordered">
+                  <table className="table table-bordered text-center align-middle" style={{ textAlign: "center" }}>
                     <thead>
                       <tr>
-                        <th>
+                        <th style={{ textAlign: "center" }}>
                           {deledAcademicSessionSection?.title || "Academic Session"}
                         </th>
-                        <th>
+                        <th style={{ textAlign: "center" }}>
                           {deledSemesterSection?.title || "Semester"}
                         </th>
-                        <th>Download</th>
+                        <th style={{ textAlign: "center" }}>Download</th>
                       </tr>
                     </thead>
 
                     <tbody>
                       {deledTableData.map((item, index) => (
                         <tr key={index}>
-                          <td>{item.academicSession}</td>
-                          <td>{item.semester}</td>
-                          <td>
+                          <td style={{ textAlign: "center", verticalAlign: "middle" }}>{item.academicSession}</td>
+                          <td style={{ textAlign: "center", verticalAlign: "middle" }}>{item.semester}</td>
+                          <td style={{ textAlign: "center", verticalAlign: "middle" }}>
                             {item.link ? (
                               <a
                                 href={item.link}
@@ -328,29 +328,29 @@ const BiometricAttendanceContent = ({
                     <h2>Teachers & Staff</h2>
                   </div>
 
-                  <table className="table table-bordered">
+                  <table className="table table-bordered text-center align-middle" style={{ textAlign: "center" }}>
                     <thead>
                       <tr>
-                        <th>
+                        <th style={{ textAlign: "center" }}>
                           {teachersStaffSlSection?.title || "SI.No"}
                         </th>
-                        <th>
+                        <th style={{ textAlign: "center" }}>
                           {teachersStaffAcademicSessionSection?.title || "Academic Session"}
                         </th>
-                        <th>
+                        <th style={{ textAlign: "center" }}>
                           {teachersStaffDetailsSection?.title || "Details (Month wise)"}
                         </th>
-                        <th>Download</th>
+                        <th style={{ textAlign: "center" }}>Download</th>
                       </tr>
                     </thead>
 
                     <tbody>
                       {teachersStaffTableData.map((item, index) => (
                         <tr key={index}>
-                          <td>{item.slNo}</td>
-                          <td>{item.academicSession}</td>
-                          <td>{item.details}</td>
-                          <td>
+                          <td style={{ textAlign: "center", verticalAlign: "middle" }}>{item.slNo}</td>
+                          <td style={{ textAlign: "center", verticalAlign: "middle" }}>{item.academicSession}</td>
+                          <td style={{ textAlign: "center", verticalAlign: "middle" }}>{item.details}</td>
+                          <td style={{ textAlign: "center", verticalAlign: "middle" }}>
                             {item.link ? (
                               <a
                                 href={item.link}

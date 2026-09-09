@@ -3,6 +3,8 @@
 import { Expand } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 interface PressReleaseProps {
   title: string;
@@ -13,7 +15,13 @@ export default function PressRelease({
   title,
   galleryImages,
 }: PressReleaseProps) {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const openLightbox = (index: number) => {
+    setCurrentIndex(index);
+    setOpen(true);
+  };
 
   return (
     <>
@@ -27,12 +35,12 @@ export default function PressRelease({
             <div
               className="col-6 col-sm-4 col-md-3"
               key={`${image}-${index}`}
-              style={{display:"flex", justifyContent:"center"}}
+              style={{ display: "flex", justifyContent: "center" }}
             >
-              <button
-                type="button"
+              <div
                 className="gal-inr gal-inr-width"
-                onClick={() => setSelectedImage(image)}
+                onClick={() => openLightbox(index)}
+                style={{ cursor: "pointer" }}
               >
                 <Image
                   src={image}
@@ -45,42 +53,28 @@ export default function PressRelease({
                     objectFit: "fill",
                   }}
                 />
-                <Expand/>
-              </button>
+                <Expand />
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      {selectedImage && (
-        <div
-          className="press-lightbox-overlay"
-          onClick={() => setSelectedImage(null)}
-        >
-          <button
-            type="button"
-            className="press-lightbox-close"
-            onClick={() => setSelectedImage(null)}
-          >
-            &times;
-          </button>
-
-          <Image
-            src={selectedImage}
-            alt={title}
-            width={800}
-            height={600}
-            className="press-lightbox-image"
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              width: "auto",
-              height: "auto",
-              maxWidth: "90vw",
-              maxHeight: "90vh",
-              objectFit: "contain",
-            }}
-          />
-        </div>
+      {galleryImages.length > 0 && (
+        <Lightbox
+          open={open}
+          close={() => setOpen(false)}
+          slides={galleryImages.map((src) => ({ src }))}
+          index={currentIndex}
+          carousel={{
+            finite: false,
+          }}
+          styles={{
+            container: {
+              backgroundColor: "rgba(0, 0, 0, 0.9)",
+            },
+          }}
+        />
       )}
     </>
   );

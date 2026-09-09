@@ -147,8 +147,8 @@ export default async function AlumniInfo() {
                     committeeDocument.title ||
                     "Committee Members"
                   }
-                  width={800}
-                  height={500}
+                  width={300}
+                  height={412}
                 />
               )}
 

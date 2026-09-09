@@ -18,17 +18,30 @@ export default function MinutesOfMeeting({
 }: MinutesOfMeetingProps) {
   return (
     <>
-      <style >{`
-      .lan_info_inner a {
-        width: 100% !important;
-      }
-        @media (max-width: 768px) {
-          .lan_info_inner a {
-            width: 100% !important;
-          }
-        }
-      
-       `}</style>
+      <style>{`
+  .lan_info_inner table th,
+  .lan_info_inner table td {
+    text-align: center !important;
+    vertical-align: middle !important;
+  }
+
+  .lan_info_inner a.btn-border {
+    width: 136px !important;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .lan_info_inner a.btn-border {
+      width: 136px !important;
+      height: 36px;
+    }
+  }
+`}</style>
       <section className="land_info_wrap">
         <div className="container">
           <div className="lan_info_inner table-responsive">
@@ -57,7 +70,7 @@ export default function MinutesOfMeeting({
                           href={document.file_url || "#"}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="btn-border w-100"
+                          className="btn-border "
                         >
                           {document.download_button_name ||
                             "Download"}

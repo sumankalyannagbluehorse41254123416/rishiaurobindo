@@ -266,8 +266,8 @@ export default async function Abstract() {
                           document.title ||
                           "abstract-banner-img"
                         }
-                        width={400}
-                        height={250}
+                        width={235}
+                        height={360}
                       />
                     )}
 

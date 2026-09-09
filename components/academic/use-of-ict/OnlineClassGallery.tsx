@@ -2,6 +2,9 @@
 
 import { Expand } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 interface SubSection {
   id?: number;
@@ -34,6 +37,9 @@ const OnlineClassGallery = ({
   frontPageSection,
   galleryImages = [],
 }: OnlineClassGalleryProps) => {
+  const [open, setOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   // ==========================================
   // FRONT PAGE IMAGE
   // ==========================================
@@ -49,13 +55,33 @@ const OnlineClassGallery = ({
 
   const frontPageImage =
     typeof frontPageSection?.image === "string" &&
-    (
-      frontPageSection.image.startsWith("http://") ||
-      frontPageSection.image.startsWith("https://") ||
-      frontPageSection.image.startsWith("/")
-    )
+      (
+        frontPageSection.image.startsWith("http://") ||
+        frontPageSection.image.startsWith("https://") ||
+        frontPageSection.image.startsWith("/")
+      )
       ? frontPageSection.image
       : null;
+
+  // Extract gallery image URLs
+  const validGalleryImages = galleryImages
+    .map((item) =>
+      typeof item.image === "string" && item.image.trim() !== ""
+        ? item.image
+        : ""
+    )
+    .filter((img): img is string => Boolean(img));
+
+  // Build slides array for Lightbox
+  const slides: string[] = [];
+  if (frontPageImage) {
+    slides.push(frontPageImage);
+  }
+  validGalleryImages.forEach((img) => {
+    if (!slides.includes(img)) {
+      slides.push(img);
+    }
+  });
 
   // ==========================================
   // SECTION TITLE
@@ -82,7 +108,15 @@ const OnlineClassGallery = ({
       ====================================== */}
 
       {frontPageImage && (
-        <div className="pt-2">
+        <div
+          className="pt-2 text-center"
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            const idx = slides.indexOf(frontPageImage);
+            setCurrentIndex(idx >= 0 ? idx : 0);
+            setOpen(true);
+          }}
+        >
           <Image
             className="fontpage-image"
             src={frontPageImage}
@@ -119,7 +153,7 @@ const OnlineClassGallery = ({
 
               const imageUrl =
                 typeof item.image === "string" &&
-                item.image.trim() !== ""
+                  item.image.trim() !== ""
                   ? item.image
                   : "";
 
@@ -136,18 +170,21 @@ const OnlineClassGallery = ({
                   }
                 >
 
-                  <a
+                  <div
                     className="gal-inr"
-                    href={imageUrl}
-                    data-lightbox="Gallery 1"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      const slideIdx = slides.indexOf(imageUrl);
+                      setCurrentIndex(slideIdx >= 0 ? slideIdx : 0);
+                      setOpen(true);
+                    }}
                   >
 
                     <Image
                       src={imageUrl}
                       alt={
                         item.title ||
-                        `Online class gallery image ${
-                          index + 1
+                        `Online class gallery image ${index + 1
                         }`
                       }
                       width={400}
@@ -156,7 +193,7 @@ const OnlineClassGallery = ({
 
                     <Expand />
 
-                  </a>
+                  </div>
 
                 </div>
               );
@@ -166,6 +203,21 @@ const OnlineClassGallery = ({
         </div>
 
       </div>
+
+      {slides.length > 0 && (
+        <Lightbox
+          open={open}
+          close={() => setOpen(false)}
+          slides={slides.map((src) => ({ src }))}
+          index={currentIndex}
+          carousel={{ finite: false }}
+          styles={{
+            container: {
+              backgroundColor: "rgba(0, 0, 0, 0.9)",
+            },
+          }}
+        />
+      )}
 
     </div>
   );

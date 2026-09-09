@@ -2,6 +2,9 @@
 
 import { Expand } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 interface Props {
   section?: {
@@ -12,12 +15,13 @@ interface Props {
   };
 }
 
-export default function DataPrivacyAwareness({
-  section,
-}: Props) {
+export default function DataPrivacyAwareness({ section }: Props) {
+  const [open, setOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const images =
     section?.subsections?.filter(
-      (item) => item.image
+      (item): item is { image: string } => Boolean(item.image)
     ) || [];
 
   return (
@@ -39,26 +43,42 @@ export default function DataPrivacyAwareness({
               className="col-lg-3 col-md-4 col-6"
               key={`${item.image}-${index}`}
             >
-              <a
+              <div
                 className="gal-inr"
-                href={item.image}
-                data-lightbox="Gallery 1"
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => {
+                  setCurrentIndex(index);
+                  setOpen(true);
+                }}
+                style={{ cursor: "pointer" }}
               >
                 <Image
-                  src={item.image ?? ""}
+                  src={item.image}
                   alt={`Data Privacy Awareness ${index + 1}`}
                   width={400}
                   height={300}
                   className="img-fluid"
                 />
-                <Expand/>
-              </a>
+                <Expand />
+              </div>
             </div>
           ))}
         </div>
       </div>
+
+      {images.length > 0 && (
+        <Lightbox
+          open={open}
+          close={() => setOpen(false)}
+          slides={images.map((item) => ({ src: item.image }))}
+          index={currentIndex}
+          carousel={{ finite: false }}
+          styles={{
+            container: {
+              backgroundColor: "rgba(0, 0, 0, 0.9)",
+            },
+          }}
+        />
+      )}
     </section>
   );
 }

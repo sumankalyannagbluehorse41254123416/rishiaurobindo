@@ -82,7 +82,7 @@ export default function BuildingInfo({
             >
               {/* Document Title */}
               {document.title && (
-                <h3>{document.title}</h3>
+                <h3 className="sim_title">{document.title}</h3>
               )}
 
               {/* Document Thumbnail */}

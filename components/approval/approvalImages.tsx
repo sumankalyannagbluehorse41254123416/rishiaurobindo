@@ -1,6 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 interface Subsection {
   title?: string;
@@ -20,7 +23,13 @@ interface ApprovalGalleryProps {
 export default function ApprovalGallery({
   section,
 }: ApprovalGalleryProps) {
+  const [open, setOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const images = section?.subsections ?? [];
+  const validImages = images
+    .map((item) => item.image?.trim())
+    .filter((img): img is string => Boolean(img));
 
   return (
     <div className="container main-gallery">
@@ -38,10 +47,13 @@ export default function ApprovalGallery({
 
           return (
             <div className="col-md-3" key={item.title || index}>
-              <a
+              <div
                 className="gal-inr"
-                href={image}
-                data-lightbox="Gallery 1"
+                onClick={() => {
+                  setCurrentIndex(index);
+                  setOpen(true);
+                }}
+                style={{ cursor: "pointer" }}
               >
                 <Image
                   src={image}
@@ -49,12 +61,26 @@ export default function ApprovalGallery({
                   width={400}
                   height={300}
                 />
-              </a>
+              </div>
             </div>
           );
         })}
       </div>
+
+      {validImages.length > 0 && (
+        <Lightbox
+          open={open}
+          close={() => setOpen(false)}
+          slides={validImages.map((src) => ({ src }))}
+          index={currentIndex}
+          carousel={{ finite: false }}
+          styles={{
+            container: {
+              backgroundColor: "rgba(0, 0, 0, 0.9)",
+            },
+          }}
+        />
+      )}
     </div>
   );
 }
-
