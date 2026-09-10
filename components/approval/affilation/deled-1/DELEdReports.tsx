@@ -50,16 +50,15 @@ export default function DELEdReports({
                   <tbody>
                     {/* Document */}
                     <tr>
-                      <td>
-                        {document?.description?.replace(
-                          /<[^>]+>/g,
-                          ""
-                        )}
+                      <td className="text-center align-middle">
+                        {document?.description?.replace(/<[^>]+>/g, "")}
                       </td>
 
-                      <td>{document?.title}</td>
+                      <td className="text-center align-middle">
+                        {document?.title}
+                      </td>
 
-                      <td>
+                      <td className="text-center align-middle">
                         <a
                           href={document?.file_url}
                           target="_blank"
@@ -73,16 +72,15 @@ export default function DELEdReports({
 
                     {/* Page Section */}
                     <tr>
-                      <td>
-                        {section?.shortDescription?.replace(
-                          /<[^>]+>/g,
-                          ""
-                        )}
+                      <td className="text-center align-middle">
+                        {section?.shortDescription?.replace(/<[^>]+>/g, "")}
                       </td>
 
-                      <td>{section?.title}</td>
+                      <td className="text-center align-middle">
+                        {section?.title}
+                      </td>
 
-                      <td>
+                      <td className="text-center align-middle">
                         <a
                           href={section?.image}
                           target="_blank"

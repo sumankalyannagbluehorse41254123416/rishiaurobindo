@@ -42,29 +42,23 @@ export default function NoticesPage({
             {documents.length > 0 && (
               <div className="notice-list mb-3">
                 {documents.map((document, index) => {
-                  const fileType =
-                    document.file_type
-                      ?.split("/")
-                      .pop()
-                      ?.toLowerCase() || "";
-
-                  const isPdf = fileType === "pdf";
+                  const fileUrl = document.file_url || "";
 
                   return (
                     <div
-                      key={document.uid || document.id || index}
+                      key={document.uid || String(document.id) || `document-${index}`}
                       className="notice-part mb-3"
                     >
                       <div className="download_button bg-white rounded-3 shadow-sm hover-shadow transition-all">
-                        {document.file_url ? (
+                        {fileUrl ? (
                           <a
-                            href={document.file_url}
+                            href={fileUrl}
                             className="btn_theme d-flex align-items-center text-decoration-none text-dark hover-text-primary gap-2"
                             target="_blank"
                             rel="noopener noreferrer"
                           >
                             <span className="notice-text flex-grow-1">
-                              {document.title}
+                              {document.title || ""}
                             </span>
 
                             <svg
@@ -101,7 +95,7 @@ export default function NoticesPage({
                             </span>
 
                             <span className="notice-text flex-grow-1">
-                              {document.title}
+                              {document.title || ""}
                             </span>
                           </div>
                         )}
@@ -111,7 +105,6 @@ export default function NoticesPage({
                 })}
               </div>
             )}
-
             {/* ==========================================
                 2. SUBSECTION IMAGE NOTICES (LAST / BOTTOM)
             ========================================== */}

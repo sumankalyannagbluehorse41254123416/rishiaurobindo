@@ -46,24 +46,22 @@ export default function BEDReports({
                   <tbody>
                     {documents.map((doc) => (
                       <tr key={doc.id}>
-                        <td>
-                          {doc.description.replace(
-                            /<[^>]*>/g,
-                            ""
-                          )}
+                        <td className="text-center align-middle">
+                          {doc.description.replace(/<[^>]*>/g, "")}
                         </td>
 
-                        <td>{doc.title}</td>
+                        <td className="text-center align-middle">
+                          {doc.title}
+                        </td>
 
-                        <td>
+                        <td className="text-center align-middle">
                           <a
                             href={doc.file_url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn-border"
                           >
-                            {doc.download_button_name ||
-                              "Download"}
+                            {doc.download_button_name || "Download"}
                           </a>
                         </td>
                       </tr>
