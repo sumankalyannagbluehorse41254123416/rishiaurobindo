@@ -32,8 +32,8 @@ export default function MinutesOfMeetingsContent({
                   alt={
                     document.title || ""
                   }
-                  width={800}
-                  height={500}
+                  width={300}
+                  height={425}
                 />
               )}
 
